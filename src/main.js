@@ -56,6 +56,40 @@ async function begin() {
 }
 
 /**
+ * Function to receive reports from async functions about results.
+ */
+async function report(data, title, result) {
+
+    if (undefined == results[data.country]) {
+        results[data.country] = {};
+    }
+
+    if (undefined == results[data.country][data.name]) {
+
+        results[data.country][data.name] = {};
+
+        for (metric in CATEGORIES) {
+
+            let cat = CATEGORIES[metric];
+
+            if (undefined == results[data.country][data.name][cat]) {
+                results[data.country][data.name][cat] = {};
+            }
+
+            results[data.country][data.name][cat][metric] = "";
+
+        }
+
+    }
+
+    let reportCategory = CATEGORIES[title];
+    results[data.country][data.name][reportCategory][title] = result;
+
+    FS.writeFile("../output.json", JSON.stringify(results, null, 4), () => {});
+
+}
+
+/**
  * Function to convert categories, to allow reverse lookup.
  */
 function convertCategories(categories) {
