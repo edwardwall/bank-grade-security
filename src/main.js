@@ -8,6 +8,13 @@ var interval;
 
 const banksFile = JSON.parse(FS.readFileSync("../banks.json", "utf8"));
 
+const CATEGORIES = convertCategories({
+    "HTTPS": [
+        "Upgrade HTTP",
+        "HSTS Preload"
+    ]
+});
+
 // Read banks from file
 for (countryObject of banksFile) {
 
@@ -45,5 +52,24 @@ async function begin() {
         county: bankObject.country,
         name: bankObject.name
     }
+
+}
+
+/**
+ * Function to convert categories, to allow reverse lookup.
+ */
+function convertCategories(categories) {
+
+    let reversedCats = {};
+
+    for (category in categories) {
+        for (metric of categories[category]) {
+
+            reversedCats[metric] = category;
+
+        }
+    }
+
+    return reversedCats;
 
 }
