@@ -1,8 +1,10 @@
 const FS = require("fs");
 
-
 var countries = {};
 var banks = [];
+var results = {};
+
+var interval;
 
 const banksFile = JSON.parse(FS.readFileSync("../banks.json", "utf8"));
 
@@ -25,7 +27,7 @@ banks = banks.sort((a, b) => {
     return a < b;
 })
 
-var interval = setInterval(begin, 1000); // 1 second
+interval = setInterval(begin, 1000); // 1 second
 
 /**
  * Function to begin testing of the next bank
