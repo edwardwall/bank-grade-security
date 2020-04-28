@@ -37,7 +37,7 @@ banks = banks.sort((a, b) => {
 interval = setInterval(begin, 1000); // 1 second
 
 /**
- * Function to begin testing of the next bank
+ * Function to begin testing of the next bank.
  */
 async function begin() {
 
@@ -49,9 +49,9 @@ async function begin() {
     }
 
     let data = {
-        county: bankObject.country,
+        country: bankObject.country,
         name: bankObject.name
-    }
+    };
 
 }
 
