@@ -109,17 +109,16 @@ async function report(data, title, result) {
  * Function to begin series of HTTP requests to follow HTTP redirection chain.
  * @param {BankDataObject} data
  */
-async function startHttpChainFollow(data, options) {
+async function startHttpChainFollow(data) {
 
     data.chainCount = 0;
     data.cookies = {};
 
-    options.headers = {};
-
     followChain(data, {
         protocol: "http:",
         hostname: bankObject.domain,
-        path: "/"
+        path: "/",
+        headers: {}
     });
 
 }
