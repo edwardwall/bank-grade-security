@@ -53,7 +53,14 @@ async function begin() {
         name: bankObject.name
     };
 
+    startHttpChainFollow(data, {
+        protocol: "http:",
+        hostname: bankObject.domain,
+        path: "/"
+    });
+
 }
+
 
 /**
  * An Object containing basic information about a bank.
@@ -100,6 +107,25 @@ async function report(data, title, result) {
     FS.writeFile("../output.json", JSON.stringify(results, null, 4), () => {});
 
 }
+
+
+/**
+ * Function to begin series of HTTP requests to follow HTTP redirection chain.
+ * @param {BankDataObject} data
+ * @param {Object} options - The options for the HTTP request.
+ * @param {string} options.protocol - The protocol to use, HTTP or HTTPS.
+ * @param {string} options.hostname - The hostname to target with the request.
+ * @param {string} options.path - The path to request.
+ */
+async function startHttpChainFollow(data, options) {
+
+    data.chainCount = 0;
+    data.cookies = {};
+
+    options.headers = {};
+
+}
+
 
 /**
  * Function to convert categories, to allow reverse lookup.
