@@ -57,6 +57,12 @@ async function begin() {
 
 /**
  * Function to receive reports from async functions about results.
+ *
+ * @param {Object} data - Data object containing bank information.
+ * @param {string} data.country - The country code.
+ * @param {string} data.name - The name of the bank.
+ * @param {string} title - The title of the metric being reported.
+ * @param {boolean} result - The result of the test to be stored.
  */
 async function report(data, title, result) {
 
@@ -91,6 +97,8 @@ async function report(data, title, result) {
 
 /**
  * Function to convert categories, to allow reverse lookup.
+ *
+ * @param {Object} categories - The categories to be converted.
  */
 function convertCategories(categories) {
 
