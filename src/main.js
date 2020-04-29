@@ -223,6 +223,24 @@ async function followChain(data, options) {
 
             followChain(data, nextOptions);
 
+        } else if (300 > status) { // HTTP Success
+
+            let body = "";
+
+            res.on("data", (chunk) => {
+                body += chunk.toString();
+            });
+
+            res.on("end", () => {
+                analyse(data, options, res.headers, body);
+            });
+
+        } else {
+
+            console.log("Error in followChain() - Invalid status code returned");
+            console.log(options);
+            throw "HTTP " + status + " on " + URL.format(options);
+
         }
 
     })
