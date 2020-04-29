@@ -56,11 +56,17 @@ async function begin() {
 }
 
 /**
+ * An Object containing basic information about a bank.
+ * @typedef {Object} BankDataObject
+ * @property {string} country - The 2 character code for the bank's country.
+ * @property {string} name - The name of the bank.
+ */
+
+
+/**
  * Function to receive reports from async functions about results.
  *
- * @param {Object} data - Data object containing bank information.
- * @param {string} data.country - The country code.
- * @param {string} data.name - The name of the bank.
+ * @param {BankDataObject} data
  * @param {string} title - The title of the metric being reported.
  * @param {boolean} result - The result of the test to be stored.
  */
