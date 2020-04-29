@@ -197,10 +197,12 @@ async function followChain(data, options) {
 
             location = URL.parse(location);
 
-            let nextOptions = {};
+            let nextOptions = {
+                headers: {}
+            };
 
-            nextOptions = (location.protocol ? location.protocol : options.protocol);
-            nextOptions = (location.hostname ? location.hostname : options.hostname);
+            nextOptions.protocol = (location.protocol ? location.protocol : options.protocol);
+            nextOptions.hostname = (location.hostname ? location.hostname : options.hostname);
 
             if (null === location.path) {
                 nextOptions.path = "/"; // default to root path
@@ -218,6 +220,8 @@ async function followChain(data, options) {
             if ("http:" === nextOptions.protocol) {
                 report(data, "Secure Redirection Chain", false);
             }
+
+            followChain(data, nextOptions);
 
         }
 
