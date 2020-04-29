@@ -126,6 +126,39 @@ async function startHttpChainFollow(data, options) {
 
 
 /**
+ * Function to follow HTTP redirection chain.
+ *
+ * @param {BankDataObject} data
+ * @param {number} data.chainCount - The count of requests in this chain.
+ * @param {number} data.cookies - The cookies set by previous requests.
+ * @param {Object} options - The options for the HTTP request.
+ * @param {string} options.protocol - The protocol to use, HTTP or HTTPS.
+ * @param {string} options.hostname - The hostname to target with the request.
+ * @param {string} options.path - The path to request.
+ */
+async function followChain(data, options) {
+
+    data.chainCount += 1;
+    if (data.chainCount > 10) {
+        throw data.name + " - Too Many Redirects";
+    }
+
+    let testUpgrade = false;
+    if (undefined == data.upgradeTested) {
+        testUpgrade = true;
+        data.upgradeTested = true;
+    }
+
+    let cookies = [];
+    for (key in data.cookies) {
+        cookies.push(key + "=" + data.cookies[key]);
+    }
+    options.headers.cookie = cookies.join("; ");
+
+}
+
+
+/**
  * Function to convert categories, to allow reverse lookup.
  *
  * @param {Object} categories - The categories to be converted.
