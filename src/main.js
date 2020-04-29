@@ -83,9 +83,12 @@ async function begin() {
  *
  * @param {BankDataObject} data
  * @param {string} title - The title of the metric being reported.
- * @param {boolean} result - The result of the test to be stored.
+ * @param {string|boolean} result - The result of the test to be stored.
+ * @param {boolean} [onlyIfUndefined] - Indicates that the result should only
+ *      be saved if the current value is undefined, used to ensure only first
+ *      result is saved.
  */
-async function report(data, title, result) {
+async function report(data, title, result, onlyIfUndefined) {
 
     if (undefined === results[data.country]) {
         results[data.country] = {};
@@ -110,7 +113,12 @@ async function report(data, title, result) {
     }
 
     let reportCategory = CATEGORIES[title];
-    results[data.country][data.name][reportCategory][title] = result;
+
+    if (!onlyIfUndefined ||
+        "" === results[data.country][data.name][reportCategory][metric]) {
+
+        results[data.country][data.name][reportCategory][metric] = result;
+    }
 
     FS.writeFile("../output.json", JSON.stringify(results, null, 4), () => {});
 
