@@ -348,9 +348,28 @@ async function checkHsts(data, url, headers) {
 
         if (false === preload) {
             report(data, "HSTS Preload", false);
+        } else {
+            get(data,
+                "https://hstspreload.org/api/v2/status?domain=" + url.hostname,
+                hstsPreloadCallback);
         }
 
     }
+
+}
+
+
+/**
+ * Function to receive HSTS Preload response.
+ *
+ * @param {BankDataObject} data
+ * @param {Object} headers
+ * @param {string} body
+ */
+async function hstsPreloadCallback(data, headers, body) {
+
+    body = JSON.parse(body);
+    report(data, "HSTS Preload", ("preloaded" === body.status));
 
 }
 
