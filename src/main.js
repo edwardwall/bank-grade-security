@@ -15,7 +15,8 @@ const CATEGORIES = convertCategories({
     "HTTPS": [
         "Upgrade HTTP", // Check that insecure HTTP request is immediately upgraded to HTTPS
         "Secure Redirection Chain", // Check that all parts of the redirection chain use HTTPS
-        "HSTS Preload"
+        "HTTP Strict Transport Security", // Check that website uses HSTS
+        "HSTS Preload" // Check that website uses HSTS Preloading
     ],
     "Miscellaneous Headers": [
         "Server Header",
@@ -271,7 +272,57 @@ async function followChain(data, options) {
  */
 async function analyse(data, url, headers, body) {
 
-    
+    checkHsts(data, url, headers);
+
+}
+
+
+/**
+ * Function to test whether website uses HSTS.
+ *
+ * @param {BankDataObject} data
+ * @param {URL} url
+ * @param {Object} headers
+ */
+async function checkHsts(data, url, headers) {
+
+    let stsHeader = headers["strict-transport-security"];
+
+    if (undefined === stsHeader) {
+
+        report(data, "HTTP Strict Transport Security", false);
+        report(data, "HSTS Preload", false);
+
+    } else {
+
+        stsHeader = stsHeader.replace(/ /g, ""); // remove spaces
+        stsHeader = stsHeader.split(";");
+
+        let age = 0;
+        let preload = false;
+
+        for (part of stsHeader) {
+
+            let maxAge = "max-age=";
+
+            if (part.startsWith(maxAge)) {
+                age = part.substring(maxAge.length);
+                age = parseInt(age);
+            }
+
+            if ("preload" === part) {
+                preload = true;
+            }
+
+        }
+
+        report(data, "HTTP Strict Transport Security", (0 < age));
+
+        if (false === preload) {
+            report(data, "HSTS Preload", false);
+        }
+
+    }
 
 }
 
