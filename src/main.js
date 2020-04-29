@@ -427,7 +427,7 @@ async function checkCaa(data, hostname) {
  * @param {Object} headers
  * @param {string} body
  */
-async function checkCaa(data, headers, body) {
+async function caaCallback(data, headers, body) {
 
     body = JSON.parse(body);
 
