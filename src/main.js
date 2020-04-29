@@ -1,4 +1,5 @@
 const FS = require("fs");
+const URL = require("url");
 const HTTP = require("http");
 const HTTPS = require("https");
 
@@ -13,6 +14,7 @@ const banksFile = JSON.parse(FS.readFileSync("../banks.json", "utf8"));
 const CATEGORIES = convertCategories({
     "HTTPS": [
         "Upgrade HTTP",
+        "Secure Redirection Chain",
         "HSTS Preload"
     ],
     "Miscellaneous Headers": [
@@ -59,6 +61,9 @@ async function begin() {
         country: bankObject.country,
         name: bankObject.name
     };
+
+    // Default reports
+    report(data, "Secure Redirection Chain", true);
 
     startHttpChainFollow(data, {
         protocol: "http:",
@@ -114,10 +119,10 @@ async function report(data, title, result, onlyIfUndefined) {
 
     let reportCategory = CATEGORIES[title];
 
-    if (!onlyIfUndefined ||
-        "" === results[data.country][data.name][reportCategory][metric]) {
+    if ((!onlyIfUndefined) ||
+        ("" === results[data.country][data.name][reportCategory][title])) {
 
-        results[data.country][data.name][reportCategory][metric] = result;
+        results[data.country][data.name][reportCategory][title] = result;
     }
 
     FS.writeFile("../output.json", JSON.stringify(results, null, 4), () => {});
@@ -203,6 +208,10 @@ async function followChain(data, options) {
             } else {
                 nextOptions.path = options.path.substring(0, options.path.lastIndexOf("/") + 1);
                 nextOptions.path += location.path;
+            }
+
+            if ("http:" === nextOptions.protocol) {
+                report(data, "Secure Redirection Chain", false);
             }
 
         }
