@@ -13,8 +13,8 @@ const banksFile = JSON.parse(FS.readFileSync("../banks.json", "utf8"));
 
 const CATEGORIES = convertCategories({
     "HTTPS": [
-        "Upgrade HTTP",
-        "Secure Redirection Chain",
+        "Upgrade HTTP", // Check that insecure HTTP request is immediately upgraded to HTTPS
+        "Secure Redirection Chain", // Check that all parts of the redirection chain use HTTPS
         "HSTS Preload"
     ],
     "Miscellaneous Headers": [
