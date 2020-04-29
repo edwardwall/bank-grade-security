@@ -480,6 +480,50 @@ async function checkProtocols(data, hostname) {
     report(data, strongTest, false);
     report(data, weakTest, true);
 
+    checkProtocol(data, {
+        host: hostname,
+        minVersion: "TLSv1.2"
+    }, strongTest, true);
+
+    checkProtocol(data, {
+        host: hostname,
+        maxVersion: "TLSv1.1",
+        minVersion: "TLSv1"
+    }, weakTest, false);
+
+    checkProtocol(data, {
+        host: hostname,
+        secureProtocol: "SSLv3_method"
+    }, weakTest, false);
+
+}
+
+
+/**
+ * Function to perform specific protocol test.
+ *
+ * @param {BankDataObject} data
+ * @param {Object} options
+ * @param {string} reportTitle
+ * @param {boolean} isSuccessGood
+ */
+async function checkProtocol(data, options, reportTitle, isSuccessGood) {
+
+    options.port = 443;
+
+    try {
+
+        let socket = TLS.connect(options, () => {
+
+            report(data, reportTitle, isSuccessGood);
+            socket.destroy();
+
+        }).on("error", (err) => {
+            socket.destroy();
+        });
+
+    } catch (e) {}
+
 }
 
 
