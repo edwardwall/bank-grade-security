@@ -205,17 +205,17 @@ async function checkMiscHeaders(data, headers) {
     let aspMvcVersion = headers["x-aspnetmvc-version"];
 
     if (server) {
-        report(data, "Server Header", server);
+        report(data, "Server Header", server, true);
     }
 
     if (powered) {
-        report(data, "X-Powered-By Header", powered);
+        report(data, "X-Powered-By Header", powered, true);
     }
 
     if (aspVersion) {
-        report(data, "ASP.NET Version", aspVerison);
+        report(data, "ASP.NET Version", aspVerison, true);
     } else if (aspMvcVersion) {
-        report(data, "ASP.NET Version", aspMvcVersion);
+        report(data, "ASP.NET Version", aspMvcVersion, true);
     }
 
 }
