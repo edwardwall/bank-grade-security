@@ -147,6 +147,34 @@ async function startHttpChainFollow(data, options) {
 
 
 /**
+ * Function to make a generic HTTPS GET request and callback.
+ *
+ * @param {BankDataObject} data
+ * @param {URL} url
+ * @param {function} callback
+ */
+async function get(data, url, callback) {
+
+    HTTPS.get(url, (res) => {
+
+        let body = "";
+
+        res.on("data", (chunk) => {
+            body += chunk.toString();
+        });
+
+        res.on("end", () => {
+            callback(data, res.headers, body);
+        });
+
+    }).on("error", (err) => {
+        callback(data);
+    });
+
+}
+
+
+/**
  * Function to follow HTTP redirection chain.
  *
  * @param {BankDataObject} data
