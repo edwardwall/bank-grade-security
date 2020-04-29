@@ -75,11 +75,11 @@ async function begin() {
  */
 async function report(data, title, result) {
 
-    if (undefined == results[data.country]) {
+    if (undefined === results[data.country]) {
         results[data.country] = {};
     }
 
-    if (undefined == results[data.country][data.name]) {
+    if (undefined === results[data.country][data.name]) {
 
         results[data.country][data.name] = {};
 
@@ -87,7 +87,7 @@ async function report(data, title, result) {
 
             let cat = CATEGORIES[metric];
 
-            if (undefined == results[data.country][data.name][cat]) {
+            if (undefined === results[data.country][data.name][cat]) {
                 results[data.country][data.name][cat] = {};
             }
 
@@ -144,7 +144,7 @@ async function followChain(data, options) {
     }
 
     let testUpgrade = false;
-    if (undefined == data.upgradeTested) {
+    if (undefined === data.upgradeTested) {
         testUpgrade = true;
         data.upgradeTested = true;
     }
