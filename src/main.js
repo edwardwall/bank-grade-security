@@ -1,4 +1,6 @@
 const FS = require("fs");
+const HTTP = require("http");
+const HTTPS = require("https");
 
 var countries = {};
 var banks = [];
@@ -154,7 +156,35 @@ async function followChain(data, options) {
     }
     options.headers.cookie = cookies.join("; ");
 
+    // Make HTTP(S) request
+    ("https:" === options.protocol ? HTTPS : HTTP).get(options, (res) => {
+
+        let location;
+
+        try {
+            location = res.headers.location;
+        } catch (e) {}
+
+        if (undefined === location) {
+            location = "";
+        }
+
+        let status = res.statusCode;
+
+        checkMiscHeaders(data, res.headers);
+
+    })
+
 }
+
+
+/**
+ * Function to check for and report miscellaneous headers.
+ *
+ * @param {BankDataObject} data
+ * @param {Object} headers - The headers from the HTTP response.
+ */
+async function checkMiscHeaders(data, headers) {}
 
 
 /**
