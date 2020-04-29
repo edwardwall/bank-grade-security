@@ -53,11 +53,7 @@ async function begin() {
         name: bankObject.name
     };
 
-    startHttpChainFollow(data, {
-        protocol: "http:",
-        hostname: bankObject.domain,
-        path: "/"
-    });
+    startHttpChainFollow(data);
 
 }
 
@@ -112,10 +108,6 @@ async function report(data, title, result) {
 /**
  * Function to begin series of HTTP requests to follow HTTP redirection chain.
  * @param {BankDataObject} data
- * @param {Object} options - The options for the HTTP request.
- * @param {string} options.protocol - The protocol to use, HTTP or HTTPS.
- * @param {string} options.hostname - The hostname to target with the request.
- * @param {string} options.path - The path to request.
  */
 async function startHttpChainFollow(data, options) {
 
@@ -123,6 +115,12 @@ async function startHttpChainFollow(data, options) {
     data.cookies = {};
 
     options.headers = {};
+
+    followChain(data, {
+        protocol: "http:",
+        hostname: bankObject.domain,
+        path: "/"
+    });
 
 }
 
