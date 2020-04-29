@@ -18,6 +18,9 @@ const CATEGORIES = convertCategories({
         "HTTP Strict Transport Security", // Check that website uses HSTS
         "HSTS Preload" // Check that website uses HSTS Preloading
     ],
+    "DNS": [
+        "DNS Security Extensions"
+    ],
     "Miscellaneous Headers": [
         "Server Header",
         "X-Powered-By Header",
@@ -301,6 +304,7 @@ async function followChain(data, options) {
 async function analyse(data, url, headers, body) {
 
     checkHsts(data, url, headers);
+    checkDnssec(data, url.hostname);
 
 }
 
@@ -370,6 +374,34 @@ async function hstsPreloadCallback(data, headers, body) {
 
     body = JSON.parse(body);
     report(data, "HSTS Preload", ("preloaded" === body.status));
+
+}
+
+
+/**
+ * Function to check DNSSEC usage.
+ *
+ * @param {BankDataObject} data
+ * @param {string} hostname
+ */
+async function checkDnssec(data, hostname) {
+
+    get(data, "https://dns.google.com/resolve?type=DS&name=" + hostname, dnssecCallback);
+
+}
+
+
+/**
+ * Function to receive DNSSEC response.
+ *
+ * @param {BankDataObject} data
+ * @param {Object} headers
+ * @param {string} body
+ */
+async function dnssecCallback(data, headers, body) {
+
+    body = JSON.parse(body);
+    report(data, "DNS Security Extensions", (!!body.Answer));
 
 }
 
