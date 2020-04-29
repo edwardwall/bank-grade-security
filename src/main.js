@@ -18,6 +18,10 @@ const CATEGORIES = convertCategories({
         "HTTP Strict Transport Security", // Check that website uses HSTS
         "HSTS Preload" // Check that website uses HSTS Preloading
     ],
+    "TLS": [
+        "Strong TLS Supported", // Check that TLS >= v1.2 is supported by server
+        "Weak TLS Disabled" // Check that TLS < v1.2 is not supported by server
+    ],
     "DNS": [
         "DNS Security Extensions", // Check that website uses DNSSEC
         "Certification Authority Authorization" // Check that website uses CAA
@@ -307,6 +311,7 @@ async function analyse(data, url, headers, body) {
     checkHsts(data, url, headers);
     checkDnssec(data, url.hostname);
     checkCaa(data, url.hostname);
+    checkProtocols(data, url.hostname);
 
 }
 
@@ -455,6 +460,25 @@ async function caaCallback(data, headers, body) {
         }
 
     }
+
+}
+
+
+/**
+ * Function to check the TLS/SSL Protocols suppoted by the server.
+ *
+ * @param {BankDataObject} data
+ * @param {string} hostname
+ */
+async function checkProtocols(data, hostname) {
+
+    report(data, "Forward Secrecy", true);
+
+    let strongTest = "Strong TLS Supported";
+    let weakTest = "Weak TLS Disabled";
+
+    report(data, strongTest, false);
+    report(data, weakTest, true);
 
 }
 
