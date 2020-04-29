@@ -262,6 +262,21 @@ async function followChain(data, options) {
 
 
 /**
+ * Function to analyses headers and HTML returned from page.
+ *
+ * @param {BankDataObject} data
+ * @param {URL} url - The URL to which the request was made.
+ * @param {Object} headers - The HTTP response headers.
+ * @param {string} body - The HTML page returned.
+ */
+async function analyse(data, url, headers, body) {
+
+    
+
+}
+
+
+/**
  * Function to check for and report miscellaneous headers.
  *
  * @param {BankDataObject} data
