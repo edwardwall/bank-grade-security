@@ -14,6 +14,11 @@ const CATEGORIES = convertCategories({
     "HTTPS": [
         "Upgrade HTTP",
         "HSTS Preload"
+    ],
+    "Miscellaneous Headers": [
+        "Server Header",
+        "X-Powered-By Header",
+        "ASP.NET Version"
     ]
 });
 
@@ -184,7 +189,28 @@ async function followChain(data, options) {
  * @param {BankDataObject} data
  * @param {Object} headers - The headers from the HTTP response.
  */
-async function checkMiscHeaders(data, headers) {}
+async function checkMiscHeaders(data, headers) {
+
+    let server = headers["server"];
+    let powered = headers["x-powered-by"];
+    let aspVersion = headers["x-aspnet-version"];
+    let aspMvcVersion = headers["x-aspnetmvc-version"];
+
+    if (server) {
+        report(data, "Server Header", server);
+    }
+
+    if (powered) {
+        report(data, "X-Powered-By Header", powered);
+    }
+
+    if (aspVersion) {
+        report(data, "ASP.NET Version", aspVerison);
+    } else if (aspMvcVersion) {
+        report(data, "ASP.NET Version", aspMvcVersion);
+    }
+
+}
 
 
 /**
