@@ -186,6 +186,27 @@ async function followChain(data, options) {
 
         checkMiscHeaders(data, res.headers);
 
+        // HTTP redirect
+        if ((300 <= status) && (400 > status)) {
+
+            location = URL.parse(location);
+
+            let nextOptions = {};
+
+            nextOptions = (location.protocol ? location.protocol : options.protocol);
+            nextOptions = (location.hostname ? location.hostname : options.hostname);
+
+            if (null === location.path) {
+                nextOptions.path = "/"; // default to root path
+            } else if ("/" === location.path.substring(0, 1)) {
+                nextOptions.path = location.path;
+            } else {
+                nextOptions.path = options.path.substring(0, options.path.lastIndexOf("/") + 1);
+                nextOptions.path += location.path;
+            }
+
+        }
+
     })
 
 }
