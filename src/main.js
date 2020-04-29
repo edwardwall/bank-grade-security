@@ -243,7 +243,20 @@ async function followChain(data, options) {
 
         }
 
-    })
+    }).on("error", (err) => { // Error on HTTP request
+
+        if ("http:" === options.protocol) {
+            // Some disallow HTTP connections, so try HTTPS
+            options.protocol = "https:";
+            followChain(data, options);
+        } else {
+            // Some have invalid certificates
+            report(data, "Secure Redirection Chain", false);
+            options.rejectUnauthorized = false;
+            followChain(data, options);
+        }
+
+    });
 
 }
 
