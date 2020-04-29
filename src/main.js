@@ -63,6 +63,7 @@ async function begin() {
     };
 
     // Default reports
+    report(data, "Upgrade HTTP", false);
     report(data, "Secure Redirection Chain", true);
 
     startHttpChainFollow(data, {
@@ -162,10 +163,10 @@ async function followChain(data, options) {
         throw data.name + " - Too Many Redirects";
     }
 
-    let testUpgrade = false;
-    if (undefined === data.upgradeTested) {
-        testUpgrade = true;
-        data.upgradeTested = true;
+    let testHttpUpgrade = false;
+    if (undefined === data.httpUpgradeTested) {
+        testHttpUpgrade = true;
+        data.httpUpgradeTested = true;
     }
 
     let cookies = [];
@@ -208,6 +209,10 @@ async function followChain(data, options) {
             } else {
                 nextOptions.path = options.path.substring(0, options.path.lastIndexOf("/") + 1);
                 nextOptions.path += location.path;
+            }
+
+            if (testHttpUpgrade && ("https:" === nextOptions.protocol)) {
+                report(data, "Upgrade HTTP", true);
             }
 
             if ("http:" === nextOptions.protocol) {
