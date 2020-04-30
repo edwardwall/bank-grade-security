@@ -573,6 +573,56 @@ async function checkSecurityHeaders(data, headers) {
     report(data, "Framing Protection", false);
     report(data, "MIME Type Sniffing Protection", false);
 
+    checkHttpHeaders(data, headers);
+
+}
+
+
+/**
+ * Function to check HTTP headers for security.
+ *
+ * @param {BankDataObject} data
+ * @param {Object} headers
+ */
+async function checkHttpHeaders(data, headers) {
+
+    let xXssProtection = headers["x-xss-protection"];
+    let xFrameOptions = headers["x-frame-options"];
+    let xContentTypeOptions = headers["x-content-type-options"];
+
+    if (xXssProtection && (xXssProtection.startsWith("1"))) {
+        report(data, "XSS Protection", true);
+    }
+
+    if (xFrameOptions) {
+
+        xFrameOptions = xFrameOptions.toLowerCase();
+        xFrameOptions += " "; // Aids testing for wildcards
+
+        let directive = (
+            xFrameOptions.includes("deny ") ||
+            xFrameOptions.includes("sameorigin ") ||
+            xFrameOptions.includes("allow-from ")
+        );
+
+        let allowFromWildcard = (
+            xFrameOptions.includes(" * ") ||
+            xFrameOptions.includes("http://* ") ||
+            xFrameOptions.includes("https://* ")
+        );
+
+        if (directive && !allowFromWildcard) {
+            report(data, "Framing Protection", true);
+        }
+
+    }
+
+    if (xContentTypeOptions &&
+        xContentTypeOptions.toLowerCase().includes("nosniff")) {
+
+        report(data, "MIME Type Sniffing Protections", true);
+    }
+
 }
 
 
