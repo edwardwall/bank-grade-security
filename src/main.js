@@ -575,6 +575,10 @@ async function checkSecurityHeaders(data, headers) {
 
     checkHttpHeaders(data, headers);
 
+    if (headers["content-security-policy"]) {
+        checkCsp(data, headers["content-security-policy"]);
+    }
+
 }
 
 
@@ -621,6 +625,72 @@ async function checkHttpHeaders(data, headers) {
         xContentTypeOptions.toLowerCase().includes("nosniff")) {
 
         report(data, "MIME Type Sniffing Protections", true);
+    }
+
+}
+
+
+/**
+ * Function to check Content Security Policy.
+ *
+ * @param {BankDataObject} data
+ * @param {Object} header
+ */
+async function checkCsp(data, header) {
+
+    let defaultSrc = false;
+    let scriptSrcExists = false;
+    let scriptSrc = false;
+
+    let frameAncestors = false;
+
+    for (directive of header.split(";")) {
+
+        directive += " "; // Aids testing for wildcards
+
+        while(directive.startsWith(" ")) {
+            directive = directive.substring(1);
+        }
+
+        if (directive.startsWith("default-src ")) {
+            defaultSrc = performXssCheck(directive);
+        }
+
+        if (directive.startsWith("script-src ")) {
+            scriptSrcExists = true;
+            scriptSrc = performXssCheck(directive);
+        }
+
+        if (directive.startsWith("frame-ancestors ")) {
+            frameAncestors = performAncestorsCheck(directive);
+        }
+
+    }
+
+    if (scriptSrcExists) {
+        if (scriptSrc) {
+            report(data, "XSS Protection", true);
+        }
+    } else if (defaultSrc) {
+        report(data, "XSS Protection", true);
+    }
+
+    if (frameAncestors) {
+        report(data, "Framing Protection", true);
+    }
+
+    /**
+     * Internal Function to check for unsafe inline or wildcard scripts.
+     */
+    function performXssCheck(directive) {
+        return false;
+    }
+
+    /**
+     * Internal Function to check for unsafe frame ancestors.
+     */
+    function performAncestorsCheck(directive) {
+        return false;
     }
 
 }
