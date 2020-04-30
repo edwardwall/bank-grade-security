@@ -18,6 +18,11 @@ const CATEGORIES = convertCategories({
         "HTTP Strict Transport Security", // Check that website uses HSTS
         "HSTS Preload" // Check that website uses HSTS Preloading
     ],
+    "Security Headers": [
+        "XSS Protection",
+        "Framing Protection",
+        "MIME Type Sniffing Protection"
+    ],
     "TLS": [
         "Strong TLS Supported", // Check that TLS >= v1.2 is supported by server
         "Weak TLS Disabled", // Check that TLS < v1.2 is not supported by server
@@ -313,6 +318,7 @@ async function analyse(data, url, headers, body) {
     checkDnssec(data, url.hostname);
     checkCaa(data, url.hostname);
     checkProtocols(data, url.hostname);
+    checkSecurityHeaders(data, headers);
 
 }
 
@@ -550,6 +556,22 @@ async function checkForwardSecrecy(data, cipher) {
         }
 
     }
+
+}
+
+
+/**
+ * Function to check for presence of security headers.
+ *
+ * @param {BankDataObject} data
+ * @param {Object} headers
+ */
+async function checkSecurityHeaders(data, headers) {
+
+    // Default values
+    report(data, "XSS Protection", false);
+    report(data, "Framing Protection", false);
+    report(data, "MIME Type Sniffing Protection", false);
 
 }
 
