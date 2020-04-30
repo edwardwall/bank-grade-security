@@ -683,7 +683,16 @@ async function checkCsp(data, header) {
      * Internal Function to check for unsafe inline or wildcard scripts.
      */
     function performXssCheck(directive) {
-        return false;
+
+        return ! (
+            directive.includes("'unsafe-inline'") ||
+            directive.includes(" * ") ||
+            directive.includes("http: ") ||
+            directive.includes("http://* ") ||
+            directive.includes("https: ") ||
+            directive.includes("https://* ")
+        );
+
     }
 
     /**
