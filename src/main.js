@@ -20,7 +20,8 @@ const CATEGORIES = convertCategories({
     ],
     "TLS": [
         "Strong TLS Supported", // Check that TLS >= v1.2 is supported by server
-        "Weak TLS Disabled" // Check that TLS < v1.2 is not supported by server
+        "Weak TLS Disabled", // Check that TLS < v1.2 is not supported by server
+        "Forward Secrecy" // Check that server uses Forward Secrecy
     ],
     "DNS": [
         "DNS Security Extensions", // Check that website uses DNSSEC
@@ -472,7 +473,7 @@ async function caaCallback(data, headers, body) {
  */
 async function checkProtocols(data, hostname) {
 
-    report(data, "Forward Secrecy", true);
+    report(data, "Forward Secrecy", false);
 
     let strongTest = "Strong TLS Supported";
     let weakTest = "Weak TLS Disabled";
@@ -515,6 +516,8 @@ async function checkProtocol(data, options, reportTitle, isSuccessGood) {
 
         let socket = TLS.connect(options, () => {
 
+            checkForwardSecrecy(data, socket.getCipher());
+
             report(data, reportTitle, isSuccessGood);
             socket.destroy();
 
@@ -523,6 +526,30 @@ async function checkProtocol(data, options, reportTitle, isSuccessGood) {
         });
 
     } catch (e) {}
+
+}
+
+
+/**
+ * Function to check whether cipher suite supports Forward Secrecy.
+ *
+ * @param {BankDataObject} data
+ * @param {string} cipher
+ */
+async function checkForwardSecrecy(data, cipher) {
+
+    let find = [
+        "DHE",
+        "ECDHE"
+    ];
+
+    for (str of find) {
+
+        if (cipher.startsWith(str)) {
+            report(data, "Forward Secrecy", true);
+        }
+
+    }
 
 }
 
