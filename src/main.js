@@ -1,15 +1,8 @@
 const FS = require("fs");
+const TLS = require("tls");
 const URL = require("url");
 const HTTP = require("http");
 const HTTPS = require("https");
-
-var countries = {};
-var banks = [];
-var results = {};
-
-var interval;
-
-const banksFile = JSON.parse(FS.readFileSync("../banks.json", "utf8"));
 
 const CATEGORIES = convertCategories({
     "HTTPS": [
@@ -39,11 +32,15 @@ const CATEGORIES = convertCategories({
     ]
 });
 
+var banks = [];
+var results = {};
+
+var interval;
+
 // Read banks from file
-for (countryObject of banksFile) {
+for (countryObject of (JSON.parse(FS.readFileSync("../banks.json", "utf8"))) {
 
     let countryCode = countryObject.code.toLowerCase();
-    countries[countryCode] = countryObject.name;
 
     for (bankObject of countryObject.list) {
 
