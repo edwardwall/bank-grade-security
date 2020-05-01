@@ -52,7 +52,7 @@ for (countryObject of (JSON.parse(FS.readFileSync("../banks.json", "utf8")))) {
 }
 
 banks = banks.sort((a, b) => {
-    return a < b;
+    return a.name < b.name;
 })
 
 interval = setInterval(begin, 1000); // 1 second
@@ -62,7 +62,7 @@ interval = setInterval(begin, 1000); // 1 second
  */
 async function begin() {
 
-    let bankObject = banks.splice(0, 1)[0];
+    let bankObject = banks.pop();
 
     // check if this was final element in list
     if (0 == banks.length) {
