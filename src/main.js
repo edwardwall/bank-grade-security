@@ -624,7 +624,7 @@ async function checkHttpHeaders(data, headers) {
     if (xContentTypeOptions &&
         xContentTypeOptions.toLowerCase().includes("nosniff")) {
 
-        report(data, "MIME Type Sniffing Protections", true);
+        report(data, "MIME Type Sniffing Protection", true);
     }
 
 }
