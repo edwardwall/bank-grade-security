@@ -699,7 +699,15 @@ async function checkCsp(data, header) {
      * Internal Function to check for unsafe frame ancestors.
      */
     function performAncestorsCheck(directive) {
-        return false;
+
+        return ! (
+            directive.includes(" * ") ||
+            directive.includes("http: ") ||
+            directive.includes("http://* ") ||
+            directive.includes("https: ") ||
+            directive.includes("https://* ")
+        );
+
     }
 
 }
