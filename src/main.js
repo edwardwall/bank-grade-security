@@ -38,7 +38,7 @@ var results = {};
 var interval;
 
 // Read banks from file
-for (countryObject of (JSON.parse(FS.readFileSync("../banks.json", "utf8"))) {
+for (countryObject of (JSON.parse(FS.readFileSync("../banks.json", "utf8")))) {
 
     let countryCode = countryObject.code.toLowerCase();
 
