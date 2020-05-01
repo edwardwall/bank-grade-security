@@ -62,17 +62,12 @@ interval = setInterval(begin, 1000); // 1 second
  */
 async function begin() {
 
-    let bankObject = banks.pop();
+    let data = banks.pop();
 
     // check if this was final element in list
     if (0 == banks.length) {
         clearInterval(interval);
     }
-
-    let data = {
-        country: bankObject.country,
-        name: bankObject.name
-    };
 
     // Default reports
     report(data, "Upgrade HTTP", false);
@@ -80,7 +75,7 @@ async function begin() {
 
     startHttpChainFollow(data, {
         protocol: "http:",
-        hostname: bankObject.domain,
+        hostname: data.domain,
         path: "/",
         headers: {}
     });
