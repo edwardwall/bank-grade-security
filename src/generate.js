@@ -6,7 +6,7 @@ const PATHS = {
 };
 
 const TEMPLATES = getTemplates();
-
+const DETAILS = getBankDetails();
 
 
 
@@ -50,5 +50,36 @@ function getTemplates() {
     }
 
     return ret;
+
+}
+
+
+/**
+ * Function to get details of banks from JSON file.
+ */
+function getBankDetails() {
+
+    const FILE = JSON.parse(FS.readFileSync("../banks.json"));
+
+    let details = {};
+
+    for (countryObject of FILE) {
+
+        let countryCode = countryObject.code;
+
+        details[countryCode] = {
+            name: countryObject.name,
+            banks: {}
+        };
+
+        for (bankObject of countryObject.list) {
+
+            details[countryCode]["banks"][bankObject.name] = bankObject.domain;
+
+        }
+
+    }
+
+    return details;
 
 }
