@@ -32,6 +32,8 @@ for (countryCode in RESULTS) {
         let urlSafeBankName = makeUrlSafe(bankName);
         let bankDomain = DETAILS[countryCode]["banks"][bankName];
 
+        let score = calculateScore(bankResults);
+
     }
 
 }
@@ -50,6 +52,42 @@ function makeUrlSafe(str) {
     return str;
 
 }
+
+
+/**
+ * Function to calculate a bank's score from the results.
+ */
+function calculateScore(results) {
+
+    let score = 0;
+    let total = 0;
+
+    for (category in results) {
+        for (metric in results[category]) {
+
+            let result = results[category][metric];
+
+            if ("boolean" === typeof result) {
+
+                total += 1;
+
+                if (result) {
+                    score += 1;
+                }
+
+            }
+
+        }
+    }
+
+    score = 100 * score;
+    score = score / total;
+    score = Math.round(score);
+
+    return score;
+
+}
+
 
 /**
  * Function to read in and prepare HTML files.
