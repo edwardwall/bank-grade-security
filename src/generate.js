@@ -7,6 +7,31 @@ const PATHS = {
 
 const TEMPLATES = getTemplates();
 const DETAILS = getBankDetails();
+const RESULTS = JSON.parse(FS.readFileSync("../output.json", "utf8"));
+
+var countries = [];
+var cards = [];
+
+
+for (countryCode in RESULTS) {
+
+    let countryResults = RESULTS[countryCode];
+
+    let countryName = DETAILS[countryCode].name;
+    let countryCards = [];
+
+    countries.push({
+        countryCode,
+        countryName
+    });
+
+    for (bankName in countryResults) {
+
+        let bankResults = countryResults[bankName];
+
+    }
+
+}
 
 
 
@@ -59,7 +84,7 @@ function getTemplates() {
  */
 function getBankDetails() {
 
-    const FILE = JSON.parse(FS.readFileSync("../banks.json"));
+    const FILE = JSON.parse(FS.readFileSync("../banks.json", "utf8"));
 
     let details = {};
 
