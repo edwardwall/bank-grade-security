@@ -29,11 +29,27 @@ for (countryCode in RESULTS) {
 
         let bankResults = countryResults[bankName];
 
+        let urlSafeBankName = makeUrlSafe(bankName);
+        let bankDomain = DETAILS[countryCode]["banks"][bankName];
+
     }
 
 }
 
 
+/**
+ * Function to make a string safe for use in URL.
+ */
+function makeUrlSafe(str) {
+
+    str = str.toLowerCase();
+    str = str.replace(/ /g, "-");
+    str = str.replace(/&/g, "-");
+    str = str.replace(/'/g, "");
+
+    return str;
+
+}
 
 /**
  * Function to read in and prepare HTML files.
