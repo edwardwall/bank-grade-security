@@ -12,7 +12,6 @@ const RESULTS = JSON.parse(FS.readFileSync("../output.json", "utf8"));
 var countries = [];
 var cards = [];
 
-
 for (countryCode in RESULTS) {
 
     let countryResults = RESULTS[countryCode];
@@ -30,10 +29,13 @@ for (countryCode in RESULTS) {
         let bankResults = countryResults[bankName];
 
         let urlSafeBankName = makeUrlSafe(bankName);
-        let bankDomain = DETAILS[countryCode]["banks"][bankName];
+        let domain = DETAILS[countryCode]["banks"][bankName];
 
         let score = calculateScore(bankResults);
         let grade = calculateGrade(score);
+
+        writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
+            domain, score, grade, bankResults);
 
     }
 
@@ -102,6 +104,35 @@ function calculateGrade(score) {
 
 
 /**
+ * Function to write bank HTML file.
+ */
+function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
+    domain, score, grade, results) {
+
+    try {
+        FS.mkdirSync(PATHS.OUTPUT + countryCode);
+    } catch (e) {}
+
+    let page = TEMPLATES.BANK;
+
+    page = page.replace(/\$countryCode/g, countryCode);
+    page = page.replace(/\$upperCountryCode/g, countryCode.toUpperCase());
+    page = page.replace(/\$name/g, bankName);
+    page = page.replace(/\$score/g, score);
+    page = page.replace(/\$grade/g, grade);
+
+    page = page.replace(/\$countryName/g, countryName);
+    page = page.replace(/\$domain/g, domain);
+
+    page = page.replace(/\$explanation/g, bankName + " " + getExplanation(grade));
+    page = page.replace(/\$urlSafeName/g, urlSafeBankName);
+
+    page = page.replace("$main", makeBankMain(results));
+
+}
+
+
+/**
  * Function to read in and prepare HTML files.
  */
 function getTemplates() {
@@ -141,6 +172,75 @@ function getTemplates() {
     }
 
     return ret;
+
+}
+
+
+/**
+ * Function to make the main section of the bank HTML page.
+ */
+function makeBankMain(results) {
+
+    let main = "";
+
+    for (category in results) {
+
+        main += TEMPLATES.TEMPLATECATEGORY;
+        main = main.replace("$title", category);
+
+        for (metric in results[category]) {
+
+            let result = results[category][metric];
+
+            main = main.replace("$metric", TEMPLATE.TEMPLATEMETRIC + "$metric");
+            main = main.replace("$title", metric);
+
+            if ("boolean" === typeof result) {
+
+                main = main.replace("$result", TEMPLATES.TEMPLATERESULT);
+                main = main.replace("$grade", (result ? "A" : "E"));
+                main = main.replace("$check", (result ? "&check;" : "&cross;"));
+
+            } else if ("" === result) {
+                main = main.replace("$result", "hidden");
+            } else {
+                main = main.replace("$result", htmlEncode(result));
+            }
+
+        }
+
+        main = main.replace("$metric", "");
+
+    }
+
+    return main;
+
+}
+
+
+/**
+ * Function to return the grade-based explanation.
+ */
+function getExplanation(grade) {
+
+    if (grade == "Z") {
+        return "has excellent website security. They have passed every test.";
+
+    } else if (grade == "A") {
+        return "has very good security. They have passed almost every test.";
+
+    } else if (grade == "B") {
+        return "has above average security. They have passed most of the tests.";
+
+    } else if (grade == "C") {
+        return "has average security. They have failed around half of the tests.";
+
+    } else if (grade == "D") {
+        return "has below average security. They have failed most of the tests.";
+
+    } else if (grade == "E") {
+        return "has very bad security. They have failed almost every on of the tests.";
+    }
 
 }
 
