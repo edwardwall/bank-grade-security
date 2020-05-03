@@ -33,6 +33,7 @@ for (countryCode in RESULTS) {
         let bankDomain = DETAILS[countryCode]["banks"][bankName];
 
         let score = calculateScore(bankResults);
+        let grade = calculateGrade(score);
 
     }
 
@@ -85,6 +86,17 @@ function calculateScore(results) {
     score = Math.round(score);
 
     return score;
+
+}
+
+
+/**
+ * Function to return a bank's grade from the score.
+ */
+function calculateGrade(score) {
+
+    score = Math.floor(score / 20);
+    return ["E", "D", "C", "B", "A", "Z"][score];
 
 }
 
