@@ -192,7 +192,7 @@ function makeBankMain(results) {
 
             let result = results[category][metric];
 
-            main = main.replace("$metric", TEMPLATE.TEMPLATEMETRIC + "$metric");
+            main = main.replace("$metric", TEMPLATES.TEMPLATEMETRIC + "$metric");
             main = main.replace("$title", metric);
 
             if ("boolean" === typeof result) {
@@ -214,6 +214,27 @@ function makeBankMain(results) {
     }
 
     return main;
+
+}
+
+
+/**
+ * Function to encode unsafe HTML characters.
+ */
+function htmlEncode(string) {
+
+    let replace = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;"
+    };
+
+    for (c in replace) {
+        string = string.split(c).join(replace[c]);
+    }
+
+    return string;
 
 }
 
