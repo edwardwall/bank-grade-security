@@ -52,6 +52,9 @@ for (countryCode in RESULTS) {
 
 }
 
+writeHomePage(cards);
+
+
 
 /**
  * Function to make a string safe for use in URL.
@@ -318,6 +321,42 @@ function writeCountryPage(code, name, cards) {
     page = page.replace("$main", main);
 
     FS.writeFileSync(PATHS.OUTPUT+code+".html", page);
+
+}
+
+
+/**
+ * Function to create the homepage.
+ */
+function writeHomePage(cards) {
+
+    let page = TEMPLATES.HOMEPAGE;
+
+    let replace = [];
+
+    for (country of countries) {
+
+        let anchor = TEMPLATES.NAV;
+
+        anchor = anchor.replace("$countryCode", country.countryCode);
+        anchor = anchor.replace("$countryName", country.countryName);
+
+        replace.push(anchor);
+
+    }
+
+    page = page.replace("$countries", replace.join(""));
+    card = sortCards(cards);
+
+    let main = "";
+
+    for (card of cards) {
+        main += card.html + "\n";
+    }
+
+    page = page.replace("$main", main);
+
+    FS.writeFileSync(PATHS.OUTPUT+"index.html", page);
 
 }
 
