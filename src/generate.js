@@ -12,6 +12,11 @@ const RESULTS = JSON.parse(FS.readFileSync("../output.json", "utf8"));
 var countries = [];
 var cards = [];
 
+// Make directory for output
+try {
+    FS.mkdirSync(PATHS.OUTPUT);
+} catch (e) {}
+
 for (countryCode in RESULTS) {
 
     let countryResults = RESULTS[countryCode];
@@ -142,6 +147,8 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
     page = page.replace(/\$urlSafeName/g, urlSafeBankName);
 
     page = page.replace("$main", makeBankMain(results));
+
+    FS.writeFileSync(PATHS.OUTPUT+countryCode+"/"+urlSafeBankName+".html", page);
 
 }
 
@@ -301,6 +308,32 @@ function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) 
 
 
 /**
+ * Function to sort HTML cards.
+ */
+function sortCards(cards) {
+
+    return cards.sort((a, b) => {
+
+        if (a.score < b.score) {
+            return 1;
+        } else if (a.score > b.score) {
+            return -1;
+        }
+
+        if (a.name < b.name) {
+            return -1;
+        } else if (a.name > b.name) {
+            return 1;
+        }
+
+        return 0;
+
+    });
+
+}
+
+
+/**
  * Function to create a country's HTML page.
  */
 function writeCountryPage(code, name, cards) {
@@ -336,7 +369,7 @@ function writeHomePage(cards) {
 
     for (country of countries) {
 
-        let anchor = TEMPLATES.NAV;
+        let anchor = TEMPLATES.TEMPLATENAV;
 
         anchor = anchor.replace("$countryCode", country.countryCode);
         anchor = anchor.replace("$countryName", country.countryName);
