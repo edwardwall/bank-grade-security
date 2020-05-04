@@ -43,7 +43,12 @@ for (countryCode in RESULTS) {
             html: makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade)
         };
 
+        countryCards.push(card);
+        cards.push(card);
+
     }
+
+    writeCountryPage(countryCode, countryName, countryCards);
 
 }
 
@@ -288,6 +293,31 @@ function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) 
     card = card.replace(/\$upperCountryCode/g, countryCode.toUpperCase());
 
     return card;
+
+}
+
+
+/**
+ * Function to create a country's HTML page.
+ */
+function writeCountryPage(code, name, cards) {
+
+    let page = TEMPLATES.COUNTRY;
+
+    page = page.replace(/\$countryCode/g, code);
+    page = page.replace(/\$countryName/g, name);
+
+    cards = sortCards(cards);
+
+    let main = "";
+
+    for (card of cards) {
+        main += card.html + "\n";
+    }
+
+    page = page.replace("$main", main);
+
+    FS.writeFileSync(PATHS.OUTPUT+code+".html", page);
 
 }
 
