@@ -37,6 +37,12 @@ for (countryCode in RESULTS) {
         writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
             domain, score, grade, bankResults);
 
+        let card = {
+            score,
+            bankName,
+            html: makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade)
+        };
+
     }
 
 }
@@ -262,6 +268,26 @@ function getExplanation(grade) {
     } else if (grade == "E") {
         return "has very bad security. They have failed almost every on of the tests.";
     }
+
+}
+
+
+/**
+ * Function to create a bank's HTML card.
+ */
+function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) {
+
+    let card = TEMPLATES.TEMPLATECARD;
+
+    card = card.replace(/\$countryCode/g, countryCode);
+    card = card.replace(/\$urlSafeName/g, urlSafeBankName);
+    card = card.replace(/\$grade/g,       grade);
+    card = card.replace(/\$score/g,       score);
+    card = card.replace(/\$name/g,        bankName);
+    card = card.replace(/\$domain/g,      domain);
+    card = card.replace(/\$upperCountryCode/g, countryCode.toUpperCase());
+
+    return card;
 
 }
 
