@@ -348,7 +348,7 @@ function writeCountryPage(code, name, cards) {
     let main = "";
 
     for (card of cards) {
-        main += card.html + "\n";
+        main += card.html;
     }
 
     page = page.replace("$main", main);
@@ -384,7 +384,7 @@ function writeHomePage(cards) {
     let main = "";
 
     for (card of cards) {
-        main += card.html + "\n";
+        main += card.html;
     }
 
     page = page.replace("$main", main);
