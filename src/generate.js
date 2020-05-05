@@ -216,16 +216,19 @@ function makeBankMain(results) {
             main = main.replace("$metric", TEMPLATES.TEMPLATEMETRIC + "$metric");
             main = main.replace("$title", metric);
 
+            main = main.replace("$result", TEMPLATES.TEMPLATERESULT);
+
             if ("boolean" === typeof result) {
 
-                main = main.replace("$result", TEMPLATES.TEMPLATERESULT);
                 main = main.replace("$grade", (result ? "A" : "E"));
                 main = main.replace("$check", (result ? "&check;" : "&cross;"));
 
-            } else if ("" === result) {
-                main = main.replace("$result", "hidden");
             } else {
-                main = main.replace("$result", htmlEncode(result));
+
+                main = main.replace("$grade", "");
+                main = main.replace("$check",
+                    (("" === result) ? "<i>hidden</i>" : htmlEncode(result)));
+
             }
 
         }
