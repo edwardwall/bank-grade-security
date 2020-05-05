@@ -2,7 +2,9 @@ const FS = require("fs");
 
 const PATHS = {
     HTML  : "../html/",
-    OUTPUT: "../docs/"
+    OUTPUT: "../docs/",
+    RESOURCES: "../resources/",
+    IMAGES: "../images/"
 };
 
 const TEMPLATES = getTemplates();
@@ -16,6 +18,8 @@ var cards = [];
 try {
     FS.mkdirSync(PATHS.OUTPUT);
 } catch (e) {}
+
+writeStandardFiles();
 
 for (countryCode in RESULTS) {
 
@@ -424,5 +428,35 @@ function getBankDetails() {
     }
 
     return details;
+
+}
+
+
+/**
+ * Function to move standard files into website directory.
+ */
+function writeStandardFiles() {
+
+    FS.writeFileSync(PATHS.OUTPUT+"CNAME", "bankgradesecurity.com"); // CNAME for GitHub
+
+    const DIR = "resources/";
+
+    try {
+        FS.mkdirSync(PATHS.OUTPUT + DIR);
+    } catch (e) {}
+
+
+    for (directory of [PATHS.RESOURCES, PATHS.IMAGES]) {
+
+        let files = FS.readdirSync(directory);
+
+        for (filename of files) {
+
+            let file = FS.readFileSync(directory + filename);
+            FS.writeFileSync(PATHS.OUTPUT + DIR + filename, file);
+
+        }
+
+    }
 
 }
