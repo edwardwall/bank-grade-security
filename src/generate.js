@@ -2,7 +2,7 @@ const FS = require("fs");
 
 const PATHS = {
     HTML  : "../html/",
-    OUTPUT: "../docs/",
+    OUTPUT: "../../bankgradesecurity.com/", // Intentionally outside repository
     RESOURCES: "../resources/",
     IMAGES: "../images/"
 };
