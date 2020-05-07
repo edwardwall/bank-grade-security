@@ -1,6 +1,7 @@
 const FS = require("fs");
 const TLS = require("tls");
 const URL = require("url");
+const PATH = require("path");
 const HTTP = require("http");
 const HTTPS = require("https");
 
@@ -38,9 +39,11 @@ var results = {};
 var interval;
 
 // Read banks from directory
-for (filename of FS.readdirSync("../banks/")) {
+for (filename of FS.readdirSync(PATH.resolve(__dirname, "../banks/"))) {
 
-    let file = JSON.parse(FS.readFileSync("../banks/"+filename, "utf8"));
+    let file;
+    file = FS.readFileSync(PATH.resolve(__dirname, "../banks/", filename), "utf8");
+    file = JSON.parse(file);
 
     // Sanity check, ensure filename matches file contents
     if (filename != (file.code + ".json")) {
@@ -138,7 +141,8 @@ async function report(data, title, result, onlyIfUndefined) {
         results[data.country][data.name][reportCategory][title] = result;
     }
 
-    FS.writeFile("../output.json", JSON.stringify(results, null, 4), () => {});
+    FS.writeFile(PATH.resolve(__dirname, "../output.json"),
+        JSON.stringify(results, null, 4), () => {});
 
 }
 
