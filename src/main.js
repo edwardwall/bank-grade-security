@@ -33,9 +33,9 @@ const CATEGORIES = convertCategories({
     ]
 });
 
+// Declare global variables
 var banks = [];
 var results = {};
-
 var interval;
 
 // Read banks from directory
@@ -59,11 +59,13 @@ for (filename of FS.readdirSync(PATH.resolve(__dirname, "../banks/"))) {
 
 }
 
+// Sort in reverse alphabetical order, so pop() takes elements alphabetically
 banks = banks.sort((a, b) => {
     return a.name < b.name;
 });
 
 interval = setInterval(begin, 1000); // 1 second
+
 
 /**
  * Function to begin testing of the next bank.
