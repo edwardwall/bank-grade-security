@@ -154,7 +154,21 @@ async function report(data, title, result, onlyIfUndefined) {
  */
 async function writeResults() {
 
-    FS.writeFile(PATH.resolve(__dirname, "../output.json"),
+    let date = new Date();
+
+    let year  = String(date.getFullYear());
+    let month = String(date.getMonth() + 1);
+
+    if (1 === month.length) {
+        month = "0" + month;
+    }
+
+    // Ensure that history directory exists
+    try {
+        FS.mkdirSync(PATH.resolve(__dirname, "../history/"));
+    } catch (e) {}
+
+    FS.writeFile(PATH.resolve(__dirname, "../history/", year+month+".json"),
         JSON.stringify(results, null, 4),
         (e) => {
             if (e) {
