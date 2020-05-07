@@ -3,7 +3,8 @@ const PATH = require("path");
 
 const PATHS = {
     BANKS: "../banks/",
-    HTML  : "../html/",
+    HTML: "../html/",
+    HISTORY: "../history/",
     OUTPUT: "../../bankgradesecurity.com/", // Intentionally outside repository
     RESOURCES: "../resources/",
     IMAGES: "../images/"
@@ -11,7 +12,7 @@ const PATHS = {
 
 const TEMPLATES = getTemplates();
 const DETAILS = getBankDetails();
-const RESULTS = JSON.parse(FS.readFileSync(PATH.resolve(__dirname, "../output.json"), "utf8"));
+const {RESULTS, HISTORY} = getResultsHistory();
 
 var countries = [];
 var cards = [];
@@ -444,6 +445,31 @@ function getBankDetails() {
 function writeFile(file, location) {
 
     FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
+
+}
+
+
+/**
+ * Function to get latest set of results and previous results.
+ */
+function getResultsHistory() {
+
+    let dir = FS.readdirSync(PATH.resolve(__dirname, PATHS.HISTORY)).reverse();
+    let history = [];
+
+    for (filename of dir) {
+
+        let file;
+        file = FS.readFileSync(PATH.resolve(__dirname, PATHS.HISTORY, filename), "utf8");
+        file = JSON.parse(file);
+        history.push(file);
+
+    }
+
+    return {
+        RESULTS: history.splice(0, 1)[0],
+        HISTORY: history
+    };
 
 }
 
