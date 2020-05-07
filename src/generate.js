@@ -15,10 +15,14 @@ const RESULTS = JSON.parse(FS.readFileSync("../output.json", "utf8"));
 var countries = [];
 var cards = [];
 
-// Make directory for output
+// Check output directory exists
 try {
-    FS.mkdirSync(PATHS.OUTPUT);
-} catch (e) {}
+    FS.readdirSync(PATHS.OUTPUT);
+} catch (e) {
+    console.log("Output directory does not exist.");
+    console.log("Create directory 'bankgradesecurity.com' alongside this repository.");
+    throw "Output directory does not exist";
+}
 
 writeStandardFiles();
 
