@@ -1,4 +1,5 @@
 const FS = require("fs");
+const PATH = require("path");
 
 const PATHS = {
     BANKS: "../banks/",
@@ -10,14 +11,14 @@ const PATHS = {
 
 const TEMPLATES = getTemplates();
 const DETAILS = getBankDetails();
-const RESULTS = JSON.parse(FS.readFileSync("../output.json", "utf8"));
+const RESULTS = JSON.parse(FS.readFileSync(PATH.resolve(__dirname, "../output.json"), "utf8"));
 
 var countries = [];
 var cards = [];
 
 // Check output directory exists
 try {
-    FS.readdirSync(PATHS.OUTPUT);
+    FS.readdirSync(PATH.resolve(__dirname, PATHS.OUTPUT));
 } catch (e) {
     console.log("Output directory does not exist.");
     console.log("Create directory 'bankgradesecurity.com' alongside this repository.");
@@ -138,7 +139,7 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
     domain, score, grade, results) {
 
     try {
-        FS.mkdirSync(PATHS.OUTPUT + countryCode);
+        FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, countryCode));
     } catch (e) {}
 
     let page = TEMPLATES.BANK;
@@ -167,14 +168,14 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
  */
 function getTemplates() {
 
-    let filenames = FS.readdirSync(PATHS.HTML);
+    let filenames = FS.readdirSync(PATH.resolve(__dirname, PATHS.HTML));
 
     let templates = {};
 
     for (filename of filenames) {
 
         let key = filename.substring(0, filename.indexOf('.'));
-        templates[key] = FS.readFileSync(PATHS.HTML + filename, "utf8");
+        templates[key] = FS.readFileSync(PATH.resolve(__dirname, PATHS.HTML, filename), "utf8");
 
     }
 
@@ -413,10 +414,10 @@ function getBankDetails() {
 
     let details = {};
 
-    for (filename of FS.readdirSync(PATHS.BANKS)) {
+    for (filename of FS.readdirSync(PATH.resolve(__dirname, PATHS.BANKS))) {
 
         let file;
-        file = FS.readFileSync(PATHS.BANKS + filename);
+        file = FS.readFileSync(PATH.resolve(__dirname, PATHS.BANKS, filename));
         file = JSON.parse(file);
 
         details[file.code] = {
@@ -442,7 +443,7 @@ function getBankDetails() {
  */
 function writeFile(file, location) {
 
-    FS.writeFileSync(PATHS.OUTPUT + location, file);
+    FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
 
 }
 
@@ -457,17 +458,17 @@ function writeStandardFiles() {
     const DIR = "resources/";
 
     try {
-        FS.mkdirSync(PATHS.OUTPUT + DIR);
+        FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, DIR));
     } catch (e) {}
 
 
     for (directory of [PATHS.RESOURCES, PATHS.IMAGES]) {
 
-        let files = FS.readdirSync(directory);
+        let files = FS.readdirSync(PATH.resolve(__dirname, directory));
 
         for (filename of files) {
 
-            let file = FS.readFileSync(directory + filename);
+            let file = FS.readFileSync(PATH.resolve(__dirname, directory, filename));
             writeFile(file, DIR + filename);
 
         }
