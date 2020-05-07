@@ -1,6 +1,7 @@
 const FS = require("fs");
 
 const PATHS = {
+    BANKS: "../banks/",
     HTML  : "../html/",
     OUTPUT: "../../bankgradesecurity.com/", // Intentionally outside repository
     RESOURCES: "../resources/",
@@ -406,22 +407,22 @@ function writeHomePage(cards) {
  */
 function getBankDetails() {
 
-    const FILE = JSON.parse(FS.readFileSync("../banks.json", "utf8"));
-
     let details = {};
 
-    for (countryObject of FILE) {
+    for (filename of FS.readdirSync(PATHS.BANKS)) {
 
-        let countryCode = countryObject.code;
+        let file;
+        file = FS.readFileSync(PATHS.BANKS + filename);
+        file = JSON.parse(file);
 
-        details[countryCode] = {
-            name: countryObject.name,
+        details[file.code] = {
+            name: file.name,
             banks: {}
         };
 
-        for (bankObject of countryObject.list) {
+        for (bankObject of file.list) {
 
-            details[countryCode]["banks"][bankObject.name] = bankObject.domain;
+            details[file.code].banks[bankObject.name] = bankObject.domain;
 
         }
 
