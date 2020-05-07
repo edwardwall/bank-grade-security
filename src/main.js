@@ -37,14 +37,19 @@ var results = {};
 
 var interval;
 
-// Read banks from file
-for (countryObject of (JSON.parse(FS.readFileSync("../banks.json", "utf8")))) {
+// Read banks from directory
+for (filename of FS.readdirSync("../banks/")) {
 
-    let countryCode = countryObject.code.toLowerCase();
+    let file = JSON.parse(FS.readFileSync("../banks/"+filename, "utf8"));
 
-    for (bankObject of countryObject.list) {
+    // Sanity check, ensure filename matches file contents
+    if (filename != (file.code + ".json")) {
+        throw "Incorrect filename - " + file.code + " " + filename;
+    }
 
-        bankObject.country = countryCode;
+    for (bankObject of file.list) {
+
+        bankObject.country = file.code;
         banks.push(bankObject);
 
     }
@@ -53,7 +58,7 @@ for (countryObject of (JSON.parse(FS.readFileSync("../banks.json", "utf8")))) {
 
 banks = banks.sort((a, b) => {
     return a.name < b.name;
-})
+});
 
 interval = setInterval(begin, 1000); // 1 second
 
