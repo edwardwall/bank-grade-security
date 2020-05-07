@@ -66,7 +66,6 @@ banks = banks.sort((a, b) => {
 
 interval = setInterval(begin, 1000); // 1 second
 
-
 /**
  * Function to begin testing of the next bank.
  */
@@ -77,6 +76,7 @@ async function begin() {
     // check if this was final element in list
     if (0 == banks.length) {
         clearInterval(interval);
+        interval = setTimeout(writeResults, 10000); // 10 seconds
     }
 
     // Default reports
@@ -143,8 +143,26 @@ async function report(data, title, result, onlyIfUndefined) {
         results[data.country][data.name][reportCategory][title] = result;
     }
 
+}
+
+
+/**
+ * Function to write results to file.
+ */
+async function writeResults() {
+
     FS.writeFile(PATH.resolve(__dirname, "../output.json"),
-        JSON.stringify(results, null, 4), () => {});
+        JSON.stringify(results, null, 4),
+        (e) => {
+            if (e) {
+                // Cannot write to file, write to console to prevent losing results
+                console.log("Write to file failed, the results are:");
+                console.log(JSON.stringify(results));
+                throw e;
+            } else {
+                console.log("Write successful.");
+            }
+        });
 
 }
 
