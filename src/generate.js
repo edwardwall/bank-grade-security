@@ -157,7 +157,7 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
 
     page = page.replace("$main", makeBankMain(results));
 
-    FS.writeFileSync(PATHS.OUTPUT+countryCode+"/"+urlSafeBankName+".html", page);
+    writeFile(page, countryCode+"/" + urlSafeBankName+".html");
 
 }
 
@@ -365,7 +365,7 @@ function writeCountryPage(code, name, cards) {
 
     page = page.replace("$main", main);
 
-    FS.writeFileSync(PATHS.OUTPUT+code+".html", page);
+    writeFile(page, code+".html");
 
 }
 
@@ -401,7 +401,7 @@ function writeHomePage(cards) {
 
     page = page.replace("$main", main);
 
-    FS.writeFileSync(PATHS.OUTPUT+"index.html", page);
+    writeFile(page, "index.html");
 
 }
 
@@ -438,11 +438,21 @@ function getBankDetails() {
 
 
 /**
+ * Function to write a given file to the given location.
+ */
+function writeFile(file, location) {
+
+    FS.writeFileSync(PATHS.OUTPUT + location, file);
+
+}
+
+
+/**
  * Function to move standard files into website directory.
  */
 function writeStandardFiles() {
 
-    FS.writeFileSync(PATHS.OUTPUT+"CNAME", "bankgradesecurity.com"); // CNAME for GitHub
+    writeFile("bankgradesecurity.com", "CNAME");// CNAME for GitHub
 
     const DIR = "resources/";
 
@@ -458,7 +468,7 @@ function writeStandardFiles() {
         for (filename of files) {
 
             let file = FS.readFileSync(directory + filename);
-            FS.writeFileSync(PATHS.OUTPUT + DIR + filename, file);
+            writeFile(file, DIR + filename);
 
         }
 
