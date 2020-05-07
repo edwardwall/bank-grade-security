@@ -83,7 +83,10 @@ async function begin() {
     report(data, "Upgrade HTTP", false);
     report(data, "Secure Redirection Chain", true);
 
-    startHttpChainFollow(data, {
+    data.chainCount = 0;
+    data.cookies = {};
+
+    followChain(data, {
         protocol: "http:",
         hostname: data.domain,
         path: "/",
@@ -163,20 +166,6 @@ async function writeResults() {
                 console.log("Write successful.");
             }
         });
-
-}
-
-
-/**
- * Function to begin series of HTTP requests to follow HTTP redirection chain.
- * @param {BankDataObject} data
- */
-async function startHttpChainFollow(data, options) {
-
-    data.chainCount = 0;
-    data.cookies = {};
-
-    followChain(data, options);
 
 }
 
