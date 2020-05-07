@@ -561,7 +561,7 @@ async function checkForwardSecrecy(data, cipher) {
 
     for (str of find) {
 
-        if (cipher.startsWith(str)) {
+        if (cipher.name.startsWith(str)) {
             report(data, "Forward Secrecy", true);
         }
 
