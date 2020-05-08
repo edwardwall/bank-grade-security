@@ -194,6 +194,7 @@ text-decoration:none;
 display:inline-block;
 text-align:center;
 padding:1em;
+padding-bottom:.5em;
 }
 .history .grade {
 display:inline-block;
@@ -202,8 +203,7 @@ float:none;
 }
 
 p {
-font-size:.8em;
-margin:1em;
+margin:.5em 0;
 }
 
 @media (max-width:850px) {
