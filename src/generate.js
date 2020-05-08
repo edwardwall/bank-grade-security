@@ -53,7 +53,7 @@ for (countryCode in RESULTS) {
         let previous = getPrevious(countryCode, bankName);
 
         writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
-            domain, score, grade, bankResults);
+            domain, score, grade, bankResults, previous);
 
         let card = {
             score,
@@ -175,7 +175,7 @@ function getPrevious(country, name) {
  * Function to write bank HTML file.
  */
 function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
-    domain, score, grade, results) {
+    domain, score, grade, results, previous) {
 
     try {
         FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, countryCode));
@@ -195,7 +195,7 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
     page = page.replace(/\$explanation/g, bankName + " " + getExplanation(grade));
     page = page.replace(/\$urlSafeName/g, urlSafeBankName);
 
-    page = page.replace("$main", makeBankMain(results));
+    page = page.replace("$main", makeBankMain(results, previous));
 
     writeFile(page, countryCode+"/" + urlSafeBankName+".html");
 
@@ -249,7 +249,7 @@ function getTemplates() {
 /**
  * Function to make the main section of the bank HTML page.
  */
-function makeBankMain(results) {
+function makeBankMain(results, previous) {
 
     let main = "";
 
@@ -279,6 +279,25 @@ function makeBankMain(results) {
                     (("" === result) ? "<i>hidden</i>" : htmlEncode(result)));
 
             }
+
+        }
+
+        main = main.replace("$metric", "");
+
+    }
+
+    if (0 < previous.length) {
+
+        main += TEMPLATES.TEMPLATECATEGORY;
+        main = main.replace("$title", "History");
+
+        for (result of previous) {
+
+            main = main.replace("$metric", TEMPLATES.TEMPLATEHISTORY + "$metric");
+
+            main = main.replace("$grade", result.grade);
+            main = main.replace("$score", result.score);
+            main = main.replace("$date", result.month.substring(0, 3) + " " + result.year);
 
         }
 
