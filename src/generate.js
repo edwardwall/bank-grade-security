@@ -50,6 +50,8 @@ for (countryCode in RESULTS) {
         let score = calculateScore(bankResults);
         let grade = calculateGrade(score);
 
+        let previous = getPrevious(countryCode, bankName);
+
         writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
             domain, score, grade, bankResults);
 
@@ -129,6 +131,42 @@ function calculateGrade(score) {
 
     score = Math.floor(score / 20);
     return ["E", "D", "C", "B", "A", "Z"][score];
+
+}
+
+
+/**
+ * Function to retrieve previous results.
+ */
+function getPrevious(country, name) {
+
+    let previous = [];
+
+    for (scan of HISTORY) {
+
+        let data;
+
+        try {
+            data = scan[country][name];
+        } catch (e) {}
+
+        if (undefined === data) {
+            break;
+        }
+
+        let score = calculateScore(data);
+        let grade = calculateGrade(score);
+
+        previous.push({
+            year:  scan.date.year,
+            month: scan.date.month,
+            score,
+            grade
+        });
+
+    }
+
+    return previous;
 
 }
 
@@ -462,14 +500,50 @@ function getResultsHistory() {
         let file;
         file = FS.readFileSync(PATH.resolve(__dirname, PATHS.HISTORY, filename), "utf8");
         file = JSON.parse(file);
+
+        file.date = {
+            year:  parseInt(filename.substring(0, 4)),
+            month: parseInt(filename.substring(4, 6))
+        };
+
+        file.date.month = getMonth(file.date.month);
+
         history.push(file);
 
     }
+
+    delete history[0].date; // remove date from results
 
     return {
         RESULTS: history.splice(0, 1)[0],
         HISTORY: history
     };
+
+}
+
+
+/**
+ * Function to return the months name.
+ */
+function getMonth(month) {
+
+    const MONTHS = [
+        undefined, // make months index one-based
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    return MONTHS[month];
 
 }
 
