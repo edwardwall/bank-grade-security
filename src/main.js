@@ -613,10 +613,7 @@ async function checkCsp(data, header) {
     for (directive of header.split(";")) {
 
         directive += " "; // Aids testing for wildcards
-
-        while(directive.startsWith(" ")) {
-            directive = directive.substring(1);
-        }
+        directive = directive.trim(); // Remove spaces at beginning
 
         if (directive.startsWith("default-src ")) {
             defaultSrc = performXssCheck(directive);
