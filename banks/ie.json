@@ -1,0 +1,30 @@
+{
+	"name": "Ireland",
+	"code": "ie",
+	"list": [
+		{
+			"name": "AIB",
+			"domain": "aib.ie"
+		},
+		{
+			"name": "Bank of Ireland",
+			"domain": "bankofireland.com"
+		},
+		{
+			"name": "EBS",
+			"domain": "ebs.ie"
+		},
+		{
+			"name": "KBC",
+			"domain": "kbc.ie"
+		},
+		{
+			"name": "Permanent TSB",
+			"domain": "permanenttsb.ie"
+		},
+		{
+			"name": "Ulster Bank",
+			"domain": "ulsterbank.ie"
+		}
+	]
+}
