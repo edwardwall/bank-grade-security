@@ -411,22 +411,12 @@ async function checkHsts(data, hostname, headers) {
  */
 async function checkDnssec(data, hostname) {
 
-    get(data, "https://dns.google.com/resolve?type=DS&name=" + hostname, dnssecCallback);
+    get(data, "https://dns.google.com/resolve?type=DS&name=" + hostname, (data, headers, body) => {
 
-}
+        body = JSON.parse(body);
+        report(data, "DNS Security Extensions", (!!body.Answer));
 
-
-/**
- * Function to receive DNSSEC response.
- *
- * @param {BankDataObject} data
- * @param {Object} headers
- * @param {string} body
- */
-async function dnssecCallback(data, headers, body) {
-
-    body = JSON.parse(body);
-    report(data, "DNS Security Extensions", (!!body.Answer));
+    });
 
 }
 
