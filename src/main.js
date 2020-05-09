@@ -55,6 +55,8 @@ for (filename of FS.readdirSync(PATH.resolve(__dirname, "../banks/"))) {
         bankObject.country = file.code;
         banks.push(bankObject);
 
+        prepareResults(bankObject.country, bankObject.name);
+
     }
 
 }
@@ -105,6 +107,35 @@ async function begin() {
 
 
 /**
+ * Function to prepare results object.
+ *
+ * @param {string} country
+ * @param {string} name
+ */
+function prepareResults(country, name) {
+
+    if (undefined === results[country]) {
+        results[country] = {};
+    }
+
+    results[country][name] = {};
+
+    for (metric in CATEGORIES) {
+
+        let category = CATEGORIES[metric];
+
+        if (undefined === results[country][name][category]) {
+            results[country][name][category] = {};
+        }
+
+        results[country][name][category][metric] = "";
+
+    }
+
+}
+
+
+/**
  * Function to receive reports from async functions about results.
  *
  * @param {BankDataObject} data
@@ -115,28 +146,6 @@ async function begin() {
  *      result is saved.
  */
 async function report(data, title, result, onlyIfUndefined) {
-
-    if (undefined === results[data.country]) {
-        results[data.country] = {};
-    }
-
-    if (undefined === results[data.country][data.name]) {
-
-        results[data.country][data.name] = {};
-
-        for (metric in CATEGORIES) {
-
-            let cat = CATEGORIES[metric];
-
-            if (undefined === results[data.country][data.name][cat]) {
-                results[data.country][data.name][cat] = {};
-            }
-
-            results[data.country][data.name][cat][metric] = "";
-
-        }
-
-    }
 
     let reportCategory = CATEGORIES[title];
 
