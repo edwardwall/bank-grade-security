@@ -1,0 +1,94 @@
+{
+	"name": "United Kingdom",
+	"code": "gb",
+	"list": [
+		{
+			"name": "Bank of Scotland",
+			"domain": "bankofscotland.co.uk"
+		},
+		{
+			"name": "Barclays",
+			"domain": "barclays.co.uk"
+		},
+		{
+			"name": "Clydesdale Bank",
+			"domain": "cbonline.co.uk"
+		},
+		{
+			"name": "Co-operative Bank",
+			"domain": "co-operativebank.co.uk"
+		},
+		{
+			"name": "Danske Bank",
+			"domain": "danskebank.co.uk"
+		},
+		{
+			"name": "First Direct",
+			"domain": "firstdirect.co.uk"
+		},
+		{
+			"name": "Halifax",
+			"domain": "halifax.co.uk"
+		},
+		{
+			"name": "HSBC",
+			"domain": "hsbc.co.uk"
+		},
+		{
+			"name": "Lloyds Bank",
+			"domain": "lloydsbank.com"
+		},
+		{
+			"name": "M&S Bank",
+			"domain": "marksandspencer.com"
+		},
+		{
+			"name": "Metro Bank",
+			"domain": "metrobankonline.co.uk"
+		},
+		{
+			"name": "Nationwide BS",
+			"domain": "nationwide.co.uk"
+		},
+		{
+			"name": "NatWest",
+			"domain": "natwest.com"
+		},
+		{
+			"name": "Royal Bank of Scotland",
+			"domain": "rbs.co.uk"
+		},
+		{
+			"name": "Sainsbury's Bank",
+			"domain": "sainsburysbank.co.uk"
+		},
+		{
+			"name": "Santander",
+			"domain": "santander.co.uk"
+		},
+		{
+			"name": "Skipton BS",
+			"domain": "skipton.co.uk"
+		},
+		{
+			"name": "Smile",
+			"domain": "smile.co.uk"
+		},
+		{
+			"name": "Tesco Bank",
+			"domain": "tescobank.com"
+		},
+		{
+			"name": "TSB",
+			"domain": "tsb.co.uk"
+		},
+		{
+			"name": "Ulster Bank",
+			"domain": "ulsterbank.co.uk"
+		},
+		{
+			"name": "Yorkshire Bank",
+			"domain": "ybonline.co.uk"
+		}
+	]
+}
