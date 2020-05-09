@@ -340,7 +340,7 @@ async function analyse(data, url, headers, body) {
 
     checkHsts(data, url.hostname, headers);
     checkDnssec(data, url.hostname);
-    checkCaa(data, url.hostname);
+    checkCaa(data);
     checkProtocols(data, url.hostname);
     checkSecurityHeaders(data, headers);
 
@@ -424,50 +424,15 @@ async function checkDnssec(data, hostname) {
  * Function to check CAA usage.
  *
  * @param {BankDataObject} data
- * @param {string} hostname
  */
-async function checkCaa(data, hostname) {
+async function checkCaa(data) {
 
-    get(data, "https://dns.google.com/resolve?type=CAA&name=" + hostname, caaCallback);
+    get(data, "https://dns.google.com/resolve?type=CAA&name=" + data.domain, (data, headers, body) => {
 
-}
+        body = JSON.parse(body);
+        report(data, "Certification Authority Authorization", !!body.Answer);
 
-
-/**
- * Function to receive CAA response.
- *
- * @param {BankDataObject} data
- * @param {Object} headers
- * @param {string} body
- */
-async function caaCallback(data, headers, body) {
-
-    body = JSON.parse(body);
-
-    if (body.Answer) {
-        report(data, "Certification Authority Authorization", true);
-    } else {
-
-        let domain;
-        let query = body.Question[0].name;
-        query = query.substring(0, query.length - 1); // remove trailing dot
-
-        if (body.Authority) {
-            domain = body.Authority[0].name;
-            domain = domain.substring(0, domain.length - 1); // remove trailing dot
-        } else {
-            domain = query.split(".");
-            domain.splice(0, 1);
-            domain = domain.join(".");
-        }
-
-        if (domain === query) {
-            report(data, "Certification Authority Authorization", false);
-        } else {
-            checkCaa(data, domain);
-        }
-
-    }
+    });
 
 }
 
