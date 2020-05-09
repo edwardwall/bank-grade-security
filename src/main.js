@@ -338,7 +338,7 @@ async function followChain(data, options) {
  */
 async function analyse(data, url, headers, body) {
 
-    checkHsts(data, url, headers);
+    checkHsts(data, url.hostname, headers);
     checkDnssec(data, url.hostname);
     checkCaa(data, url.hostname);
     checkProtocols(data, url.hostname);
@@ -351,67 +351,54 @@ async function analyse(data, url, headers, body) {
  * Function to test whether website uses HSTS.
  *
  * @param {BankDataObject} data
- * @param {URL} url
+ * @param {string} hostname
  * @param {Object} headers
  */
-async function checkHsts(data, url, headers) {
+async function checkHsts(data, hostname, headers) {
 
     let stsHeader = headers["strict-transport-security"];
 
-    if (undefined === stsHeader) {
+    let usesHsts = false;
+    let usesPreload = false;
 
-        report(data, "HTTP Strict Transport Security", false);
-        report(data, "HSTS Preload", false);
-
-    } else {
+    if (stsHeader) {
 
         stsHeader = stsHeader.replace(/ /g, ""); // remove spaces
         stsHeader = stsHeader.split(";");
 
-        let age = 0;
-        let preload = false;
+        let maxAge = "max-age=";
 
-        for (part of stsHeader) {
+        for (directive of stsHeader) {
 
-            let maxAge = "max-age=";
-
-            if (part.startsWith(maxAge)) {
-                age = part.substring(maxAge.length);
+            if (directive.startsWith(maxAge)) {
+                let age = directive.substring(maxAge.length);
                 age = parseInt(age);
+                usesHsts = (0 < age);
             }
 
-            if ("preload" === part) {
-                preload = true;
+            if (directive.includes("preload")) {
+                usesPreload = true;
             }
 
-        }
-
-        report(data, "HTTP Strict Transport Security", (0 < age));
-
-        if (false === preload) {
-            report(data, "HSTS Preload", false);
-        } else {
-            get(data,
-                "https://hstspreload.org/api/v2/status?domain=" + url.hostname,
-                hstsPreloadCallback);
         }
 
     }
 
-}
+    report(data, "HTTP Strict Transport Security", usesHsts);
+    report(data, "HSTS Preload", false);
 
+    if (usesHsts && usesPreload) {
 
-/**
- * Function to receive HSTS Preload response.
- *
- * @param {BankDataObject} data
- * @param {Object} headers
- * @param {string} body
- */
-async function hstsPreloadCallback(data, headers, body) {
+        let url = "https://hstspreload.org/api/v2/status?domain=" + hostname;
 
-    body = JSON.parse(body);
-    report(data, "HSTS Preload", ("preloaded" === body.status));
+        get(data, url, (data, headers, body) => {
+
+            body = JSON.parse(body);
+            report(data, "HSTS Preload", ("preloaded" === body.status));
+
+        });
+
+    }
 
 }
 
@@ -759,7 +746,7 @@ async function checkMiscHeaders(data, headers) {
     }
 
     if (aspVersion) {
-        report(data, "ASP.NET Version", aspVerison, true);
+        report(data, "ASP.NET Version", aspVersion, true);
     } else if (aspMvcVersion) {
         report(data, "ASP.NET Version", aspMvcVersion, true);
     }
