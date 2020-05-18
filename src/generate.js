@@ -208,41 +208,32 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
 function getTemplates() {
 
     let filenames = FS.readdirSync(PATH.resolve(__dirname, PATHS.HTML));
+    let files = {};
+
+    for (filename of filenames) {
+        files[filename] = FS.readFileSync(PATH.resolve(__dirname, PATHS.HTML, filename), "utf8");
+    }
 
     let templates = {};
 
-    for (filename of filenames) {
+    for (filename in files) {
 
-        let key = filename.substring(0, filename.indexOf('.'));
-        templates[key] = FS.readFileSync(PATH.resolve(__dirname, PATHS.HTML, filename), "utf8");
-
-    }
-
-    let ret = {};
-
-    for (key in templates) {
-
-        if (key.toLowerCase().includes("header") ||
-            key.toLowerCase().includes("footer")) {
+        if (filename.toLowerCase().includes("header") ||
+            filename.toLowerCase().includes("footer")) {
 
             continue;
         }
 
-        if (key.startsWith("template")) {
-            ret[key.toUpperCase()] = templates[key];
-            continue;
-        }
+        files[filename] = files[filename]
+            .replace("$header", files.templateHeader)
+            .replace("$footer", files.templateFooter);
 
-        templates[key] = templates[key]
-            .replace("$header", templates.templateHeader)
-            .replace("$footer", templates.templateFooter);
-
-        ret[key.toUpperCase()] = templates[key];
-
+        let key = filename.substring(0, filename.indexOf(".")); // remove file extension
+        
+        templates[key.toUpperCase()] = files[filename];
     }
 
-    return ret;
-
+    return templates;
 }
 
 
