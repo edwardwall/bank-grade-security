@@ -259,33 +259,28 @@ function makeBankMain(results, previous) {
         main = main.replace("$title", category);
 
         for (metric in results[category]) {
-
             let result = results[category][metric];
+            let grade;
+            let check;
+
+            if ("boolean" == typeof result) {
+                grade = (result ? "A" : "E");
+                check = (result ? "&check;" : "&cross;");
+            } else {
+                grade = "";
+                check = (("" === result) ? "<i>hidden</i>" : htmlEncode(result));
+            }
 
             main = main.replace("$metric",
                 "<div class=measure>\
                 <span>" + metric + "</span>\
                 <div class=results>\
-                <div class=\"result $grade\">$check</div>\
+                <div class=\"result "+grade+"\">"+check+"</div>\
                 </div>\
                 </div>$metric");
-
-            if ("boolean" === typeof result) {
-
-                main = main.replace("$grade", (result ? "A" : "E"));
-                main = main.replace("$check", (result ? "&check;" : "&cross;"));
-
-            } else {
-
-                main = main.replace("$grade", "");
-                main = main.replace("$check",
-                    (("" === result) ? "<i>hidden</i>" : htmlEncode(result)));
-
-            }
-
         }
 
-        main = main.replace("$metric", "");
+        main = main.replace("$metric", ""); // remove trailing tag
 
     }
 
