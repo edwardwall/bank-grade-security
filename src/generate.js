@@ -439,17 +439,13 @@ function writeHomePage(cards) {
     let replace = [];
 
     for (country of countries) {
-
-        let anchor = TEMPLATES.TEMPLATENAV;
-
-        anchor = anchor.replace("$countryCode", country.countryCode);
-        anchor = anchor.replace("$countryName", country.countryName);
-
-        replace.push(anchor);
-
+        replace.push(
+            "<a href=https://bankgradesecurity.com/" + country.countryCode +
+            ">" + country.countryName + "</a>"
+        );
     }
 
-    page = page.replace("$countries", replace.join(""));
+    page = page.replace("$countries", replace.join("\n"));
     card = sortCards(cards);
 
     let main = "";
