@@ -265,7 +265,9 @@ function makeBankMain(results, previous) {
             main = main.replace("$metric",
                 "<div class=measure>\
                 <span>" + metric + "</span>\
-                <div class=results>" + TEMPLATES.TEMPLATERESULT + "</div>\
+                <div class=results>\
+                <div class=\"result $grade\">$check</div>\
+                </div>\
                 </div>$metric");
 
             if ("boolean" === typeof result) {
