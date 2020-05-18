@@ -31,7 +31,6 @@ writeStandardFiles();
 for (countryCode in RESULTS) {
 
     let countryResults = RESULTS[countryCode];
-
     let countryName = DETAILS[countryCode].name;
     let countryCards = [];
 
@@ -46,10 +45,8 @@ for (countryCode in RESULTS) {
 
         let urlSafeBankName = makeUrlSafe(bankName);
         let domain = DETAILS[countryCode]["banks"][bankName];
-
         let score = calculateScore(bankResults);
         let grade = calculateGrade(score);
-
         let previous = getPrevious(countryCode, bankName);
 
         writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
@@ -63,11 +60,9 @@ for (countryCode in RESULTS) {
 
         countryCards.push(card);
         cards.push(card);
-
     }
 
     writeCountryPage(countryCode, countryName, countryCards);
-
 }
 
 writeHomePage(cards);
@@ -229,7 +224,7 @@ function getTemplates() {
             .replace("$footer", files.templateFooter);
 
         let key = filename.substring(0, filename.indexOf(".")); // remove file extension
-        
+
         templates[key.toUpperCase()] = files[filename];
     }
 
@@ -349,7 +344,6 @@ function getExplanation(grade) {
  */
 function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) {
 
-
     let card =
         "<a class=card href=https://bankgradesecurity.com/"+countryCode+"/"+urlSafeBankName+">\
         <div class=\"grade "+grade+">" +score+ "</div>\
@@ -358,7 +352,6 @@ function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) 
         </a>";
 
     return card;
-
 }
 
 
