@@ -358,15 +358,13 @@ function getExplanation(grade) {
  */
 function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) {
 
-    let card = TEMPLATES.TEMPLATECARD;
 
-    card = card.replace(/\$countryCode/g, countryCode);
-    card = card.replace(/\$urlSafeName/g, urlSafeBankName);
-    card = card.replace(/\$grade/g,       grade);
-    card = card.replace(/\$score/g,       score);
-    card = card.replace(/\$name/g,        bankName);
-    card = card.replace(/\$domain/g,      domain);
-    card = card.replace(/\$upperCountryCode/g, countryCode.toUpperCase());
+    let card =
+        "<a class=card href=https://bankgradesecurity.com/"+countryCode+"/"+urlSafeBankName+">\
+        <div class=\"grade "+grade+">" +score+ "</div>\
+        <div class=name>" +bankName+ "</div>\
+        <div class=details>" +countryCode.toUpperCase()+ "</div><div class=details>" +domain+ "</div>\
+        </a>";
 
     return card;
 
