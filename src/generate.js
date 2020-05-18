@@ -74,13 +74,11 @@ writeHomePage(cards);
  */
 function makeUrlSafe(str) {
 
-    str = str.toLowerCase();
-    str = str.replace(/ /g, "-");
-    str = str.replace(/&/g, "-");
-    str = str.replace(/'/g, "");
-
-    return str;
-
+    return str
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/&/g, "-")
+        .replace(/'/g, "");
 }
 
 
