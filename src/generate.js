@@ -262,10 +262,11 @@ function makeBankMain(results, previous) {
 
             let result = results[category][metric];
 
-            main = main.replace("$metric", TEMPLATES.TEMPLATEMETRIC + "$metric");
-            main = main.replace("$title", metric);
-
-            main = main.replace("$result", TEMPLATES.TEMPLATERESULT);
+            main = main.replace("$metric",
+                "<div class=measure>\
+                <span>" + metric + "</span>\
+                <div class=results>" + TEMPLATES.TEMPLATERESULT + "</div>\
+                </div>$metric");
 
             if ("boolean" === typeof result) {
 
