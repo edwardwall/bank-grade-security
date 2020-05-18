@@ -289,13 +289,13 @@ function makeBankMain(results, previous) {
         main += categoryHtmlTop.replace("$category", "History");
 
         for (result of previous) {
+            let date = result.month.substring(0, 3) +" "+ result.year;
 
-            main = main.replace("$metric", TEMPLATES.TEMPLATEHISTORY + "$metric");
-
-            main = main.replace("$grade", result.grade);
-            main = main.replace("$score", result.score);
-            main = main.replace("$date", result.month.substring(0, 3) + " " + result.year);
-
+            main +=
+                "<div class=history>\
+                <div class=\"grade " +result.grade+ "\">" +result.score+ "</div>\
+                <p>" +date+ "</p>\
+                </div>";
         }
 
         main += categoryHtmlBottom;
