@@ -253,10 +253,11 @@ function makeBankMain(results, previous) {
 
     let main = "";
 
-    for (category in results) {
+    let categoryHtmlTop = "<section><div class=top>$category</div>";
+    let categoryHtmlBottom = "</section>";
 
-        main += TEMPLATES.TEMPLATECATEGORY;
-        main = main.replace("$title", category);
+    for (category in results) {
+        main += categoryHtmlTop.replace("$category", category);
 
         for (metric in results[category]) {
             let result = results[category][metric];
@@ -271,23 +272,21 @@ function makeBankMain(results, previous) {
                 check = (("" === result) ? "<i>hidden</i>" : htmlEncode(result));
             }
 
-            main = main.replace("$metric",
+            main +=
                 "<div class=measure>\
                 <span>" + metric + "</span>\
                 <div class=results>\
                 <div class=\"result "+grade+"\">"+check+"</div>\
                 </div>\
-                </div>$metric");
+                </div>";
         }
 
-        main = main.replace("$metric", ""); // remove trailing tag
-
+        main += categoryHtmlBottom;
     }
 
+    // Add History section if applicable
     if (0 < previous.length) {
-
-        main += TEMPLATES.TEMPLATECATEGORY;
-        main = main.replace("$title", "History");
+        main += categoryHtmlTop.replace("$category", "History");
 
         for (result of previous) {
 
@@ -299,12 +298,10 @@ function makeBankMain(results, previous) {
 
         }
 
-        main = main.replace("$metric", "");
-
+        main += categoryHtmlBottom;
     }
 
     return main;
-
 }
 
 
