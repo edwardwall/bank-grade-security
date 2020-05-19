@@ -1,0 +1,38 @@
+{
+	"name": "New Zealand",
+	"code": "nz",
+	"list": [
+		{
+			"name": "ANZ",
+			"home": "anz.co.nz"
+		},
+		{
+			"name": "ASB",
+			"home": "asb.co.nz"
+		},
+		{
+			"name": "BNZ",
+			"home": "bnz.co.nz"
+		},
+		{
+			"name": "Kiwibank",
+			"home": "kiwibank.co.nz"
+		},
+		{
+			"name": "HSBC",
+			"home": "hsbc.co.nz"
+		},
+		{
+			"name": "Rabobank",
+			"home": "rabobank.co.nz"
+		},
+		{
+			"name": "SBS Bank",
+			"home": "sbsbank.co.nz"
+		},
+		{
+			"name": "Westpac",
+			"home": "westpac.co.nz"
+		}
+	]
+}
