@@ -71,6 +71,9 @@ writeHomePage(cards);
 
 /**
  * Function to make a string safe for use in URL.
+ *
+ * @param {string} str
+ * @returns {string}
  */
 function makeUrlSafe(str) {
 
@@ -84,6 +87,9 @@ function makeUrlSafe(str) {
 
 /**
  * Function to calculate a bank's score from the results.
+ *
+ * @param {Object} results
+ * @returns {number}
  */
 function calculateScore(results) {
 
@@ -119,6 +125,9 @@ function calculateScore(results) {
 
 /**
  * Function to return a bank's grade from the score.
+ *
+ * @param {number} score
+ * @returns {string}
  */
 function calculateGrade(score) {
 
@@ -130,6 +139,10 @@ function calculateGrade(score) {
 
 /**
  * Function to retrieve previous results.
+ *
+ * @param {string} country
+ * @param {string} name
+ * @returns {Object[]}
  */
 function getPrevious(country, name) {
 
@@ -166,6 +179,16 @@ function getPrevious(country, name) {
 
 /**
  * Function to write bank HTML file.
+ *
+ * @param {string} countryCode
+ * @param {string} countryName
+ * @param {string} bankName
+ * @param {string} urlSafeBankName
+ * @param {string} domain
+ * @param {number} score
+ * @param {string} grade
+ * @param {Object} results
+ * @param {Object[]} previous
  */
 function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
     domain, score, grade, results, previous) {
@@ -197,6 +220,8 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
 
 /**
  * Function to read in and prepare HTML files.
+ *
+ * @returns {Object}
  */
 function getTemplates() {
 
@@ -232,6 +257,10 @@ function getTemplates() {
 
 /**
  * Function to make the main section of the bank HTML page.
+ *
+ * @param {Object} results
+ * @param {Object[]} previous
+ * @returns {string}
  */
 function makeBankMain(results, previous) {
 
@@ -291,6 +320,9 @@ function makeBankMain(results, previous) {
 
 /**
  * Function to encode unsafe HTML characters.
+ *
+ * @param {string} string
+ * @returns {string}
  */
 function htmlEncode(string) {
 
@@ -312,6 +344,9 @@ function htmlEncode(string) {
 
 /**
  * Function to return the grade-based explanation.
+ *
+ * @param {string} grade
+ * @returns {string}
  */
 function getExplanation(grade) {
 
@@ -339,6 +374,14 @@ function getExplanation(grade) {
 
 /**
  * Function to create a bank's HTML card.
+ *
+ * @param {string} countryCode
+ * @param {string} bankName
+ * @param {string} urlSafeBankName
+ * @param {string} domain
+ * @param {number} score
+ * @param {string} grade
+ * @returns {string}
  */
 function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) {
 
@@ -355,6 +398,8 @@ function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) 
 
 /**
  * Function to sort HTML cards.
+ *
+ * @param {Object[]} cards
  */
 function sortCards(cards) {
 
@@ -381,6 +426,10 @@ function sortCards(cards) {
 
 /**
  * Function to create a country's HTML page.
+ *
+ * @param {string} code
+ * @param {string} name
+ * @param {Object[]} cards
  */
 function writeCountryPage(code, name, cards) {
 
@@ -406,6 +455,8 @@ function writeCountryPage(code, name, cards) {
 
 /**
  * Function to create the homepage.
+ *
+ * @param {Object[]} cards
  */
 function writeHomePage(cards) {
 
@@ -438,6 +489,8 @@ function writeHomePage(cards) {
 
 /**
  * Function to get details of banks from JSON file.
+ *
+ * @returns {Object}
  */
 function getBankDetails() {
 
@@ -469,6 +522,9 @@ function getBankDetails() {
 
 /**
  * Function to write a given file to the given location.
+ *
+ * @param {string} file
+ * @param {string} location
  */
 function writeFile(file, location) {
 
@@ -479,6 +535,8 @@ function writeFile(file, location) {
 
 /**
  * Function to get latest set of results and previous results.
+ *
+ * @returns {Object}
  */
 function getResultsHistory() {
 
@@ -514,6 +572,9 @@ function getResultsHistory() {
 
 /**
  * Function to return the months name.
+ *
+ * @param {number} month
+ * @returns {string}
  */
 function getMonth(month) {
 
