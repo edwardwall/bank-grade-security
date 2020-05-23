@@ -255,7 +255,6 @@ async function followChain(data, options) {
     ("https:" === options.protocol ? HTTPS : HTTP).get(options, (res) => {
 
         let location;
-
         try {
             location = res.headers.location;
         } catch (e) {}
@@ -271,23 +270,10 @@ async function followChain(data, options) {
         // HTTP redirect
         if ((300 <= status) && (400 > status)) {
 
-            location = URL.parse(location);
+            location = parseLocation(location, options);
 
-            let nextOptions = {
-                headers: {}
-            };
-
-            nextOptions.protocol = (location.protocol ? location.protocol : options.protocol);
-            nextOptions.hostname = (location.hostname ? location.hostname : options.hostname);
-
-            if (null === location.path) {
-                nextOptions.path = "/"; // default to root path
-            } else if ("/" === location.path.substring(0, 1)) {
-                nextOptions.path = location.path;
-            } else {
-                nextOptions.path = options.path.substring(0, options.path.lastIndexOf("/") + 1);
-                nextOptions.path += location.path;
-            }
+            let nextOptions = URL.parse(location);
+            nextOptions.headers = {};
 
             if (testHttpUpgrade && ("https:" === nextOptions.protocol)) {
                 report(data, "Upgrade HTTP", true);
@@ -333,6 +319,47 @@ async function followChain(data, options) {
         }
 
     });
+
+}
+
+
+/**
+ * Function to parse a returned location.
+ *
+ * @param {string} location
+ * @param {object} options
+ * @returns {URL}
+ */
+function parseLocation(location, options) {
+
+    let url;
+
+    // Check whether location is fully qualified URL
+    url = URL.parse(location);
+    if (url.protocol && url.hostname && url.path) {
+        return url.href;
+    }
+
+    // Check whether location is URL without protocol
+    if (location.startsWith("//")) {
+        url = URL.parse(options.protocol + location);
+        if (url.protocol && url.hostname && url.path &&
+            url.hostname.includes(".")) {
+            return url.href;
+        }
+    }
+
+    if (location.startsWith("/")) {
+        location = options.protocol + "//" + options.hostname + location;
+
+    } else {
+        location = options.protocol + "//" + options.hostname +
+            options.path.substring(0, options.path.lastIndexOf("/") + 1) +
+            location;
+    }
+
+    url = URL.parse(location);
+    return url.href;
 
 }
 
