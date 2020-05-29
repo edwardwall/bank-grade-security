@@ -5,7 +5,7 @@ const PATHS = {
     BANKS: "../banks/",
     HTML: "../html/",
     HISTORY: "../history/",
-    OUTPUT: "../../bankgradesecurity.com/", // Intentionally outside repository
+    OUTPUT: "../docs/",
     RESOURCES: "../resources/",
     IMAGES: "../images/"
 };
@@ -16,6 +16,7 @@ const {RESULTS, HISTORY} = getResultsHistory();
 
 var countries = [];
 var cards = [];
+var sitemap = ["https://bankgradesecurity.com/"];
 
 // Check output directory exists
 try {
@@ -66,6 +67,7 @@ for (countryCode in RESULTS) {
 }
 
 writeHomePage(cards);
+writeFile("sitemap.txt", sitemap.join("\n" + "https://bankgradesecurity.com"));
 
 
 
@@ -190,7 +192,10 @@ function writeBankPage(countryCode, countryName, bankName, urlSafeBankName,
 
     page = page.replace("$main", makeBankMain(results, previous));
 
-    writeFile(page, countryCode+"/" + urlSafeBankName+".html");
+    let path = countryCode + "/" + urlSafeBankName + ".html";
+
+    writeFile(page, path);
+    sitemap.push(path);
 
 }
 
@@ -400,6 +405,7 @@ function writeCountryPage(code, name, cards) {
     page = page.replace("$main", main);
 
     writeFile(page, code+".html");
+    sitemap.push(code + ".html");
 
 }
 
