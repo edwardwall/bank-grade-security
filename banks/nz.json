@@ -4,35 +4,35 @@
 	"list": [
 		{
 			"name": "ANZ",
-			"home": "anz.co.nz"
+			"domain": "anz.co.nz"
 		},
 		{
 			"name": "ASB",
-			"home": "asb.co.nz"
+			"domain": "asb.co.nz"
 		},
 		{
 			"name": "BNZ",
-			"home": "bnz.co.nz"
+			"domain": "bnz.co.nz"
 		},
 		{
 			"name": "Kiwibank",
-			"home": "kiwibank.co.nz"
+			"domain": "kiwibank.co.nz"
 		},
 		{
 			"name": "HSBC",
-			"home": "hsbc.co.nz"
+			"domain": "hsbc.co.nz"
 		},
 		{
 			"name": "Rabobank",
-			"home": "rabobank.co.nz"
+			"domain": "rabobank.co.nz"
 		},
 		{
 			"name": "SBS Bank",
-			"home": "sbsbank.co.nz"
+			"domain": "sbsbank.co.nz"
 		},
 		{
 			"name": "Westpac",
-			"home": "westpac.co.nz"
+			"domain": "westpac.co.nz"
 		}
 	]
 }
