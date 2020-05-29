@@ -91,6 +91,50 @@ begin()
 .then(createWebsite);
 
 
+var countries = {};
+
 function createWebsite() {
+
+    for (bank of banks) {
+
+        if (undefined === countries[bank.country]) {
+            countries[bank.country] = [];
+        }
+        countries[bank.country].push(bank);
+
+        let results = processResults(bank.results);
+
+    }
+
+}
+
+
+function processResults(results) {
+
+    let response = {};
+
+    response.HTTPS = {
+        "Upgrade HTTP": results.upgradeHttp.result,
+        "Secure Redirection": results.secureRedirectionChain.result,
+        "HSTS": results.hsts.result,
+        "HSTS Preload": false
+    };
+
+    if (response.HTTPS.HSTS) {
+        response.HTTPS["HSTS Preload"] = results.hsts.data.preloaded
+    }
+
+    response.TLS = {
+        "TLS 1.3 Enabled": results.tlsProtocols.data["1.3"],
+        "Old TLS Disabled": !(results.tlsProtocols.data["1.1"] || results.tlsProtocols.data["1.0"]),
+        "Forward Secrecy": results.forwardSecrecy.result
+    };
+
+    response.DNS = {
+        "DNSSEC": results.dnssec.result,
+        "CAA": results.caa.result
+    };
+
+    return response;
 
 }
