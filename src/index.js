@@ -170,8 +170,10 @@ function processResults(results) {
 
     response.TLS = {
         "TLS 1.3 Enabled": results.tlsProtocols.data["1.3"],
-        "Old TLS Disabled": !(results.tlsProtocols.data["1.1"] || results.tlsProtocols.data["1.0"]),
-        "Forward Secrecy": results.forwardSecrecy.result
+        "TLS 1.1 Disabled": !(results.tlsProtocols.data["1.1"]),
+        "TLS 1.0 Disabled": !(results.tlsProtocols.data["1.0"]),
+        "Forward Secrecy": results.forwardSecrecy.result,
+        "Certificate Length": results.certificate.result
     };
 
     response.DNS = {
