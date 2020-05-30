@@ -117,6 +117,7 @@ function createWebsite() {
 
     for (code in countries) {
         countries[code].cards = [];
+        sitemap.push(code);
     }
 
     for (bank of banks) {
@@ -287,7 +288,7 @@ function writeBankPage(country, bankName, urlSafeBankName, domain,
     let path = country.code + "/" + urlSafeBankName + ".html";
 
     writeFile(path, page);
-    sitemap.push(path);
+    sitemap.push(country.code + "/" + urlSafeBankName);
 
 }
 
@@ -315,7 +316,6 @@ function writeCountryPage(code, name, cards) {
     page = page.replace("$main", main);
 
     writeFile(code+".html", page);
-    sitemap.push(code + ".html");
 
 }
 
