@@ -127,7 +127,7 @@ function createWebsite() {
         results["Miscellaneous Headers"] = {
             "Server": (bank.results.server.result ? "" : bank.results.server.data.value),
             "X-Powered-By": (bank.results.poweredBy.result ? "" : bank.results.poweredBy.data.value),
-            "ASP Version": (bank.results.aspVersion.result ? "" : bank.results.aspVersion.data.value)
+            "ASP.NET Version": (bank.results.aspVersion.result ? "" : bank.results.aspVersion.data.value)
         };
 
         writeBankPage(bank.country, bank.name, urlName, bank.domain,
@@ -164,12 +164,9 @@ function processResults(results) {
         "Secure Redirection": results.secureRedirectionChain.result,
         "Accepts HTTPS": results.accepts.https,
         "HSTS": results.hsts.result,
-        "HSTS Preloaded": false
+        "HSTS Long Length": results.hsts.result && (190 >= results.hsts.data.age), // roughly 6 months
+        "HSTS Preloaded": results.hsts.result && results.hsts.data.preloaded
     };
-
-    if (response.HTTPS.HSTS) {
-        response.HTTPS["HSTS Preloaded"] = results.hsts.data.preloaded
-    }
 
     response.TLS = {
         "TLS 1.3 Enabled": results.tlsProtocols.data["1.3"],
@@ -183,6 +180,35 @@ function processResults(results) {
         "DNSSEC": results.dnssec.result,
         "CAA": results.caa.result
     };
+
+    response.CSP = parseCsp(results.contentSecurityPolicy.data);
+
+    response.HTTP = {
+        "Feature Policy": results.featurePolicy.result,
+        "Referrer Policy": results.referrerPolicy.result,
+        "MIME Type Sniffing Protection": results.xContentTypeOptions.result
+    };
+
+    function parseCsp(csp) {
+
+        let framingProtection = false;
+        if (csp["frame-ancestors"]) {
+            let sources = " " + csp["frame-ancestors"].join(" ") + " ";
+            for (e of [" data: ", " http: ", " https: "]) {
+                if (sources.includes(e)) {
+                    framingProtection = true;
+                }
+            }
+        }
+
+        let xssProtection = results.contentSecurityPolicy.result;
+
+        return {
+            "XSS Protection": xssProtection || results.xXssProtection.result,
+            "Framing Protection": framingProtection || results.xFrameOptions.result
+        };
+
+    }
 
     return response;
 
