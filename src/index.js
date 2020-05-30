@@ -12,10 +12,13 @@ const PATHS = {
     IMAGES: "../images/"
 };
 
+const TEMPLATES = getTemplates();
+
 var banks = [];
+var countries = {};
+var sitemap = ["https://bankgradesecurity.com/"];
 
-
-for (filename of ["ie.json"]) {//FS.readdirSync(PATH.resolve(__dirname, PATHS.BANKS))) {
+for (filename of FS.readdirSync(PATH.resolve(__dirname, PATHS.BANKS))) {
 
     let file;
     file = FS.readFileSync(PATH.resolve(__dirname, PATHS.BANKS, filename), "utf8");
@@ -26,15 +29,28 @@ for (filename of ["ie.json"]) {//FS.readdirSync(PATH.resolve(__dirname, PATHS.BA
         throw Error("Filename does not match contents - " + filename);
     }
 
+    countries[file.code] = [];
+
     for (bankObject of file.list) {
 
-        bankObject.country = file.code;
+        countries[file.code].push(bankObject);
+
+        bankObject.country = {
+            code: file.code,
+            name: file.name
+        };
         banks.push(bankObject);
 
     }
 
 }
 
+const DELAY = 5000; // 5 seconds
+
+console.log("~~ Bank Grade Security");
+console.log("Found", banks.length, "banks from", Object.keys(countries).length, "countries");
+console.log("Estimated time for scanning is", Math.ceil((banks.length * DELAY) / (60 * 1000)), "minutes");
+console.log();
 
 // Sort into alphabetical order
 banks.sort((a, b) => {
@@ -75,7 +91,7 @@ async function begin() {
                     .then(() => {
                         resolve();
                     });
-                }, 5000);
+                }, DELAY);
 
             } else { // last element
                 resolve();
@@ -90,19 +106,18 @@ async function begin() {
 begin()
 .then(createWebsite);
 
-
-var countries = {};
-
 function createWebsite() {
 
     for (bank of banks) {
 
-        if (undefined === countries[bank.country]) {
-            countries[bank.country] = [];
-        }
-        countries[bank.country].push(bank);
-
         let results = processResults(bank.results);
+
+        let score = calculateScore(results);
+        let grade = calculateGrade(score);
+        let urlName = makeUrlSafe(bank.name);
+
+        writeBankPage(bank.country, bank.name, urlName, bank.domain,
+            score, grade, results);
 
     }
 
@@ -114,10 +129,11 @@ function processResults(results) {
     let response = {};
 
     response.HTTPS = {
-        "Upgrade HTTP": results.upgradeHttp.result,
+        "Upgrade HTTP": results.upgradeToHttps.result,
         "Secure Redirection": results.secureRedirectionChain.result,
+        "Accepts HTTPS": results.accepts.https,
         "HSTS": results.hsts.result,
-        "HSTS Preload": false
+        "HSTS Preloaded": false
     };
 
     if (response.HTTPS.HSTS) {
@@ -137,4 +153,239 @@ function processResults(results) {
 
     return response;
 
+}
+
+/**
+ * Function to calculate a bank's score from the results.
+ * @param {Object} results
+ * @returns {number}
+ */
+function calculateScore(results) {
+
+    let total = 0;
+    let score = 0;
+
+    for (category in results) {
+        for (metric in results[category]) {
+
+            total += 1;
+
+            if (results[category][metric]) {
+                score += 1;
+            }
+
+        }
+    }
+
+    score *= 100;
+    score /= total;
+    score = Math.round(score);
+
+    return score;
+
+}
+
+/**
+ * Function to return a bank's grade from the score.
+ * @param {number} score
+ * @returns {string}
+ */
+function calculateGrade(score) {
+
+    score = Math.floor(score / 20);
+    return ["E", "D", "C", "B", "A", "Z"][score];
+
+}
+
+/**
+ * Function to make a string safe for use in URL.
+ * @param {string} str
+ * @returns {string}
+ */
+function makeUrlSafe(str) {
+    return str
+        .toLowerCase()
+        .replace(/ /g, "-")
+        .replace(/&/g, "-")
+        .replace(/'/g, "");
+}
+
+/**
+ * Function to write a given file to the given location.
+ * @param {string} file
+ * @param {string} location
+ */
+function writeFile(file, location) {
+
+    FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
+
+}
+
+/**
+ * Function to write bank HTML file.
+ * @param {Object} country
+ * @param {string} bankName
+ * @param {string} urlSafeBankName
+ * @param {string} domain
+ * @param {number} score
+ * @param {string} grade
+ * @param {Object} results
+ */
+function writeBankPage(country, bankName, urlSafeBankName, domain,
+    score, grade, results, previous) {
+
+    try {
+        FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, country.code));
+    } catch (e) {}
+
+    let page = TEMPLATES.BANK;
+
+    page = page.replace(/\$countryCode/g, country.code);
+    page = page.replace(/\$upperCountryCode/g, country.code.toUpperCase());
+    page = page.replace(/\$name/g, bankName);
+    page = page.replace(/\$score/g, score);
+    page = page.replace(/\$grade/g, grade);
+
+    page = page.replace(/\$countryName/g, country.name);
+    page = page.replace(/\$domain/g, domain);
+
+    page = page.replace(/\$explanation/g, bankName + " " + getExplanation(grade));
+    page = page.replace(/\$urlSafeName/g, urlSafeBankName);
+
+    page = page.replace("$main", makeBankMain(results));
+
+    let path = country.code + "/" + urlSafeBankName + ".html";
+
+    writeFile(page, path);
+    sitemap.push(path);
+
+}
+
+/**
+ * Function to make the main section of the bank HTML page.
+ * @param {Object} results
+ * @returns {string}
+ */
+function makeBankMain(results) {
+
+    let main = "";
+
+    let categoryHtmlTop = "<section><div class=top>$category</div>";
+    let categoryHtmlBottom = "</section>";
+
+    for (category in results) {
+        main += categoryHtmlTop.replace("$category", category);
+
+        for (metric in results[category]) {
+            let result = results[category][metric];
+            let grade;
+            let check;
+
+            if ("boolean" == typeof result) {
+                grade = (result ? "A" : "E");
+                check = (result ? "&check;" : "&cross;");
+            } else {
+                grade = "";
+                check = (("" === result) ? "<i>hidden</i>" : htmlEncode(result));
+            }
+
+            main +=
+                "<div class=measure>\
+                <span>" + metric + "</span>\
+                <div class=results>\
+                <div class=\"result "+grade+"\">"+check+"</div>\
+                </div>\
+                </div>";
+        }
+
+        main += categoryHtmlBottom;
+    }
+
+    return main;
+
+}
+
+/**
+ * Function to encode unsafe HTML characters.
+ * @param {string} string
+ * @returns {string}
+ */
+function htmlEncode(string) {
+
+    let replace = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;"
+    };
+
+    for (c in replace) {
+        string = string.split(c).join(replace[c]);
+    }
+
+    return string;
+
+}
+
+/**
+ * Function to return the grade-based explanation.
+ * @param {string} grade
+ * @returns {string}
+ */
+function getExplanation(grade) {
+
+    if (grade == "Z") {
+        return "has excellent website security. They have passed every test.";
+
+    } else if (grade == "A") {
+        return "has very good security. They have passed almost every test.";
+
+    } else if (grade == "B") {
+        return "has above average security. They have passed most of the tests.";
+
+    } else if (grade == "C") {
+        return "has average security. They have failed around half of the tests.";
+
+    } else if (grade == "D") {
+        return "has below average security. They have failed most of the tests.";
+
+    } else if (grade == "E") {
+        return "has very bad security. They have failed almost every on of the tests.";
+    }
+
+}
+
+/**
+ * Function to read in and prepare HTML files.
+ * @returns {Object}
+ */
+function getTemplates() {
+
+    let filenames = FS.readdirSync(PATH.resolve(__dirname, PATHS.HTML));
+    let files = {};
+
+    for (filename of filenames) {
+        files[filename] = FS.readFileSync(PATH.resolve(__dirname, PATHS.HTML, filename), "utf8");
+    }
+
+    let templates = {};
+
+    for (filename in files) {
+
+        if (filename.toLowerCase().includes("header") ||
+            filename.toLowerCase().includes("footer")) {
+
+            continue;
+        }
+
+        files[filename] = files[filename]
+            .replace("$header", files["templateHeader.html"])
+            .replace("$footer", files["templateFooter.html"]);
+
+        let key = filename.substring(0, filename.indexOf(".")); // remove file extension
+
+        templates[key.toUpperCase()] = files[filename];
+    }
+
+    return templates;
 }
