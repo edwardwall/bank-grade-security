@@ -124,6 +124,12 @@ function createWebsite() {
         let grade = calculateGrade(score);
         let urlName = makeUrlSafe(bank.name);
 
+        results["Miscellaneous Headers"] = {
+            "Server": (bank.results.server.result ? "" : bank.results.server.data.value),
+            "X-Powered-By": (bank.results.poweredBy.result ? "" : bank.results.poweredBy.data.value),
+            "ASP Version": (bank.results.aspVersion.result ? "" : bank.results.aspVersion.data.value)
+        };
+
         writeBankPage(bank.country, bank.name, urlName, bank.domain,
             score, grade, results);
 
@@ -394,20 +400,20 @@ function makeBankMain(results) {
             let check;
 
             if ("boolean" == typeof result) {
-                grade = (result ? "A" : "E");
+                grade = (result ? "A" : "E") + " check";
                 check = (result ? "&check;" : "&cross;");
             } else {
-                grade = "";
-                check = (("" === result) ? "<i>hidden</i>" : htmlEncode(result));
+                grade = (("" === result) ? "italic" : "");
+                check = (("" === result) ? "hidden" : htmlEncode(result));
             }
 
             main +=
-                "<div class=measure>\
-                <span>" + metric + "</span>\
+                '<div class=measure>\
+                <span>' + metric + '</span>\
                 <div class=results>\
-                <div class=\"result "+grade+"\">"+check+"</div>\
+                <div class="result ' + grade + '">' + check + '</div>\
                 </div>\
-                </div>";
+                </div>';
         }
 
         main += categoryHtmlBottom;
