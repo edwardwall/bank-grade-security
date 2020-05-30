@@ -108,6 +108,8 @@ begin()
 
 function createWebsite() {
 
+    writeStandardFiles();
+
     for (bank of banks) {
 
         let results = processResults(bank.results);
@@ -137,7 +139,7 @@ function processResults(results) {
     };
 
     if (response.HTTPS.HSTS) {
-        response.HTTPS["HSTS Preload"] = results.hsts.data.preloaded
+        response.HTTPS["HSTS Preloaded"] = results.hsts.data.preloaded
     }
 
     response.TLS = {
@@ -388,4 +390,33 @@ function getTemplates() {
     }
 
     return templates;
+}
+
+/**
+ * Function to move standard files into website directory.
+ */
+function writeStandardFiles() {
+
+    writeFile("bankgradesecurity.com", "CNAME");// CNAME for GitHub
+
+    const DIR = "resources/";
+
+    try {
+        FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, DIR));
+    } catch (e) {}
+
+
+    for (directory of [PATHS.RESOURCES, PATHS.IMAGES]) {
+
+        let files = FS.readdirSync(PATH.resolve(__dirname, directory));
+
+        for (filename of files) {
+
+            let file = FS.readFileSync(PATH.resolve(__dirname, directory, filename));
+            writeFile(file, DIR + filename);
+
+        }
+
+    }
+
 }
