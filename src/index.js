@@ -7,9 +7,7 @@ const PATHS = {
     BANKS: "../banks/",
     HTML: "../html/",
     HISTORY: "../history/",
-    OUTPUT: "../docs/",
-    RESOURCES: "../resources/",
-    IMAGES: "../images/"
+    OUTPUT: "../docs/"
 };
 
 const TEMPLATES = getTemplates();
@@ -110,8 +108,6 @@ begin()
 .then(createWebsite);
 
 function createWebsite() {
-
-    writeStandardFiles();
 
     let cards = [];
 
@@ -526,33 +522,4 @@ function getTemplates() {
     }
 
     return templates;
-}
-
-/**
- * Function to move standard files into website directory.
- */
-function writeStandardFiles() {
-
-    writeFile("CNAME", "bankgradesecurity.com");// CNAME for GitHub
-
-    const DIR = "resources/";
-
-    try {
-        FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, DIR));
-    } catch (e) {}
-
-
-    for (directory of [PATHS.RESOURCES, PATHS.IMAGES]) {
-
-        let files = FS.readdirSync(PATH.resolve(__dirname, directory));
-
-        for (filename of files) {
-
-            let file = FS.readFileSync(PATH.resolve(__dirname, directory, filename));
-            writeFile(DIR + filename, file);
-
-        }
-
-    }
-
 }
