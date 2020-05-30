@@ -147,7 +147,7 @@ function createWebsite() {
     }
 
     writeHomePage(cards);
-    writeFile("sitemap.txt", sitemap.join("\n" + "https://bankgradesecurity.com"));
+    writeFile("sitemap.txt", sitemap.join("\n" + "https://bankgradesecurity.com/"));
 
 }
 
@@ -240,10 +240,10 @@ function makeUrlSafe(str) {
 
 /**
  * Function to write a given file to the given location.
- * @param {string} file
  * @param {string} location
+ * @param {string} file
  */
-function writeFile(file, location) {
+function writeFile(location, file) {
 
     FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
 
@@ -284,7 +284,7 @@ function writeBankPage(country, bankName, urlSafeBankName, domain,
 
     let path = country.code + "/" + urlSafeBankName + ".html";
 
-    writeFile(page, path);
+    writeFile(path, page);
     sitemap.push(path);
 
 }
@@ -312,7 +312,7 @@ function writeCountryPage(code, name, cards) {
 
     page = page.replace("$main", main);
 
-    writeFile(page, code+".html");
+    writeFile(code+".html", page);
     sitemap.push(code + ".html");
 
 }
@@ -345,7 +345,7 @@ function writeHomePage(cards) {
 
     page = page.replace("$main", main);
 
-    writeFile(page, "index.html");
+    writeFile("index.html", page);
 
 }
 
@@ -483,7 +483,7 @@ function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) 
 
     let card =
         "<a class=card href=https://bankgradesecurity.com/"+countryCode+"/"+urlSafeBankName+">\
-        <div class=\"grade "+grade+">" +score+ "</div>\
+        <div class=\"grade "+grade+"\">" +score+ "</div>\
         <div class=name>" +bankName+ "</div>\
         <div class=details>" +countryCode.toUpperCase()+ "</div><div class=details>" +domain+ "</div>\
         </a>";
@@ -531,7 +531,7 @@ function getTemplates() {
  */
 function writeStandardFiles() {
 
-    writeFile("bankgradesecurity.com", "CNAME");// CNAME for GitHub
+    writeFile("CNAME", "bankgradesecurity.com");// CNAME for GitHub
 
     const DIR = "resources/";
 
@@ -547,7 +547,7 @@ function writeStandardFiles() {
         for (filename of files) {
 
             let file = FS.readFileSync(PATH.resolve(__dirname, directory, filename));
-            writeFile(file, DIR + filename);
+            writeFile(DIR + filename, file);
 
         }
 
