@@ -146,6 +146,9 @@ function createWebsite() {
         writeCountryPage(code, countries[code].name, countries[code].cards);
     }
 
+    writeHomePage(cards);
+    writeFile("sitemap.txt", sitemap.join("\n" + "https://bankgradesecurity.com"));
+
 }
 
 
@@ -311,6 +314,64 @@ function writeCountryPage(code, name, cards) {
 
     writeFile(page, code+".html");
     sitemap.push(code + ".html");
+
+}
+
+/**
+ * Function to create the homepage.
+ * @param {Object[]} cards
+ */
+function writeHomePage(cards) {
+
+    let page = TEMPLATES.HOMEPAGE;
+
+    let replace = [];
+
+    for (country of countries) {
+        replace.push(
+            "<a href=https://bankgradesecurity.com/" + country.countryCode +
+            ">" + country.countryName + "</a>"
+        );
+    }
+
+    page = page.replace("$countries", replace.join("\n"));
+    card = sortCards(cards);
+
+    let main = "";
+
+    for (card of cards) {
+        main += card.html;
+    }
+
+    page = page.replace("$main", main);
+
+    writeFile(page, "index.html");
+
+}
+
+/**
+ * Function to sort HTML cards.
+ * @param {Object[]} cards
+ */
+function sortCards(cards) {
+
+    return cards.sort((a, b) => {
+
+        if (a.score < b.score) {
+            return 1;
+        } else if (a.score > b.score) {
+            return -1;
+        }
+
+        if (a.name < b.name) {
+            return -1;
+        } else if (a.name > b.name) {
+            return 1;
+        }
+
+        return 0;
+
+    });
 
 }
 
