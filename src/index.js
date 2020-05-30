@@ -283,17 +283,17 @@ function writeFile(location, file) {
 /**
  * Function to write bank HTML file.
  * @param {Object} country
- * @param {string} bankName
- * @param {string} urlSafeBankName
+ * @param {string} name
+ * @param {string} urlName
  * @param {string} domain
  * @param {number} score
  * @param {string} grade
  * @param {Object} results
  */
-function writeBankPage(country, bankName, urlSafeBankName, domain,
-    score, grade, results, previous) {
+function writeBankPage(country, name, urlSafeBankName, domain,
+    score, grade, results) {
 
-    try {
+    try { // Ensure country dir exists
         FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, country.code));
     } catch (e) {}
 
@@ -301,22 +301,22 @@ function writeBankPage(country, bankName, urlSafeBankName, domain,
 
     page = page.replace(/\$countryCode/g, country.code);
     page = page.replace(/\$upperCountryCode/g, country.code.toUpperCase());
-    page = page.replace(/\$name/g, bankName);
+    page = page.replace(/\$name/g, name);
     page = page.replace(/\$score/g, score);
     page = page.replace(/\$grade/g, grade);
 
     page = page.replace(/\$countryName/g, country.name);
     page = page.replace(/\$domain/g, domain);
 
-    page = page.replace(/\$explanation/g, bankName + " " + getExplanation(grade));
-    page = page.replace(/\$urlSafeName/g, urlSafeBankName);
+    page = page.replace(/\$explanation/g, name + " " + getExplanation(grade));
+    page = page.replace(/\$urlSafeName/g, urlName);
 
     page = page.replace("$main", makeBankMain(results));
 
-    let path = country.code + "/" + urlSafeBankName + ".html";
+    let path = country.code + "/" + urlName + ".html";
 
     writeFile(path, page);
-    sitemap.push(country.code + "/" + urlSafeBankName);
+    sitemap.push(country.code + "/" + urlName);
 
 }
 
@@ -334,16 +334,9 @@ function writeCountryPage(code, name, cards) {
     page = page.replace(/\$countryName/g, name);
 
     cards = sortCards(cards);
+    page = page.replace("$main", cards.join());
 
-    let main = "";
-
-    for (card of cards) {
-        main += card.html;
-    }
-
-    page = page.replace("$main", main);
-
-    writeFile(code+".html", page);
+    writeFile(code + ".html", page);
 
 }
 
@@ -359,20 +352,18 @@ function writeHomePage(cards) {
 
     for (code in countries) {
         replace.push(
-            "<a href=https://bankgradesecurity.com/" + code +
-            ">" + countries[code].name + "</a>"
+            "<a href=https://bankgradesecurity.com/" + code + ">" +
+            countries[code].name + "</a>"
         );
     }
 
     page = page.replace("$countries", replace.join("\n"));
-    card = sortCards(cards);
+    cards = sortCards(cards);
 
     let main = "";
-
     for (card of cards) {
         main += card.html;
     }
-
     page = page.replace("$main", main);
 
     writeFile("index.html", page);
@@ -460,6 +451,7 @@ function htmlEncode(string) {
         "&": "&amp;",
         "<": "&lt;",
         ">": "&gt;",
+        "'": "&apos;",
         "\"": "&quot;"
     };
 
@@ -503,22 +495,21 @@ function getExplanation(grade) {
  * Function to create a bank's HTML card.
  * @param {string} countryCode
  * @param {string} bankName
- * @param {string} urlSafeBankName
+ * @param {string} urlName
  * @param {string} domain
  * @param {number} score
  * @param {string} grade
  * @returns {string}
  */
-function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) {
+function makeCard(countryCode, bankName, urlName, domain, score, grade) {
 
-    let card =
-        "<a class=card href=https://bankgradesecurity.com/"+countryCode+"/"+urlSafeBankName+">\
-        <div class=\"grade "+grade+"\">" +score+ "</div>\
-        <div class=name>" +bankName+ "</div>\
-        <div class=details>" +countryCode.toUpperCase()+ "</div><div class=details>" +domain+ "</div>\
-        </a>";
+    return \
+        '<a class=card href=https://bankgradesecurity.com/' + countryCode + '/' + urlName + '>\
+        <div class="grade ' + grade + '">' + score + '</div>\
+        <div class=name>' + bankName + '</div>\
+        <div class=details>' + countryCode.toUpperCase() + '</div><div class=details>' + domain + '</div>\
+        </a>';
 
-    return card;
 }
 
 /**
