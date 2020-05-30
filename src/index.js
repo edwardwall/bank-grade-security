@@ -327,10 +327,10 @@ function writeHomePage(cards) {
 
     let replace = [];
 
-    for (country of countries) {
+    for (code in countries) {
         replace.push(
-            "<a href=https://bankgradesecurity.com/" + country.countryCode +
-            ">" + country.countryName + "</a>"
+            "<a href=https://bankgradesecurity.com/" + code +
+            ">" + countries[code].name + "</a>"
         );
     }
 
