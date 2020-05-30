@@ -29,11 +29,14 @@ for (filename of FS.readdirSync(PATH.resolve(__dirname, PATHS.BANKS))) {
         throw Error("Filename does not match contents - " + filename);
     }
 
-    countries[file.code] = [];
+    countries[file.code] = {
+        name: file.name,
+        banks: []
+    };
 
     for (bankObject of file.list) {
 
-        countries[file.code].push(bankObject);
+        countries[file.code].banks.push(bankObject);
 
         bankObject.country = {
             code: file.code,
@@ -111,10 +114,9 @@ function createWebsite() {
     writeStandardFiles();
 
     let cards = [];
-    let countryCards = {};
 
     for (code in countries) {
-        countryCards[code] = [];
+        countries[code].cards = [];
     }
 
     for (bank of banks) {
@@ -135,9 +137,13 @@ function createWebsite() {
                     bank.domain, score, grade)
         };
 
-        countryCards.push(card);
+        countries[bank.country.code].cards.push(card);
         cards.push(card);
 
+    }
+
+    for (code in countries) {
+        writeCountryPage(code, countries[code].name, countries[code].cards);
     }
 
 }
@@ -277,6 +283,34 @@ function writeBankPage(country, bankName, urlSafeBankName, domain,
 
     writeFile(page, path);
     sitemap.push(path);
+
+}
+
+/**
+ * Function to create a country's HTML page.
+ * @param {string} code
+ * @param {string} name
+ * @param {Object[]} cards
+ */
+function writeCountryPage(code, name, cards) {
+
+    let page = TEMPLATES.COUNTRY;
+
+    page = page.replace(/\$countryCode/g, code);
+    page = page.replace(/\$countryName/g, name);
+
+    cards = sortCards(cards);
+
+    let main = "";
+
+    for (card of cards) {
+        main += card.html;
+    }
+
+    page = page.replace("$main", main);
+
+    writeFile(page, code+".html");
+    sitemap.push(code + ".html");
 
 }
 
