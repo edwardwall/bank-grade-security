@@ -110,6 +110,13 @@ function createWebsite() {
 
     writeStandardFiles();
 
+    let cards = [];
+    let countryCards = {};
+
+    for (code in countries) {
+        countryCards[code] = [];
+    }
+
     for (bank of banks) {
 
         let results = processResults(bank.results);
@@ -120,6 +127,16 @@ function createWebsite() {
 
         writeBankPage(bank.country, bank.name, urlName, bank.domain,
             score, grade, results);
+
+        let card = {
+            score,
+            name: bank.name,
+            html: makeCard(bank.country.code, bank.name, urlName,
+                    bank.domain, score, grade)
+        };
+
+        countryCards.push(card);
+        cards.push(card);
 
     }
 
@@ -355,6 +372,28 @@ function getExplanation(grade) {
         return "has very bad security. They have failed almost every on of the tests.";
     }
 
+}
+
+/**
+ * Function to create a bank's HTML card.
+ * @param {string} countryCode
+ * @param {string} bankName
+ * @param {string} urlSafeBankName
+ * @param {string} domain
+ * @param {number} score
+ * @param {string} grade
+ * @returns {string}
+ */
+function makeCard(countryCode, bankName, urlSafeBankName, domain, score, grade) {
+
+    let card =
+        "<a class=card href=https://bankgradesecurity.com/"+countryCode+"/"+urlSafeBankName+">\
+        <div class=\"grade "+grade+">" +score+ "</div>\
+        <div class=name>" +bankName+ "</div>\
+        <div class=details>" +countryCode.toUpperCase()+ "</div><div class=details>" +domain+ "</div>\
+        </a>";
+
+    return card;
 }
 
 /**
