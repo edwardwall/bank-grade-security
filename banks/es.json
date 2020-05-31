@@ -1,0 +1,58 @@
+{
+	"name": "Spain",
+	"code": "es",
+	"list": [
+        {
+            "name": "Abanca",
+            "domain": "abanca.com"
+        },
+        {
+            "name": "Banca March",
+            "domain": "bancamarch.es"
+        },
+        {
+            "name": "Banca Pueyo",
+            "domain": "bancapueyo.es"
+        },
+        {
+            "name": "Banco Sabadell",
+            "domain": "bancsabadell.com"
+        },
+        {
+            "name": "Banco Santander",
+            "domain": "bancosantander.es"
+        },
+        {
+            "name": "Bankia",
+            "domain": "bankia.es"
+        },
+        {
+            "name": "Bankinter",
+            "domain": "bankinter.com"
+        },
+        {
+            "name": "BBVA",
+            "domain": "bbva.es"
+        },
+        {
+            "name": "CaixaBank",
+            "domain": "caixabank.es"
+        },
+        {
+            "name": "Caja de Ingenieros",
+            "domain": "caixaenginyers.com"
+        },
+        {
+            "name": "EVO",
+            "domain": "evobanco.com"
+        },
+        {
+            "name": "Liberbank",
+            "domain": "liberbank.es"
+        },
+        {
+            "name": "Unicaja Banco",
+            "domain": "unicajabanco.es"
+        }
+	]
+}
