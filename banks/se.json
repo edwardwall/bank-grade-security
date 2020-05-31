@@ -1,0 +1,34 @@
+{
+	"name": "Sweden",
+	"code": "se",
+	"list": [
+		{
+			"name": "Avanza",
+			"home": "avanza.se"
+		},
+		{
+			"name": "Bank Norwegian",
+			"home": "banknorwegian.se"
+		},
+		{
+			"name": "Handelsbanken",
+			"home": "handelsbanken.se"
+		},
+		{
+			"name": "ICA Banken",
+			"home": "icabanken.se"
+		},
+		{
+			"name": "Nordea",
+			"home": "nordea.se"
+		},
+		{
+			"name": "Skandia",
+			"home": "skandia.se"
+		},
+		{
+			"name": "Swedbank",
+			"home": "swedbank.se"
+		}
+	]
+}
