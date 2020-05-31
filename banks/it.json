@@ -4,35 +4,35 @@
 	"list": [
 		{
 			"name": "BNL",
-			"home": "bnl.it"
+			"domain": "bnl.it"
 		},
 		{
 			"name": "BPER Banca",
-			"home": "bper.it"
+			"domain": "bper.it"
 		},
 		{
 			"name": "Banco BPM",
-			"home": "bancobpm.it"
+			"domain": "bancobpm.it"
 		},
 		{
 			"name": "BPS",
-			"home": "popso.it"
+			"domain": "popso.it"
 		},
 		{
 			"name": "Credem Banca",
-			"home": "credem.it"
+			"domain": "credem.it"
 		},
 		{
 			"name": "Intesa Sanpaolo",
-			"home": "intesasanpaolo.com"
+			"domain": "intesasanpaolo.com"
 		},
 		{
 			"name": "MPS",
-			"home": "mps.it"
+			"domain": "mps.it"
 		},
 		{
 			"name": "UBI Banca",
-			"home": "ubibanca.com"
+			"domain": "ubibanca.com"
 		}
 	]
 }

@@ -4,47 +4,47 @@
 	"list": [
 		{
 			"name": "Bank Norwegian",
-			"home": "banknorwegian.no"
+			"domain": "banknorwegian.no"
 		},
 		{
 			"name": "Bank2",
-			"home": "bank2.no"
+			"domain": "bank2.no"
 		},
 		{
 			"name": "BN Bank",
-			"home": "bnbank.no"
+			"domain": "bnbank.no"
 		},
 		{
 			"name": "DNB",
-			"home": "dnb.no"
+			"domain": "dnb.no"
 		},
 		{
 			"name": "Gjensidige",
-			"home": "gjensidige.no"
+			"domain": "gjensidige.no"
 		},
 		{
 			"name": "Landkreditt",
-			"home": "landkredittbank.no"
+			"domain": "landkredittbank.no"
 		},
 		{
 			"name": "Nordea",
-			"home": "nordea.no"
+			"domain": "nordea.no"
 		},
 		{
 			"name": "Santander",
-			"home": "santanderconsumer.no"
+			"domain": "santanderconsumer.no"
 		},
 		{
 			"name": "Sbanken",
-			"home": "sbanken.no"
+			"domain": "sbanken.no"
 		},
 		{
 			"name": "Easybank",
-			"home": "easybank.no"
+			"domain": "easybank.no"
 		},
 		{
 			"name": "Vekselbanken",
-			"home": "vekselbanken.no"
+			"domain": "vekselbanken.no"
 		}
 	]
 }

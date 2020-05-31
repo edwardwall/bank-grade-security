@@ -4,31 +4,31 @@
 	"list": [
 		{
 			"name": "Avanza",
-			"home": "avanza.se"
+			"domain": "avanza.se"
 		},
 		{
 			"name": "Bank Norwegian",
-			"home": "banknorwegian.se"
+			"domain": "banknorwegian.se"
 		},
 		{
 			"name": "Handelsbanken",
-			"home": "handelsbanken.se"
+			"domain": "handelsbanken.se"
 		},
 		{
 			"name": "ICA Banken",
-			"home": "icabanken.se"
+			"domain": "icabanken.se"
 		},
 		{
 			"name": "Nordea",
-			"home": "nordea.se"
+			"domain": "nordea.se"
 		},
 		{
 			"name": "Skandia",
-			"home": "skandia.se"
+			"domain": "skandia.se"
 		},
 		{
 			"name": "Swedbank",
-			"home": "swedbank.se"
+			"domain": "swedbank.se"
 		}
 	]
 }
