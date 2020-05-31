@@ -1,0 +1,38 @@
+{
+    "name": "Australia",
+    "code": "au",
+    "list": [
+        {
+            "name": "ANZ",
+            "domain": "anz.com.au"
+        },
+        {
+            "name": "Bank Australia",
+            "domain": "bankaust.com.au"
+        },
+        {
+            "name": "Commonwealth Bank",
+            "domain": "commbank.com.au"
+        },
+        {
+            "name": "CUA",
+            "domain": "cua.com.au"
+        },
+        {
+            "name": "Heritage Bank",
+            "domain": "heritage.com.au"
+        },
+        {
+            "name": "NAB",
+            "domain": "nab.com.au"
+        },
+        {
+            "name": "Newcastle Permanent",
+            "domain": "newcastlepermanent.com.au"
+        },
+        {
+            "name": "Westpac",
+            "domain": "westpac.com.au"
+        }
+    ]
+}
