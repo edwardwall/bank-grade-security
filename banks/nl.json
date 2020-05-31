@@ -4,43 +4,43 @@
 	"list": [
 		{
 			"name": "ABN Amro",
-			"home": "abnamro.nl"
+			"domain": "abnamro.nl"
 		},
 		{
 			"name": "ASN Bank",
-			"home": "asnbank.nl"
+			"domain": "asnbank.nl"
 		},
 		{
 			"name": "Knab",
-			"home": "knab.nl"
+			"domain": "knab.nl"
 		},
 		{
 			"name": "ING",
-			"home": "ing.nl"
+			"domain": "ing.nl"
 		},
 		{
 			"name": "Nationale Nederlanden",
-			"home": "nn.nl"
+			"domain": "nn.nl"
 		},
 		{
 			"name": "NIBC Direct",
-			"home": "nibcdirect.nl"
+			"domain": "nibcdirect.nl"
 		},
 		{
 			"name": "Rabobank",
-			"home": "rabobank.nl"
+			"domain": "rabobank.nl"
 		},
 		{
 			"name": "Regiobank",
-			"home": "regiobank.nl"
+			"domain": "regiobank.nl"
 		},
 		{
 			"name": "SNS Bank",
-			"home": "snsbank.nl"
+			"domain": "snsbank.nl"
 		},
 		{
 			"name": "Triodos",
-			"home": "triodos.nl"
+			"domain": "triodos.nl"
 		}
 	]
 }

@@ -4,51 +4,51 @@
 	"list": [
 		{
 			"name": "Alliant",
-			"home": "alliantcreditunion.org"
+			"domain": "alliantcreditunion.org"
 		},
 		{
 			"name": "Ally",
-			"home": "ally.com"
+			"domain": "ally.com"
 		},
 		{
 			"name": "Bank of America",
-			"home": "bankofamerica.com"
+			"domain": "bankofamerica.com"
 		},
 		{
 			"name": "Barclays",
-			"home": "barclaysus.com"
+			"domain": "barclaysus.com"
 		},
 		{
 			"name": "Chase",
-			"home": "chase.com"
+			"domain": "chase.com"
 		},
 		{
 			"name": "CIBC",
-			"home": "cibc.com"
+			"domain": "cibc.com"
 		},
 		{
 			"name": "Citi",
-			"home": "citi.com"
+			"domain": "citi.com"
 		},
 		{
 			"name": "HSBC",
-			"home": "hsbc.com"
+			"domain": "hsbc.com"
 		},
 		{
 			"name": "Marcus",
-			"home": "marcus.com"
+			"domain": "marcus.com"
 		},
 		{
 			"name": "WaFd Bank",
-			"home": "wafdbank.com"
+			"domain": "wafdbank.com"
 		},
 		{
 			"name": "Wells Fargo",
-			"home": "wellsfargo.com"
+			"domain": "wellsfargo.com"
 		},
 		{
 			"name": "US Bank",
-			"home": "usbank.com"
+			"domain": "usbank.com"
 		}
 	]
 }

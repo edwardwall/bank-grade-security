@@ -4,31 +4,31 @@
 	"list": [
 		{
 			"name": "ABSA",
-			"home": "absa.co.za"
+			"domain": "absa.co.za"
 		},
 		{
 			"name": "African Bank",
-			"home": "africanbank.co.za"
+			"domain": "africanbank.co.za"
 		},
 		{
 			"name": "Bidvest Bank",
-			"home": "bidvestbank.co.za"
+			"domain": "bidvestbank.co.za"
 		},
 		{
 			"name": "Capitec Bank",
-			"home": "capitecbank.co.za"
+			"domain": "capitecbank.co.za"
 		},
 		{
 			"name": "First National Bank",
-			"home": "fnb.co.za"
+			"domain": "fnb.co.za"
 		},
 		{
 			"name": "Nedbank",
-			"home": "nedbank.co.za"
+			"domain": "nedbank.co.za"
 		},
 		{
 			"name": "Standard Bank",
-			"home": "standardbank.co.za"
+			"domain": "standardbank.co.za"
 		}
 	]
 }
