@@ -1,0 +1,54 @@
+{
+	"name": "USA",
+	"code": "us",
+	"list": [
+		{
+			"name": "Alliant",
+			"home": "alliantcreditunion.org"
+		},
+		{
+			"name": "Ally",
+			"home": "ally.com"
+		},
+		{
+			"name": "Bank of America",
+			"home": "bankofamerica.com"
+		},
+		{
+			"name": "Barclays",
+			"home": "barclaysus.com"
+		},
+		{
+			"name": "Chase",
+			"home": "chase.com"
+		},
+		{
+			"name": "CIBC",
+			"home": "cibc.com"
+		},
+		{
+			"name": "Citi",
+			"home": "citi.com"
+		},
+		{
+			"name": "HSBC",
+			"home": "hsbc.com"
+		},
+		{
+			"name": "Marcus",
+			"home": "marcus.com"
+		},
+		{
+			"name": "WaFd Bank",
+			"home": "wafdbank.com"
+		},
+		{
+			"name": "Wells Fargo",
+			"home": "wellsfargo.com"
+		},
+		{
+			"name": "US Bank",
+			"home": "usbank.com"
+		}
+	]
+}
