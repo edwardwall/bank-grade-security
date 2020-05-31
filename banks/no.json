@@ -1,0 +1,50 @@
+{
+	"name": "Norway",
+	"code": "no",
+	"list": [
+		{
+			"name": "Bank Norwegian",
+			"home": "banknorwegian.no"
+		},
+		{
+			"name": "Bank2",
+			"home": "bank2.no"
+		},
+		{
+			"name": "BN Bank",
+			"home": "bnbank.no"
+		},
+		{
+			"name": "DNB",
+			"home": "dnb.no"
+		},
+		{
+			"name": "Gjensidige",
+			"home": "gjensidige.no"
+		},
+		{
+			"name": "Landkreditt",
+			"home": "landkredittbank.no"
+		},
+		{
+			"name": "Nordea",
+			"home": "nordea.no"
+		},
+		{
+			"name": "Santander",
+			"home": "santanderconsumer.no"
+		},
+		{
+			"name": "Sbanken",
+			"home": "sbanken.no"
+		},
+		{
+			"name": "Easybank",
+			"home": "easybank.no"
+		},
+		{
+			"name": "Vekselbanken",
+			"home": "vekselbanken.no"
+		}
+	]
+}
