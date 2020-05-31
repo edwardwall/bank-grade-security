@@ -1,0 +1,38 @@
+{
+	"name": "Italy",
+	"code": "it",
+	"list": [
+		{
+			"name": "BNL",
+			"home": "bnl.it"
+		},
+		{
+			"name": "BPER Banca",
+			"home": "bper.it"
+		},
+		{
+			"name": "Banco BPM",
+			"home": "bancobpm.it"
+		},
+		{
+			"name": "BPS",
+			"home": "popso.it"
+		},
+		{
+			"name": "Credem Banca",
+			"home": "credem.it"
+		},
+		{
+			"name": "Intesa Sanpaolo",
+			"home": "intesasanpaolo.com"
+		},
+		{
+			"name": "MPS",
+			"home": "mps.it"
+		},
+		{
+			"name": "UBI Banca",
+			"home": "ubibanca.com"
+		}
+	]
+}
