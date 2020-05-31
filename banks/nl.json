@@ -1,0 +1,46 @@
+{
+	"name": "Netherlands",
+	"code": "nl",
+	"list": [
+		{
+			"name": "ABN Amro",
+			"home": "abnamro.nl"
+		},
+		{
+			"name": "ASN Bank",
+			"home": "asnbank.nl"
+		},
+		{
+			"name": "Knab",
+			"home": "knab.nl"
+		},
+		{
+			"name": "ING",
+			"home": "ing.nl"
+		},
+		{
+			"name": "Nationale Nederlanden",
+			"home": "nn.nl"
+		},
+		{
+			"name": "NIBC Direct",
+			"home": "nibcdirect.nl"
+		},
+		{
+			"name": "Rabobank",
+			"home": "rabobank.nl"
+		},
+		{
+			"name": "Regiobank",
+			"home": "regiobank.nl"
+		},
+		{
+			"name": "SNS Bank",
+			"home": "snsbank.nl"
+		},
+		{
+			"name": "Triodos",
+			"home": "triodos.nl"
+		}
+	]
+}
