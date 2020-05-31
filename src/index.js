@@ -290,7 +290,7 @@ function writeFile(location, file) {
  * @param {string} grade
  * @param {Object} results
  */
-function writeBankPage(country, name, urlSafeBankName, domain,
+function writeBankPage(country, name, urlName, domain,
     score, grade, results) {
 
     try { // Ensure country dir exists
@@ -334,7 +334,9 @@ function writeCountryPage(code, name, cards) {
     page = page.replace(/\$countryName/g, name);
 
     cards = sortCards(cards);
-    page = page.replace("$main", cards.join());
+    let html = cards.map(c => c.html).join();
+
+    page = page.replace("$main", html);
 
     writeFile(code + ".html", page);
 
@@ -503,8 +505,8 @@ function getExplanation(grade) {
  */
 function makeCard(countryCode, bankName, urlName, domain, score, grade) {
 
-    return \
-        '<a class=card href=https://bankgradesecurity.com/' + countryCode + '/' + urlName + '>\
+    return '\
+        <a class=card href=https://bankgradesecurity.com/' + countryCode + '/' + urlName + '>\
         <div class="grade ' + grade + '">' + score + '</div>\
         <div class=name>' + bankName + '</div>\
         <div class=details>' + countryCode.toUpperCase() + '</div><div class=details>' + domain + '</div>\
