@@ -1,0 +1,34 @@
+{
+	"name": "South Africa",
+	"code": "za",
+	"list": [
+		{
+			"name": "ABSA",
+			"home": "absa.co.za"
+		},
+		{
+			"name": "African Bank",
+			"home": "africanbank.co.za"
+		},
+		{
+			"name": "Bidvest Bank",
+			"home": "bidvestbank.co.za"
+		},
+		{
+			"name": "Capitec Bank",
+			"home": "capitecbank.co.za"
+		},
+		{
+			"name": "First National Bank",
+			"home": "fnb.co.za"
+		},
+		{
+			"name": "Nedbank",
+			"home": "nedbank.co.za"
+		},
+		{
+			"name": "Standard Bank",
+			"home": "standardbank.co.za"
+		}
+	]
+}
