@@ -1,0 +1,58 @@
+{
+    "name": "France",
+    "code": "fr",
+    "list": [
+        {
+            "name": "Axa",
+            "domain": "axa.fr"
+        },
+        {
+            "name": "Banque Populaire",
+            "domain": "banquepopulaire.fr"
+        },
+        {
+            "name": "BNP Paribas",
+            "domain": "mabanque.bnpparibas"
+        },
+        {
+            "name": "Boursorama",
+            "domain": "boursorama-banque.com"
+        },
+        {
+            "name": "BRED",
+            "domain": "bred.fr"
+        },
+        {
+            "name": "Caisse D'Epargne",
+            "domain": "caisse-epargne.fr"
+        },
+        {
+            "name": "CIC",
+            "domain": "cic.fr"
+        },
+        {
+            "name": "Credit Mutuel",
+            "domain": "creditmutuel.fr"
+        },
+        {
+            "name": "Hello Bank",
+            "domain": "hellobank.fr"
+        },
+        {
+            "name": "HSBC",
+            "domain": "hsbc.fr"
+        },
+        {
+            "name": "La Banque Postale",
+            "domain": "labanquepostale.fr"
+        },
+        {
+            "name": "LCL",
+            "domain": "lcl.fr"
+        },
+        {
+            "name": "Societe Generale",
+            "domain": "societegenerale.fr"
+        }
+    ]
+}
