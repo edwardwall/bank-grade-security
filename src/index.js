@@ -164,7 +164,7 @@ function processResults(results) {
         "Secure Redirection": results.secureRedirectionChain.result,
         "Accepts HTTPS": results.accepts.https,
         "HSTS": results.hsts.result,
-        "HSTS Long Length": results.hsts.result && (190 >= results.hsts.data.age), // roughly 6 months
+        "HSTS Long Length": results.hsts.result && (180 <= results.hsts.data.age), // roughly 6 months
         "HSTS Preloaded": results.hsts.result && results.hsts.data.preloaded
     };
 
@@ -334,7 +334,7 @@ function writeCountryPage(code, name, cards) {
     page = page.replace(/\$countryName/g, name);
 
     cards = sortCards(cards);
-    let html = cards.map(c => c.html).join();
+    let html = cards.map(c => c.html).join("\n");
 
     page = page.replace("$main", html);
 
@@ -350,9 +350,10 @@ function writeHomePage(cards) {
 
     let page = TEMPLATES.HOMEPAGE;
 
+    let sortedCountryCodes = Object.keys(countries).sort();
     let replace = [];
 
-    for (code in countries) {
+    for (code of sortedCountryCodes) {
         replace.push(
             "<a href=https://bankgradesecurity.com/" + code + ">" +
             countries[code].name + "</a>"
@@ -364,7 +365,7 @@ function writeHomePage(cards) {
 
     let main = "";
     for (card of cards) {
-        main += card.html;
+        main += card.html + "\n";
     }
     page = page.replace("$main", main);
 
@@ -407,8 +408,8 @@ function makeBankMain(results) {
 
     let main = "";
 
-    let categoryHtmlTop = "<section><div class=top>$category</div>";
-    let categoryHtmlBottom = "</section>";
+    let categoryHtmlTop = "<section>\n<div class=top>$category</div>\n";
+    let categoryHtmlBottom = "</section>\n";
 
     for (category in results) {
         main += categoryHtmlTop.replace("$category", category);
@@ -427,12 +428,12 @@ function makeBankMain(results) {
             }
 
             main +=
-                '<div class=measure>\
-                <span>' + metric + '</span>\
-                <div class=results>\
-                <div class="result ' + grade + '">' + check + '</div>\
-                </div>\
-                </div>';
+                '<div class=measure>' +
+                '<span>' + metric + '</span>' +
+                '<div class=results>' +
+                '<div class="result ' + grade + '">' + check + '</div>' +
+                '</div>' +
+                '</div>\n';
         }
 
         main += categoryHtmlBottom;
@@ -505,12 +506,12 @@ function getExplanation(grade) {
  */
 function makeCard(countryCode, bankName, urlName, domain, score, grade) {
 
-    return '\
-        <a class=card href=https://bankgradesecurity.com/' + countryCode + '/' + urlName + '>\
-        <div class="grade ' + grade + '">' + score + '</div>\
-        <div class=name>' + bankName + '</div>\
-        <div class=details>' + countryCode.toUpperCase() + '</div><div class=details>' + domain + '</div>\
-        </a>';
+    return '' +
+        '<a class=card href=https://bankgradesecurity.com/' + countryCode + '/' + urlName + '>' +
+        '<div class="grade ' + grade + '">' + score + '</div>' +
+        '<div class=name>' + bankName + '</div>' +
+        '<div class=details>' + countryCode.toUpperCase() + '</div><div class=details>' + domain + '</div>' +
+        '</a>';
 
 }
 
