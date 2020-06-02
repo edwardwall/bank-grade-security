@@ -119,7 +119,7 @@ text-decoration:none;
 margin:.5em;
 padding:.4em .8em;
 border-radius:.5em;
-font-size:.9em;
+line-height:.9em;
 }
 .list {
 padding:2em 0;
@@ -134,9 +134,9 @@ background-color:#fff;
 padding:.5em .8em;
 font-size:1em;
 border:0;
-width:calc(100% - 5em);
+width:calc(100% - 5.5em);
 margin:0 auto 2em auto;
-max-width:800px;
+max-width:38.5em;
 display:block;
 border-radius:.2em;
 }
