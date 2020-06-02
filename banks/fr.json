@@ -23,10 +23,6 @@
             "domain": "bred.fr"
         },
         {
-            "name": "Caisse D'Epargne",
-            "domain": "caisse-epargne.fr"
-        },
-        {
             "name": "CIC",
             "domain": "cic.fr"
         },
@@ -49,10 +45,6 @@
         {
             "name": "LCL",
             "domain": "lcl.fr"
-        },
-        {
-            "name": "Societe Generale",
-            "domain": "societegenerale.fr"
         }
     ]
 }
