@@ -1,7 +1,7 @@
 const FS = require("fs");
 const PATH = require("path");
 
-const WSS = require("../../../website-security-scanner/src/main.js");
+const WSS = require("../../website-security-scanner/src/main.js");
 
 const PATHS = {
     BANKS: "../banks/",
@@ -116,6 +116,8 @@ function createWebsite() {
         sitemap.push(code);
     }
 
+    let completeResults = {}
+
     for (bank of banks) {
 
         let results = processResults(bank.results);
@@ -129,6 +131,13 @@ function createWebsite() {
             "X-Powered-By": (bank.results.poweredBy.result ? "" : bank.results.poweredBy.data.value),
             "ASP.NET Version": (bank.results.aspVersion.result ? "" : bank.results.aspVersion.data.value)
         };
+
+        if (undefined === completeResults[bank.country.code]) {
+            completeResults[bank.country.code] = {}
+        }
+
+        completeResults[bank.country.code][bank.name] = results;
+
 
         writeBankPage(bank.country, bank.name, urlName, bank.domain,
             score, grade, results);
@@ -151,6 +160,12 @@ function createWebsite() {
 
     writeHomePage(cards);
     writeFile("sitemap.txt", sitemap.join("\n" + "https://bankgradesecurity.com/"));
+
+    let orderedCompleteResults = {};
+    Object.keys(completeResults).sort().forEach((key) => {
+        orderedCompleteResults[key] = completeResults[key];
+    });
+    writeFile(PATHS.HISTORY + "202006.json", JSON.stringify(orderedCompleteResults, null, 4));
 
 }
 
