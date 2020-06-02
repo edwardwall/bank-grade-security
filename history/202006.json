@@ -1,0 +1,4121 @@
+{
+    "au": {
+        "ANZ": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache/2.4.6 (Red Hat Enterprise Linux)",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bank Australia": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/10.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": "5.2"
+            }
+        },
+        "CUA": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "openresty",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Commonwealth Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Heritage Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "NAB": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Newcastle Permanent": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Westpac": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "CloudFront",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "es": {
+        "Abanca": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": true,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "nginx",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "BBVA": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "Servlet/3.0",
+                "ASP.NET Version": ""
+            }
+        },
+        "Banco Sabadell": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Banco Santander": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bankia": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bankinter": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "CaixaBank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "ECD (lcy/1D13)",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Caja de Ingenieros": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "EVO": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Liberbank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Unicaja Banco": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "fr": {
+        "Axa": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "PWS/8.3.1.0.8",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "BNP Paribas": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "Servlet/3.0",
+                "ASP.NET Version": ""
+            }
+        },
+        "BRED": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AWS 1.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Banque Populaire": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Boursorama": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "openresty",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "CIC": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Credit Mutuel": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "HSBC": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Hello Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "LCL": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "openresty/1.15.8.1",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "La Banque Postale": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "gb": {
+        "Bank of Scotland": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Barclays": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Clydesdale Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Co-operative Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": true,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "UltraDNS Client Redirection Server",
+                "X-Powered-By": "Co-operative",
+                "ASP.NET Version": ""
+            }
+        },
+        "Danske Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "First Direct": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "HSBC": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Halifax": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/10.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Lloyds Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/10.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "M&S Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Metro Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "NatWest": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Nationwide BS": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Royal Bank of Scotland": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Sainsbury's Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "awselb/2.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Santander": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Skipton BS": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/10.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Smile": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": true,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "UltraDNS Client Redirection Server",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "TSB": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BancSabadell",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Tesco Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Ulster Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Yorkshire Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "ie": {
+        "AIB": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bank of Ireland": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "awselb/2.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "EBS": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "KBC": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": "4.0.30319"
+            }
+        },
+        "Permanent TSB": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Ulster Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "it": {
+        "BNL": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "BPER Banca": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache/2.4.27 (CentOS)",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "BPS": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "httpd",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Banco BPM": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "Express, ARR/3.0",
+                "ASP.NET Version": ""
+            }
+        },
+        "Credem Banca": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Intesa Sanpaolo": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "MPS": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache/2.2.15 (Red Hat)",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "UBI Banca": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "nl": {
+        "ABN Amro": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "ASN Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "ING": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Knab": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "NIBC Direct": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Nationale Nederlanden": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "NN",
+                "ASP.NET Version": ""
+            }
+        },
+        "Rabobank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "Servlet/3.0",
+                "ASP.NET Version": ""
+            }
+        },
+        "Regiobank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "SNS Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Triodos": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "nginx",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "no": {
+        "BN Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bank Norwegian": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": true,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bank2": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips mod_fcgid/2.3.9 PHP/7.2.27",
+                "X-Powered-By": "PHP/7.2.27",
+                "ASP.NET Version": ""
+            }
+        },
+        "DNB": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "Servlet/3.1",
+                "ASP.NET Version": ""
+            }
+        },
+        "Easybank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/10.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Gjensidige": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Landkreditt": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Nordea": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "nginx",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Santander": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/8.5",
+                "X-Powered-By": "0",
+                "ASP.NET Version": "4.0.30319"
+            }
+        },
+        "Sbanken": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": true
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Vekselbanken": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "nz": {
+        "ANZ": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache/2.4.6 (Red Hat Enterprise Linux)",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "ASB": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "HSBC": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Kiwibank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "AmazonS3",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Rabobank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/8.5",
+                "X-Powered-By": "",
+                "ASP.NET Version": "4.0.30319"
+            }
+        },
+        "SBS Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Westpac": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "se": {
+        "Avanza": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bank Norwegian": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": true,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Handelsbanken": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "ICA Banken": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": true
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Nordea": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "nginx",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Skandia": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": true,
+                "CAA": true
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Swedbank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "us": {
+        "Alliant": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "cloudflare",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Ally": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "PHP/5.4.7",
+                "ASP.NET Version": ""
+            }
+        },
+        "Bank of America": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Barclays": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "CIBC": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Chase": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Citi": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "HSBC": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": false,
+                "Accepts HTTPS": false,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "AkamaiGHost",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "US Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/10.0",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "WaFd Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "Microsoft-IIS/8.5",
+                "X-Powered-By": "ASP.NET",
+                "ASP.NET Version": "4.0.30319"
+            }
+        },
+        "Wells Fargo": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "KONICHIWA/1.1",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    },
+    "za": {
+        "ABSA": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "Apache",
+                "X-Powered-By": "Express",
+                "ASP.NET Version": ""
+            }
+        },
+        "Capitec Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": false,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": true
+            },
+            "Miscellaneous Headers": {
+                "Server": "cloudflare",
+                "X-Powered-By": "",
+                "ASP.NET Version": "4.0.30319"
+            }
+        },
+        "First National Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "IIS",
+                "X-Powered-By": "Sun One",
+                "ASP.NET Version": ""
+            }
+        },
+        "Nedbank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": false,
+                "HSTS Long Length": false,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": false,
+                "TLS 1.1 Disabled": true,
+                "TLS 1.0 Disabled": true,
+                "Forward Secrecy": true,
+                "Certificate Length": false
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": false,
+                "Framing Protection": false
+            },
+            "HTTP": {
+                "Feature Policy": false,
+                "Referrer Policy": false,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "BigIP",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        },
+        "Standard Bank": {
+            "HTTPS": {
+                "Upgrade HTTP": true,
+                "Secure Redirection": true,
+                "Accepts HTTPS": true,
+                "HSTS": true,
+                "HSTS Long Length": true,
+                "HSTS Preloaded": false
+            },
+            "TLS": {
+                "TLS 1.3 Enabled": true,
+                "TLS 1.1 Disabled": false,
+                "TLS 1.0 Disabled": false,
+                "Forward Secrecy": true,
+                "Certificate Length": true
+            },
+            "DNS": {
+                "DNSSEC": false,
+                "CAA": false
+            },
+            "CSP": {
+                "XSS Protection": true,
+                "Framing Protection": true
+            },
+            "HTTP": {
+                "Feature Policy": true,
+                "Referrer Policy": true,
+                "MIME Type Sniffing Protection": false
+            },
+            "Miscellaneous Headers": {
+                "Server": "cloudflare",
+                "X-Powered-By": "",
+                "ASP.NET Version": ""
+            }
+        }
+    }
+}
