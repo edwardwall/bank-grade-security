@@ -224,6 +224,9 @@ overflow-x:scroll;
 white-space:nowrap;
 padding:.2em 2%;
 }
+h2 {
+padding:.5em;
+}
 }
 @media (max-width:650px) {
 header,nav,main,footer {
