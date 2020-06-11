@@ -413,7 +413,7 @@
             },
             "HTTP": {
                 "Feature Policy": false,
-                "Referrer Policy": false,
+                "Referrer Policy": true,
                 "MIME Type Sniffing Protection": false
             },
             "Miscellaneous Headers": {
@@ -444,7 +444,7 @@
             },
             "CSP": {
                 "XSS Protection": true,
-                "Framing Protection": false
+                "Framing Protection": true
             },
             "HTTP": {
                 "Feature Policy": false,
@@ -726,7 +726,7 @@
             },
             "CSP": {
                 "XSS Protection": true,
-                "Framing Protection": false
+                "Framing Protection": true
             },
             "HTTP": {
                 "Feature Policy": false,
@@ -1489,7 +1489,7 @@
                 "TLS 1.3 Enabled": false,
                 "TLS 1.1 Disabled": true,
                 "TLS 1.0 Disabled": true,
-                "Forward Secrecy": true,
+                "Forward Secrecy": false,
                 "Certificate Length": false
             },
             "DNS": {
@@ -2131,13 +2131,13 @@
                 "CAA": true
             },
             "CSP": {
-                "XSS Protection": false,
-                "Framing Protection": false
+                "XSS Protection": true,
+                "Framing Protection": true
             },
             "HTTP": {
                 "Feature Policy": false,
                 "Referrer Policy": false,
-                "MIME Type Sniffing Protection": false
+                "MIME Type Sniffing Protection": true
             },
             "Miscellaneous Headers": {
                 "Server": "httpd",
@@ -2804,7 +2804,7 @@
                 "Framing Protection": true
             },
             "HTTP": {
-                "Feature Policy": false,
+                "Feature Policy": true,
                 "Referrer Policy": false,
                 "MIME Type Sniffing Protection": true
             },
@@ -3011,7 +3011,7 @@
             },
             "CSP": {
                 "XSS Protection": true,
-                "Framing Protection": false
+                "Framing Protection": true
             },
             "HTTP": {
                 "Feature Policy": false,
@@ -3504,7 +3504,7 @@
                 "CAA": true
             },
             "CSP": {
-                "XSS Protection": true,
+                "XSS Protection": false,
                 "Framing Protection": true
             },
             "HTTP": {
@@ -3787,7 +3787,7 @@
             },
             "CSP": {
                 "XSS Protection": false,
-                "Framing Protection": false
+                "Framing Protection": true
             },
             "HTTP": {
                 "Feature Policy": false,

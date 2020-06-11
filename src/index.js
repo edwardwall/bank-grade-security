@@ -207,11 +207,14 @@ function processResults(results) {
     function parseCsp(csp) {
 
         let framingProtection = false;
-        if (csp["frame-ancestors"]) {
+        if (csp["frame-ancestors"] && csp["frame-ancestors"].length) {
+
+            framingProtection = true;
             let sources = " " + csp["frame-ancestors"].join(" ") + " ";
+
             for (e of [" data: ", " http: ", " https: "]) {
                 if (sources.includes(e)) {
-                    framingProtection = true;
+                    framingProtection = false;
                 }
             }
         }
