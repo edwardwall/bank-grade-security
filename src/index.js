@@ -154,41 +154,27 @@ async function begin() {
 function createWebsite() {
 
     let cards = [];
+    let completeResults = {};
 
     for (code in countries) {
+        completeResults[code] = {};
         countries[code].cards = [];
         sitemap.push(code);
     }
 
-    let completeResults = {}
-
     for (bank of banks) {
 
         let results = processResults(bank.results);
-        let history;
+        completeResults[bank.country.code][bank.name] = results;
 
+        let history;
         try {
             history = HISTORY[bank.country.code][bank.name];
-        } catch (e) {
-            history = undefined;
-        }
+        } catch () {history = undefined}
 
         let score = calculateScore(results);
         let grade = calculateGrade(score);
         let urlName = makeUrlSafe(bank.name);
-
-        results["Miscellaneous Headers"] = {
-            "Server": (bank.results.server.result ? "" : bank.results.server.data.value),
-            "X-Powered-By": (bank.results.poweredBy.result ? "" : bank.results.poweredBy.data.value),
-            "ASP.NET Version": (bank.results.aspVersion.result ? "" : bank.results.aspVersion.data.value)
-        };
-
-        if (undefined === completeResults[bank.country.code]) {
-            completeResults[bank.country.code] = {}
-        }
-
-        completeResults[bank.country.code][bank.name] = results;
-
 
         writeBankPage(bank.country, bank.name, urlName, bank.domain,
             score, grade, results, history);
@@ -210,13 +196,16 @@ function createWebsite() {
     }
 
     writeHomePage(cards);
-    writeFile("sitemap.txt", sitemap.join("\n" + "https://bankgradesecurity.com/"));
+    writeFile("sitemap.txt",
+        sitemap.join("\n" + "https://bankgradesecurity.com/"));
 
-    let orderedCompleteResults = {};
+    let orderedResults = {};
     Object.keys(completeResults).sort().forEach((key) => {
-        orderedCompleteResults[key] = completeResults[key];
+        orderedResults[key] = completeResults[key];
     });
-    writeFile(PATHS.HISTORY + "202006.json", JSON.stringify(orderedCompleteResults, null, 4));
+
+    writeFile(PATHS.HISTORY + "202006.json",
+        JSON.stringify(orderedResults, null, 4));
 
 }
 
@@ -257,6 +246,12 @@ function processResults(results) {
         "Feature Policy": results.featurePolicy.result,
         "Referrer Policy": results.referrerPolicy.result,
         "MIME Type Sniffing Protection": results.xContentTypeOptions.result
+    };
+
+    results["Miscellaneous Headers"] = {
+        "Server": (bank.results.server.result ? "" : bank.results.server.data.value),
+        "X-Powered-By": (bank.results.poweredBy.result ? "" : bank.results.poweredBy.data.value),
+        "ASP.NET Version": (bank.results.aspVersion.result ? "" : bank.results.aspVersion.data.value)
     };
 
     /**
