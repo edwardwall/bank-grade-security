@@ -123,6 +123,13 @@ function createWebsite() {
     for (bank of banks) {
 
         let results = processResults(bank.results);
+        let history;
+
+        try {
+            history = HISTORY[bank.country.code][bank.name];
+        } catch (e) {
+            history = undefined;
+        }
 
         let score = calculateScore(results);
         let grade = calculateGrade(score);
@@ -142,7 +149,7 @@ function createWebsite() {
 
 
         writeBankPage(bank.country, bank.name, urlName, bank.domain,
-            score, grade, results);
+            score, grade, results, history);
 
         let card = {
             score,
@@ -313,9 +320,10 @@ function writeFile(location, file) {
  * @param {number} score
  * @param {string} grade
  * @param {Object} results
+ * @param {Object|undefined} history
  */
 function writeBankPage(country, name, urlName, domain,
-    score, grade, results) {
+    score, grade, results, history) {
 
     try { // Ensure country dir exists
         FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, country.code));
@@ -335,7 +343,7 @@ function writeBankPage(country, name, urlName, domain,
     page = page.replace(/\$explanation/g, name + " " + getExplanation(grade));
     page = page.replace(/\$urlSafeName/g, urlName);
 
-    page = page.replace("$main", makeBankMain(results));
+    page = page.replace("$main", makeBankMain(results, history));
 
     let path = country.code + "/" + urlName + ".html";
 
@@ -426,9 +434,10 @@ function sortCards(cards) {
 /**
  * Function to make the main section of the bank HTML page.
  * @param {Object} results
+ * @param {Object|undefined} history
  * @returns {string}
  */
-function makeBankMain(results) {
+function makeBankMain(results, history) {
 
     let main = "";
 
@@ -463,6 +472,27 @@ function makeBankMain(results) {
         main += categoryHtmlBottom;
     }
 
+    if (history) {
+        main += categoryHtmlTop.replace("$category", "History");
+
+        for (date in history) {
+
+            let scan = history[date];
+
+            let year = date.substring(0, "2020".length);
+            let month = convertMonth(parseInt(date.substring("2020".length)));
+
+            main +=
+                '<div class=history>' +
+                '<div class="grade ' + scan.grade + '">' + scan.score + '</div>' +
+                '<p>' + month + ' ' + year + '</p>' +
+                '</div>\n';
+
+        }
+
+        main += categoryHtmlBottom;
+    }
+
     return main;
 
 }
@@ -487,6 +517,30 @@ function htmlEncode(string) {
     }
 
     return string;
+
+}
+
+/**
+ * Function to convert number to month name.
+ * @param {number} month
+ */
+function convertMonth(month) {
+
+    return [
+        undefined, // makes months 1 indexed.
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ][month];
 
 }
 
