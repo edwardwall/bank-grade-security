@@ -12,6 +12,8 @@ const PATHS = {
 
 const TEMPLATES = getTemplates();
 
+const HISTORY = getHistory();
+
 var banks = [];
 var countries = {};
 var sitemap = ["https://bankgradesecurity.com/"];
@@ -244,6 +246,10 @@ function calculateScore(results) {
 
     for (category in results) {
         for (metric in results[category]) {
+
+            if ("string" === typeof results[category][metric]) {
+                continue;
+            }
 
             total += 1;
 
@@ -566,4 +572,43 @@ function getTemplates() {
     }
 
     return templates;
+}
+
+/**
+ * Function to read and parse past scan results.
+ * @returns {Object}
+ */
+function getHistory() {
+
+    let history = {};
+    const directory = FS.readdirSync(PATH.resolve(__dirname, PATHS.HISTORY));
+
+    for (filename of directory) {
+
+        let file = FS.readFileSync(PATH.resolve(__dirname, PATH.HISTORY, filename));
+        file = JSON.parse(file);
+
+        let scanDate = filename.substring(0, filename.indexOf("."));
+
+        for (countryCode in file) {
+            if (undefined === history[countryCode]) {
+                history[countryCode] = {};
+            }
+
+            for (bankName in file[countryCode]) {
+                if (undefined === history[countryCode][bankName]) {
+                    history[countryCode][bankName] = {};
+                }
+
+                let score = calculateScore(file[countryCode][bankName]);
+                let grade = calculateGrade(score);
+
+                history[countryCode][bankName][scanDate] = {score, grade};
+            }
+        }
+
+    }
+
+    return history;
+
 }
