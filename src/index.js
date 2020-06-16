@@ -18,57 +18,100 @@ var banks = [];
 var countries = {};
 var sitemap = ["https://bankgradesecurity.com/"];
 
-for (filename of readDirectory(PATHS.BANKS)) {
+function main() {
 
-    let file;
-    file = readFile(PATHS.BANKS + filename);
-    file = JSON.parse(file);
+    readBanks();
+    sortBanks();
+    printWelcome();
+    begin();
 
-    // Sanity check, ensure filename matches file contents
-    if (filename !== (file.code + ".json")) {
-        throw Error("Filename does not match contents - " + filename);
-    }
+}
 
-    countries[file.code] = {
-        name: file.name,
-        banks: []
-    };
+/**
+ * Read banks from JSON files and populate banks array.
+ */
+function readBanks() {
 
-    for (bankObject of file.list) {
+    for (filename of readDirectory(PATHS.BANKS)) {
 
-        countries[file.code].banks.push(bankObject);
+        let file = readFile(PATHS.BANKS + filename);
+        file = JSON.parse(file);
 
-        bankObject.country = {
-            code: file.code,
-            name: file.name
+        // Ensure file has correct format.
+        if (!(file.code && file.name && file.list)) {
+            throw Error("File has incorrect format - " + filename);
+        }
+
+        // Ensure filename matches file contents.
+        if ((file.code + ".json") !== filename) {
+            throw Error("Filename does not match contents - " + filename);
+        }
+
+        countries[file.code] = {
+            name: file.name,
+            banks: []
         };
-        banks.push(bankObject);
+
+        for (bankObject of file.list) {
+
+            // Ensure bank has correct format.
+            if (!(bankObject.name && bankObject.domain)) {
+                throw Error("Banks has incorrect format in " +
+                    filename + " " + JSON.stringify(bankObject));
+            }
+
+            countries[file.code].banks.push(bankObject);
+
+            bankObject.country = {
+                code: file.code,
+                name: file.name
+            };
+
+            banks.push(bankObject);
+        }
 
     }
 
 }
 
-console.log("~~ Bank Grade Security");
-console.log("Found", banks.length, "banks from", Object.keys(countries).length, "countries");
-console.log("Estimated time for scanning is", Math.ceil((banks.length * DELAY) / (60 * 1000)), "minutes");
-console.log();
+/**
+ * Print message with estimated time.
+ */
+function printWelcome() {
+    console.log("~~ Bank Grade Security");
+    console.log("Found", banks.length, "banks from",
+        Object.keys(countries).length, "countries");
+    console.log("Estimated time for scanning is",
+        Math.ceil((banks.length * DELAY) / (60 * 1000)), "minutes");
+    console.log();
+}
 
-// Sort into alphabetical order
-banks.sort((a, b) => {
-    if (a.name > b.name) {
-        return 1;
-    } else if (a.name < b.name) {
-        return -1;
-    }
+/**
+ * Sort banks alphabetically.
+ */
+function sortBanks() {
 
-    if (a.country > b.country) {
-        return -1;
-    }
+    banks.sort((a, b) => {
 
-    return 1;
-});
+        if (a.name > b.name) {
+            return 1;
+        } else if (a.name < b.name) {
+            return -1;
+        }
 
-begin();
+        if (a.country > b.country) {
+            return 1;
+        } else if (a.country < b.country) {
+            return -1;
+        }
+
+        // Should never get here.
+        // Both banks have the same name and country.
+        throw Error("Bank duplicated - " + JSON.stringify(a));
+
+    });
+
+}
 
 /**
  * Function to perform scanning of all banks.
