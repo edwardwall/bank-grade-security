@@ -18,10 +18,10 @@ var banks = [];
 var countries = {};
 var sitemap = ["https://bankgradesecurity.com/"];
 
-for (filename of FS.readdirSync(PATH.resolve(__dirname, PATHS.BANKS))) {
+for (filename of readDirectory(PATHS.BANKS)) {
 
     let file;
-    file = FS.readFileSync(PATH.resolve(__dirname, PATHS.BANKS, filename), "utf8");
+    file = readFile(PATHS.BANKS + filename);
     file = JSON.parse(file);
 
     // Sanity check, ensure filename matches file contents
@@ -301,17 +301,6 @@ function makeUrlSafe(str) {
 }
 
 /**
- * Function to write a given file to the given location.
- * @param {string} location
- * @param {string} file
- */
-function writeFile(location, file) {
-
-    FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
-
-}
-
-/**
  * Function to write bank HTML file.
  * @param {Object} country
  * @param {string} name
@@ -326,7 +315,7 @@ function writeBankPage(country, name, urlName, domain,
     score, grade, results, history) {
 
     try { // Ensure country dir exists
-        FS.mkdirSync(PATH.resolve(__dirname, PATHS.OUTPUT, country.code));
+        makeDirectory(PATHS.OUTPUT + country.code);
     } catch (e) {}
 
     let page = TEMPLATES.BANK;
@@ -599,11 +588,11 @@ function makeCard(countryCode, bankName, urlName, domain, score, grade) {
  */
 function getTemplates() {
 
-    let filenames = FS.readdirSync(PATH.resolve(__dirname, PATHS.HTML));
+    let filenames = readDirectory(PATHS.HTML);
     let files = {};
 
     for (filename of filenames) {
-        files[filename] = FS.readFileSync(PATH.resolve(__dirname, PATHS.HTML, filename), "utf8");
+        files[filename] = readFile(PATHS.HTML + filename);
     }
 
     let templates = {};
@@ -635,11 +624,11 @@ function getTemplates() {
 function getHistory() {
 
     let history = {};
-    const directory = FS.readdirSync(PATH.resolve(__dirname, PATHS.HISTORY));
+    const directory = readDirectory(PATHS.HISTORY);
 
     for (filename of directory) {
 
-        let file = FS.readFileSync(PATH.resolve(__dirname, PATH.HISTORY, filename));
+        let file = readFile(PATHS.HISTORY + filename);
         file = JSON.parse(file);
 
         let scanDate = filename.substring(0, filename.indexOf("."));
@@ -665,4 +654,37 @@ function getHistory() {
 
     return history;
 
+}
+
+/**
+ * Function to read directory.
+ * @param {string} path
+ */
+function readDirectory(path) {
+    return FS.readdirSync(PATH.resolve(__dirname, path));
+}
+
+/**
+ * Function to make directory.
+ * @param {string} path
+ */
+function makeDirectory(path) {
+    FS.mkdirSync(PATH.resolve(__dirname, path));
+}
+
+/**
+ * Function to read file.
+ * @param {string} file
+ */
+function readFile(file) {
+    return FS.readFileSync(PATH.resolve(__dirname, file), "utf8");
+}
+
+/**
+ * Function to write a given file to the given location.
+ * @param {string} location
+ * @param {string} file
+ */
+function writeFile(location, file) {
+    FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
 }
