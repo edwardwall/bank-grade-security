@@ -10,8 +10,8 @@ const PATHS = {
     OUTPUT: "../docs/"
 };
 
+const DELAY = 5000; // 5 seconds
 const TEMPLATES = getTemplates();
-
 const HISTORY = getHistory();
 
 var banks = [];
@@ -48,8 +48,6 @@ for (filename of readDirectory(PATHS.BANKS)) {
 
 }
 
-const DELAY = 5000; // 5 seconds
-
 console.log("~~ Bank Grade Security");
 console.log("Found", banks.length, "banks from", Object.keys(countries).length, "countries");
 console.log("Estimated time for scanning is", Math.ceil((banks.length * DELAY) / (60 * 1000)), "minutes");
@@ -70,44 +68,39 @@ banks.sort((a, b) => {
     return 1;
 });
 
-
-var index = 0;
+begin();
 
 async function begin() {
 
-    return new Promise((resolve, reject) => {
+    let results = [];
 
-        let bank = banks[index];
-        index += 1;
-
-        let scanner = new WSS(bank.domain);
-
-        scanner.scan()
-        .then((results) => {
-
-            banks[index - 1].results = results;
-
-            if (banks.length > index) { // call recursively
-
-                setTimeout(() => {
-                    begin()
-                    .then(() => {
-                        resolve();
-                    });
-                }, DELAY);
-
-            } else { // last element
-                resolve();
-            }
-
-        });
-
+    let scans = banks.map(bank => () => {
+        (new WSS(bank.domain))
+        .scan()
+        .then(rs => results.push(rs))
     });
 
-}
+    for (scan of scans) {
+        await scan();
+        await wait();
+    }
 
-begin()
-.then(createWebsite);
+    banks = banks.map((bank) => {
+        bank.results = results.shift();
+    });
+
+    createWebsite();
+
+    /**
+     * Private function to wait DELAY seconds.
+     */
+    async function wait() {
+        return new Promise((resolve) => {
+            setTimeout(resolve, DELAY);
+        });
+    }
+
+}
 
 function createWebsite() {
 
