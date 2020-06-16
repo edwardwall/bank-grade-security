@@ -70,6 +70,9 @@ banks.sort((a, b) => {
 
 begin();
 
+/**
+ * Function to perform scanning of all banks.
+ */
 async function begin() {
 
     let results = [];
@@ -102,6 +105,9 @@ async function begin() {
 
 }
 
+/**
+ * Function to create the HTML pages for the website.
+ */
 function createWebsite() {
 
     let cards = [];
@@ -171,7 +177,11 @@ function createWebsite() {
 
 }
 
-
+/**
+ * Process results returned from WSS into website format.
+ * @param {Object} results
+ * @returns {Object}
+ */
 function processResults(results) {
 
     let response = {};
@@ -206,6 +216,10 @@ function processResults(results) {
         "MIME Type Sniffing Protection": results.xContentTypeOptions.result
     };
 
+    /**
+     * Private function to parse the Content Security Policy header.
+     * @param {string} csp
+     */
     function parseCsp(csp) {
 
         let framingProtection = false;
