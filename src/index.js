@@ -204,7 +204,17 @@ function createWebsite() {
         orderedResults[key] = completeResults[key];
     });
 
-    writeFile(PATHS.HISTORY + "202006.json",
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth() + 1;
+
+    if (10 > month) {
+        month = "0" + month;
+    } else {
+        month = month.toString();
+    }
+
+    writeFile(PATHS.HISTORY + year + month + ".json",
         JSON.stringify(orderedResults, null, 4));
 
 }
