@@ -1,6 +1,4 @@
-const FS = require("fs");
-const PATH = require("path");
-
+const FS = require("./filesystem.js");
 const WSS = require("../../website-security-scanner/src/main.js");
 
 const PATHS = {
@@ -32,9 +30,9 @@ var sitemap = ["https://bankgradesecurity.com/"];
  */
 function readBanks() {
 
-    for (filename of readDirectory(PATHS.BANKS)) {
+    for (filename of FS.readDirectory(PATHS.BANKS)) {
 
-        let file = readFile(PATHS.BANKS + filename);
+        let file = FS.readFile(PATHS.BANKS + filename);
         file = JSON.parse(file);
 
         // Ensure file has correct format.
@@ -196,7 +194,7 @@ function createWebsite() {
     }
 
     writeHomePage(cards);
-    writeFile("sitemap.txt",
+    FS.writeFile("sitemap.txt",
         sitemap.join("\n" + "https://bankgradesecurity.com/"));
 
     let orderedResults = {};
@@ -214,7 +212,7 @@ function createWebsite() {
         month = month.toString();
     }
 
-    writeFile(PATHS.HISTORY + year + month + ".json",
+    FS.writeFile(PATHS.HISTORY + year + month + ".json",
         JSON.stringify(orderedResults, null, 4));
 
 }
@@ -370,7 +368,7 @@ function writeBankPage(country, name, urlName, domain,
     score, grade, results, history) {
 
     try { // Ensure country dir exists
-        makeDirectory(PATHS.OUTPUT + country.code);
+        FS.makeDirectory(PATHS.OUTPUT + country.code);
     } catch (e) {}
 
     let page = TEMPLATES.BANK;
@@ -391,7 +389,7 @@ function writeBankPage(country, name, urlName, domain,
 
     let path = country.code + "/" + urlName + ".html";
 
-    writeFile(path, page);
+    FS.writeFile(path, page);
     sitemap.push(country.code + "/" + urlName);
 
 }
@@ -414,7 +412,7 @@ function writeCountryPage(code, name, cards) {
 
     page = page.replace("$main", html);
 
-    writeFile(code + ".html", page);
+    FS.writeFile(code + ".html", page);
 
 }
 
@@ -445,7 +443,7 @@ function writeHomePage(cards) {
     }
     page = page.replace("$main", main);
 
-    writeFile("index.html", page);
+    FS.writeFile("index.html", page);
 
 }
 
@@ -643,11 +641,11 @@ function makeCard(countryCode, bankName, urlName, domain, score, grade) {
  */
 function getTemplates() {
 
-    let filenames = readDirectory(PATHS.HTML);
+    let filenames = FS.readDirectory(PATHS.HTML);
     let files = {};
 
     for (filename of filenames) {
-        files[filename] = readFile(PATHS.HTML + filename);
+        files[filename] = FS.readFile(PATHS.HTML + filename);
     }
 
     let templates = {};
@@ -679,11 +677,11 @@ function getTemplates() {
 function getHistory() {
 
     let history = {};
-    const directory = readDirectory(PATHS.HISTORY);
+    const directory = FS.readDirectory(PATHS.HISTORY);
 
     for (filename of directory) {
 
-        let file = readFile(PATHS.HISTORY + filename);
+        let file = FS.readFile(PATHS.HISTORY + filename);
         file = JSON.parse(file);
 
         let scanDate = filename.substring(0, filename.indexOf("."));
@@ -709,37 +707,4 @@ function getHistory() {
 
     return history;
 
-}
-
-/**
- * Function to read directory.
- * @param {string} path
- */
-function readDirectory(path) {
-    return FS.readdirSync(PATH.resolve(__dirname, path));
-}
-
-/**
- * Function to make directory.
- * @param {string} path
- */
-function makeDirectory(path) {
-    FS.mkdirSync(PATH.resolve(__dirname, path));
-}
-
-/**
- * Function to read file.
- * @param {string} file
- */
-function readFile(file) {
-    return FS.readFileSync(PATH.resolve(__dirname, file), "utf8");
-}
-
-/**
- * Function to write a given file to the given location.
- * @param {string} location
- * @param {string} file
- */
-function writeFile(location, file) {
-    FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
 }
