@@ -21,7 +21,7 @@ var sitemap = ["https://bankgradesecurity.com/"];
     readBanks();
     sortBanks();
     printWelcome();
-    begin();
+    scanWebsites();
 
 })()
 
@@ -51,7 +51,7 @@ function readBanks() {
         };
 
         for (bankObject of file.list) {
-            
+
             // Ensure bank has correct format.
             if (!(bankObject.name && bankObject.domain)) {
                 throw Error(`Bank has incorrect format in ${filename} ` +
@@ -84,9 +84,9 @@ function printWelcome() {
 
 /**
  * Sort banks alphabetically.
+ * @throws if any bank is duplicated.
  */
 function sortBanks() {
-
     banks.sort((a, b) => {
 
         if (a.name > b.name) {
@@ -106,13 +106,12 @@ function sortBanks() {
         throw Error("Bank duplicated - " + JSON.stringify(a));
 
     });
-
 }
 
 /**
  * Function to perform scanning of all banks.
  */
-async function begin() {
+async function scanWebsites() {
 
     let results = [];
 
