@@ -18,14 +18,14 @@ var banks = [];
 var countries = {};
 var sitemap = ["https://bankgradesecurity.com/"];
 
-function main() {
+(function main() {
 
     readBanks();
     sortBanks();
     printWelcome();
     begin();
 
-}
+})()
 
 /**
  * Read banks from JSON files and populate banks array.
@@ -170,7 +170,7 @@ function createWebsite() {
         let history;
         try {
             history = HISTORY[bank.country.code][bank.name];
-        } catch () {history = undefined}
+        } catch (e) {history = undefined}
 
         let score = calculateScore(results);
         let grade = calculateGrade(score);
