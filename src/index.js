@@ -27,22 +27,22 @@ var sitemap = ["https://bankgradesecurity.com/"];
 
 /**
  * Read banks from JSON files and populate banks array.
+ * @throws if any bank file has incorrect format.
+ * @throws if bank file contents does not match filename.
+ * @throws if any bank object in any bank file has incorrect format.
  */
 function readBanks() {
-
     for (filename of FS.readDirectory(PATHS.BANKS)) {
-
-        let file = FS.readFile(PATHS.BANKS + filename);
-        file = JSON.parse(file);
+        let file = JSON.parse(FS.readFile(PATHS.BANKS + filename));
 
         // Ensure file has correct format.
         if (!(file.code && file.name && file.list)) {
-            throw Error("File has incorrect format - " + filename);
+            throw Error(`File has incorrect format - ${filename}`);
         }
 
         // Ensure filename matches file contents.
         if ((file.code + ".json") !== filename) {
-            throw Error("Filename does not match contents - " + filename);
+            throw Error(`Filename does not match contents - ${filename}`);
         }
 
         countries[file.code] = {
@@ -51,11 +51,11 @@ function readBanks() {
         };
 
         for (bankObject of file.list) {
-
+            
             // Ensure bank has correct format.
             if (!(bankObject.name && bankObject.domain)) {
-                throw Error("Banks has incorrect format in " +
-                    filename + " " + JSON.stringify(bankObject));
+                throw Error(`Bank has incorrect format in ${filename} ` +
+                    JSON.stringify(bankObject));
             }
 
             countries[file.code].banks.push(bankObject);
@@ -67,9 +67,7 @@ function readBanks() {
 
             banks.push(bankObject);
         }
-
     }
-
 }
 
 /**
