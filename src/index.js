@@ -1,5 +1,6 @@
-const FS = require("./filesystem.js");
 const WSS = require("../../website-security-scanner/src/main.js");
+const FS = require("./filesystem.js");
+const BANKS = require("./read.js");
 
 const PATHS = {
     BANKS: "../banks/",
@@ -12,106 +13,38 @@ const DELAY = 5000; // 5 seconds
 const TEMPLATES = getTemplates();
 const HISTORY = getHistory();
 
-var banks = [];
-var countries = {};
 var sitemap = ["https://bankgradesecurity.com/"];
 
 (function main() {
 
-    readBanks();
-    sortBanks();
-    printWelcome();
-    scanWebsites();
+    let {banks, countries} = BANKS.read(PATHS.BANKS);
+    banks = BANKS.sort(banks);
+    
+    printWelcome(banks.length, Object.keys(countries).length);
+    scanWebsites(banks, countries);
 
-})()
-
-/**
- * Read banks from JSON files and populate banks array.
- * @throws if any bank file has incorrect format.
- * @throws if bank file contents does not match filename.
- * @throws if any bank object in any bank file has incorrect format.
- */
-function readBanks() {
-    for (filename of FS.readDirectory(PATHS.BANKS)) {
-        let file = JSON.parse(FS.readFile(PATHS.BANKS + filename));
-
-        // Ensure file has correct format.
-        if (!(file.code && file.name && file.list)) {
-            throw Error(`File has incorrect format - ${filename}`);
-        }
-
-        // Ensure filename matches file contents.
-        if ((file.code + ".json") !== filename) {
-            throw Error(`Filename does not match contents - ${filename}`);
-        }
-
-        countries[file.code] = {
-            name: file.name,
-            banks: []
-        };
-
-        for (bankObject of file.list) {
-
-            // Ensure bank has correct format.
-            if (!(bankObject.name && bankObject.domain)) {
-                throw Error(`Bank has incorrect format in ${filename} ` +
-                    JSON.stringify(bankObject));
-            }
-
-            countries[file.code].banks.push(bankObject);
-
-            bankObject.country = {
-                code: file.code,
-                name: file.name
-            };
-
-            banks.push(bankObject);
-        }
-    }
-}
+})();
 
 /**
  * Print message with estimated time.
+ * @param {number} banks
+ * @param {number} countries
  */
-function printWelcome() {
+function printWelcome(banks, countries) {
     console.log("~~ Bank Grade Security");
-    console.log("Found", banks.length, "banks from",
-        Object.keys(countries).length, "countries");
+    console.log("Found", banks, "banks from",
+        countries, "countries");
     console.log("Estimated time for scanning is",
-        Math.ceil((banks.length * DELAY) / (60 * 1000)), "minutes");
+        Math.ceil((banks * DELAY) / (60 * 1000)), "minutes");
     console.log();
 }
 
 /**
- * Sort banks alphabetically.
- * @throws if any bank is duplicated.
- */
-function sortBanks() {
-    banks.sort((a, b) => {
-
-        if (a.name > b.name) {
-            return 1;
-        } else if (a.name < b.name) {
-            return -1;
-        }
-
-        if (a.country > b.country) {
-            return 1;
-        } else if (a.country < b.country) {
-            return -1;
-        }
-
-        // Should never get here.
-        // Both banks have the same name and country.
-        throw Error("Bank duplicated - " + JSON.stringify(a));
-
-    });
-}
-
-/**
  * Function to perform scanning of all banks.
+ * @param {Object[]} banks
+ * @param {Object[]} countries
  */
-async function scanWebsites() {
+async function scanWebsites(banks, countries) {
 
     let results = [];
 
@@ -130,7 +63,7 @@ async function scanWebsites() {
         bank.results = results.shift();
     });
 
-    createWebsite();
+    createWebsite(banks, countries);
 
     /**
      * Private function to wait DELAY seconds.
@@ -145,8 +78,10 @@ async function scanWebsites() {
 
 /**
  * Function to create the HTML pages for the website.
+ * @param {Object[]} banks
+ * @param {Object[]} countries
  */
-function createWebsite() {
+function createWebsite(banks, countries) {
 
     let cards = [];
     let completeResults = {};
