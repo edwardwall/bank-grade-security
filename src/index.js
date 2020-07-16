@@ -1,4 +1,5 @@
 const WSS = require("../../website-security-scanner/src/main.js");
+
 const FS = require("./filesystem.js");
 const BANKS = require("./banks.js");
 
@@ -48,17 +49,20 @@ async function scanWebsites(banks, countries) {
 
     let results = [];
 
+    // Map to functions.
     let scans = banks.map(bank => () => {
         (new WSS(bank.domain))
         .scan()
         .then(rs => results.push(rs))
     });
 
+    // Call functions successively.
     for (scan of scans) {
         await scan();
         await wait();
     }
 
+    // Add results to each bank.
     banks = banks.map((bank) => {
         bank.results = results.shift();
     });
@@ -79,15 +83,15 @@ async function scanWebsites(banks, countries) {
 /**
  * Function to create the HTML pages for the website.
  * @param {Object[]} banks
- * @param {Object[]} countries
+ * @param {Object} countries
  */
-function createWebsite(banks, countries) {
+async function createWebsite(banks, countries) {
 
     let cards = [];
-    let completeResults = {};
+    let fullResults = {};
 
     for (code in countries) {
-        completeResults[code] = {};
+        fullResults[code] = {};
         countries[code].cards = [];
         sitemap.push(code);
     }
@@ -95,12 +99,12 @@ function createWebsite(banks, countries) {
     for (bank of banks) {
 
         let results = processResults(bank.results);
-        completeResults[bank.country.code][bank.name] = results;
+        fullResults[bank.country.code][bank.name] = results;
 
         let history;
         try {
             history = HISTORY[bank.country.code][bank.name];
-        } catch (e) {history = undefined}
+        } catch {history = undefined}
 
         let score = calculateScore(results);
         let grade = calculateGrade(score);
@@ -116,8 +120,8 @@ function createWebsite(banks, countries) {
                     bank.domain, score, grade)
         };
 
-        countries[bank.country.code].cards.push(card);
         cards.push(card);
+        countries[bank.country.code].cards.push(card);
 
     }
 
@@ -129,20 +133,20 @@ function createWebsite(banks, countries) {
     FS.writeFile("sitemap.txt",
         sitemap.join("\n" + "https://bankgradesecurity.com/"));
 
-    let orderedResults = {};
-    Object.keys(completeResults).sort().forEach((key) => {
-        orderedResults[key] = completeResults[key];
-    });
-
     let date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
 
     if (10 > month) {
-        month = "0" + month;
+        month = "0" + month.toString();
     } else {
         month = month.toString();
     }
+
+    let orderedResults = {};
+    Object.keys(fullResults).sort().forEach((key) => {
+        orderedResults[key] = fullResults[key];
+    });
 
     FS.writeFile(PATHS.HISTORY + year + month + ".json",
         JSON.stringify(orderedResults, null, 4));
