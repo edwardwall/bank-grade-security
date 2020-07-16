@@ -1,6 +1,6 @@
 const WSS = require("../../website-security-scanner/src/main.js");
 const FS = require("./filesystem.js");
-const BANKS = require("./read.js");
+const BANKS = require("./banks.js");
 
 const PATHS = {
     BANKS: "../banks/",
@@ -19,7 +19,7 @@ var sitemap = ["https://bankgradesecurity.com/"];
 
     let {banks, countries} = BANKS.read(PATHS.BANKS);
     banks = BANKS.sort(banks);
-    
+
     printWelcome(banks.length, Object.keys(countries).length);
     scanWebsites(banks, countries);
 
@@ -31,11 +31,11 @@ var sitemap = ["https://bankgradesecurity.com/"];
  * @param {number} countries
  */
 function printWelcome(banks, countries) {
+    let minutes = Math.ceil((banks * DELAY) / (60 * 1000));
+
     console.log("~~ Bank Grade Security");
-    console.log("Found", banks, "banks from",
-        countries, "countries");
-    console.log("Estimated time for scanning is",
-        Math.ceil((banks * DELAY) / (60 * 1000)), "minutes");
+    console.log(`Found ${banks} banks from ${countries} countries`);
+    console.log(`Estimated time for scanning is ${minutes} minutes`);
     console.log();
 }
 
