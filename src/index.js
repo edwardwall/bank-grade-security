@@ -1,7 +1,7 @@
-const FS = require("fs");
-const PATH = require("path");
-
 const WSS = require("../../website-security-scanner/src/main.js");
+
+const FS = require("./filesystem.js");
+const BANKS = require("./banks.js");
 
 const PATHS = {
     BANKS: "../banks/",
@@ -14,128 +14,60 @@ const DELAY = 5000; // 5 seconds
 const TEMPLATES = getTemplates();
 const HISTORY = getHistory();
 
-var banks = [];
-var countries = {};
 var sitemap = ["https://bankgradesecurity.com/"];
 
-function main() {
+(function main() {
 
-    readBanks();
-    sortBanks();
-    printWelcome();
-    begin();
+    let {banks, countries} = BANKS.read(PATHS.BANKS);
+    banks = BANKS.sort(banks);
 
-}
+    printWelcome(banks.length, Object.keys(countries).length);
+    scanWebsites(banks, countries);
 
-/**
- * Read banks from JSON files and populate banks array.
- */
-function readBanks() {
-
-    for (filename of readDirectory(PATHS.BANKS)) {
-
-        let file = readFile(PATHS.BANKS + filename);
-        file = JSON.parse(file);
-
-        // Ensure file has correct format.
-        if (!(file.code && file.name && file.list)) {
-            throw Error("File has incorrect format - " + filename);
-        }
-
-        // Ensure filename matches file contents.
-        if ((file.code + ".json") !== filename) {
-            throw Error("Filename does not match contents - " + filename);
-        }
-
-        countries[file.code] = {
-            name: file.name,
-            banks: []
-        };
-
-        for (bankObject of file.list) {
-
-            // Ensure bank has correct format.
-            if (!(bankObject.name && bankObject.domain)) {
-                throw Error("Banks has incorrect format in " +
-                    filename + " " + JSON.stringify(bankObject));
-            }
-
-            countries[file.code].banks.push(bankObject);
-
-            bankObject.country = {
-                code: file.code,
-                name: file.name
-            };
-
-            banks.push(bankObject);
-        }
-
-    }
-
-}
+})();
 
 /**
  * Print message with estimated time.
+ * @param {number} banks
+ * @param {number} countries
  */
-function printWelcome() {
+function printWelcome(banks, countries) {
+    let minutes = Math.ceil((banks * DELAY) / (60 * 1000));
+
     console.log("~~ Bank Grade Security");
-    console.log("Found", banks.length, "banks from",
-        Object.keys(countries).length, "countries");
-    console.log("Estimated time for scanning is",
-        Math.ceil((banks.length * DELAY) / (60 * 1000)), "minutes");
+    console.log(`Found ${banks} banks from ${countries} countries`);
+    console.log(`Estimated time for scanning is ${minutes} minutes`);
     console.log();
 }
 
 /**
- * Sort banks alphabetically.
- */
-function sortBanks() {
-
-    banks.sort((a, b) => {
-
-        if (a.name > b.name) {
-            return 1;
-        } else if (a.name < b.name) {
-            return -1;
-        }
-
-        if (a.country > b.country) {
-            return 1;
-        } else if (a.country < b.country) {
-            return -1;
-        }
-
-        // Should never get here.
-        // Both banks have the same name and country.
-        throw Error("Bank duplicated - " + JSON.stringify(a));
-
-    });
-
-}
-
-/**
  * Function to perform scanning of all banks.
+ * @param {Object[]} banks
+ * @param {Object[]} countries
  */
-async function begin() {
+async function scanWebsites(banks, countries) {
 
     let results = [];
 
+    // Map to functions.
     let scans = banks.map(bank => () => {
         (new WSS(bank.domain))
         .scan()
         .then(rs => results.push(rs))
     });
 
+    // Call functions successively.
     for (scan of scans) {
         await scan();
         await wait();
     }
 
+    // Add results to each bank.
     banks = banks.map((bank) => {
         bank.results = results.shift();
     });
 
-    createWebsite();
+    createWebsite(banks, countries);
 
     /**
      * Private function to wait DELAY seconds.
@@ -150,14 +82,16 @@ async function begin() {
 
 /**
  * Function to create the HTML pages for the website.
+ * @param {Object[]} banks
+ * @param {Object} countries
  */
-function createWebsite() {
+async function createWebsite(banks, countries) {
 
     let cards = [];
-    let completeResults = {};
+    let fullResults = {};
 
     for (code in countries) {
-        completeResults[code] = {};
+        fullResults[code] = {};
         countries[code].cards = [];
         sitemap.push(code);
     }
@@ -165,12 +99,12 @@ function createWebsite() {
     for (bank of banks) {
 
         let results = processResults(bank.results);
-        completeResults[bank.country.code][bank.name] = results;
+        fullResults[bank.country.code][bank.name] = results;
 
         let history;
         try {
             history = HISTORY[bank.country.code][bank.name];
-        } catch () {history = undefined}
+        } catch {history = undefined}
 
         let score = calculateScore(results);
         let grade = calculateGrade(score);
@@ -186,8 +120,8 @@ function createWebsite() {
                     bank.domain, score, grade)
         };
 
-        countries[bank.country.code].cards.push(card);
         cards.push(card);
+        countries[bank.country.code].cards.push(card);
 
     }
 
@@ -196,25 +130,25 @@ function createWebsite() {
     }
 
     writeHomePage(cards);
-    writeFile("sitemap.txt",
+    FS.writeFile("sitemap.txt",
         sitemap.join("\n" + "https://bankgradesecurity.com/"));
-
-    let orderedResults = {};
-    Object.keys(completeResults).sort().forEach((key) => {
-        orderedResults[key] = completeResults[key];
-    });
 
     let date = new Date();
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
 
     if (10 > month) {
-        month = "0" + month;
+        month = "0" + month.toString();
     } else {
         month = month.toString();
     }
 
-    writeFile(PATHS.HISTORY + year + month + ".json",
+    let orderedResults = {};
+    Object.keys(fullResults).sort().forEach((key) => {
+        orderedResults[key] = fullResults[key];
+    });
+
+    FS.writeFile(PATHS.HISTORY + year + month + ".json",
         JSON.stringify(orderedResults, null, 4));
 
 }
@@ -370,7 +304,7 @@ function writeBankPage(country, name, urlName, domain,
     score, grade, results, history) {
 
     try { // Ensure country dir exists
-        makeDirectory(PATHS.OUTPUT + country.code);
+        FS.makeDirectory(PATHS.OUTPUT + country.code);
     } catch (e) {}
 
     let page = TEMPLATES.BANK;
@@ -391,7 +325,7 @@ function writeBankPage(country, name, urlName, domain,
 
     let path = country.code + "/" + urlName + ".html";
 
-    writeFile(path, page);
+    FS.writeFile(path, page);
     sitemap.push(country.code + "/" + urlName);
 
 }
@@ -414,7 +348,7 @@ function writeCountryPage(code, name, cards) {
 
     page = page.replace("$main", html);
 
-    writeFile(code + ".html", page);
+    FS.writeFile(code + ".html", page);
 
 }
 
@@ -445,7 +379,7 @@ function writeHomePage(cards) {
     }
     page = page.replace("$main", main);
 
-    writeFile("index.html", page);
+    FS.writeFile("index.html", page);
 
 }
 
@@ -643,11 +577,11 @@ function makeCard(countryCode, bankName, urlName, domain, score, grade) {
  */
 function getTemplates() {
 
-    let filenames = readDirectory(PATHS.HTML);
+    let filenames = FS.readDirectory(PATHS.HTML);
     let files = {};
 
     for (filename of filenames) {
-        files[filename] = readFile(PATHS.HTML + filename);
+        files[filename] = FS.readFile(PATHS.HTML + filename);
     }
 
     let templates = {};
@@ -679,11 +613,11 @@ function getTemplates() {
 function getHistory() {
 
     let history = {};
-    const directory = readDirectory(PATHS.HISTORY);
+    const directory = FS.readDirectory(PATHS.HISTORY);
 
     for (filename of directory) {
 
-        let file = readFile(PATHS.HISTORY + filename);
+        let file = FS.readFile(PATHS.HISTORY + filename);
         file = JSON.parse(file);
 
         let scanDate = filename.substring(0, filename.indexOf("."));
@@ -709,37 +643,4 @@ function getHistory() {
 
     return history;
 
-}
-
-/**
- * Function to read directory.
- * @param {string} path
- */
-function readDirectory(path) {
-    return FS.readdirSync(PATH.resolve(__dirname, path));
-}
-
-/**
- * Function to make directory.
- * @param {string} path
- */
-function makeDirectory(path) {
-    FS.mkdirSync(PATH.resolve(__dirname, path));
-}
-
-/**
- * Function to read file.
- * @param {string} file
- */
-function readFile(file) {
-    return FS.readFileSync(PATH.resolve(__dirname, file), "utf8");
-}
-
-/**
- * Function to write a given file to the given location.
- * @param {string} location
- * @param {string} file
- */
-function writeFile(location, file) {
-    FS.writeFileSync(PATH.resolve(__dirname, PATHS.OUTPUT, location), file);
 }
